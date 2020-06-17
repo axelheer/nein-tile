@@ -9,46 +9,245 @@
 /* Begin PBXBuildFile section */
 		77119C7E24715DA6004C5775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119C7D24715DA6004C5775 /* AppDelegate.swift */; };
 		77119C8024715DA6004C5775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119C7F24715DA6004C5775 /* SceneDelegate.swift */; };
-		77119C8224715DA6004C5775 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119C8124715DA6004C5775 /* ContentView.swift */; };
 		77119C8424715DA7004C5775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77119C8324715DA7004C5775 /* Assets.xcassets */; };
 		77119C8724715DA7004C5775 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77119C8624715DA7004C5775 /* Preview Assets.xcassets */; };
 		77119C8A24715DA7004C5775 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77119C8824715DA7004C5775 /* LaunchScreen.storyboard */; };
-		77119C9524715DA7004C5775 /* NeinTileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119C9424715DA7004C5775 /* NeinTileTests.swift */; };
-		77119CA024715DA7004C5775 /* NeinTileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119C9F24715DA7004C5775 /* NeinTileUITests.swift */; };
+		7713C81924793AC900302183 /* ClassicMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713C81824793AC900302183 /* ClassicMerger.swift */; };
+		7713C81B24793DA400302183 /* ClassicLottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713C81A24793DA400302183 /* ClassicLottery.swift */; };
+		7713C81D2479488E00302183 /* ClassicMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713C81C2479488E00302183 /* ClassicMixer.swift */; };
+		7713C81F2479495A00302183 /* ClassicMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713C81E2479495A00302183 /* ClassicMaker.swift */; };
+		7713C82124794BA600302183 /* ClassicLotteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713C82024794BA600302183 /* ClassicLotteryTests.swift */; };
+		7713C82324794BAD00302183 /* ClassicMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713C82224794BAD00302183 /* ClassicMakerTests.swift */; };
+		7713C82524794BB600302183 /* ClassicMergerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713C82424794BB600302183 /* ClassicMergerTests.swift */; };
+		7713C82724794BC500302183 /* ClassicMixerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713C82624794BC500302183 /* ClassicMixerTests.swift */; };
+		771559052477C21200A8CAA1 /* TileKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 771558D92477C06300A8CAA1 /* TileKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		771559082477C25200A8CAA1 /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7742771B24731A5B00343F43 /* Lottery.swift */; };
+		771559092477C25200A8CAA1 /* Merger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119CC92471A4A6004C5775 /* Merger.swift */; };
+		7715590A2477C25200A8CAA1 /* Mixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7742771924731A4B00343F43 /* Mixer.swift */; };
+		7715590B2477C25200A8CAA1 /* ChaoticGameOfDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FF20BF2477B324003C2552 /* ChaoticGameOfDice.swift */; };
+		7715590C2477C25200A8CAA1 /* GameOfDiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792E7F324758DCB001B92B6 /* GameOfDiceProtocol.swift */; };
+		7715590D2477C25200A8CAA1 /* LawfulGameOfDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FF20C12477B4D8003C2552 /* LawfulGameOfDice.swift */; };
+		7715590E2477C25200A8CAA1 /* NeutralGameOfDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E95792474680300923BE2 /* NeutralGameOfDice.swift */; };
+		7715590F2477C25200A8CAA1 /* MoveDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119CC72471A404004C5775 /* MoveDirection.swift */; };
+		771559102477C25200A8CAA1 /* MoveIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119CCB2471A5B5004C5775 /* MoveIterator.swift */; };
+		771559112477C25200A8CAA1 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119CAE2471615F004C5775 /* Tile.swift */; };
+		771559122477C25200A8CAA1 /* TileHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119CB524716E9E004C5775 /* TileHint.swift */; };
+		771559132477C25200A8CAA1 /* TileIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119CDC2471D4C5004C5775 /* TileIndex.swift */; };
+		771559142477C25200A8CAA1 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119CB324716DEF004C5775 /* Move.swift */; };
+		771559152477C25200A8CAA1 /* Tiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77810E7024768BBB00C5315F /* Tiles.swift */; };
+		771559162477C25200A8CAA1 /* TilesArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119CB924716F93004C5775 /* TilesArea.swift */; };
+		771559172477C25200A8CAA1 /* TilesDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77427717247319CC00343F43 /* TilesDeck.swift */; };
+		771559192477C26A00A8CAA1 /* MoveIteratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119CD42471B6D1004C5775 /* MoveIteratorTests.swift */; };
+		7715591A2477C26A00A8CAA1 /* TilesAreaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77119CBD247179DD004C5775 /* TilesAreaTests.swift */; };
+		7715591B2477C26A00A8CAA1 /* TestLottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77810E752476E3F700C5315F /* TestLottery.swift */; };
+		7715591C2477C26A00A8CAA1 /* TestMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77810E772476E40300C5315F /* TestMerger.swift */; };
+		7715591D2477C26A00A8CAA1 /* TestMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77810E792476E40D00C5315F /* TestMixer.swift */; };
+		7715591E2477C26A00A8CAA1 /* TilesArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77810E812476EBB200C5315F /* TilesArea.swift */; };
+		7715591F2477C26A00A8CAA1 /* Tiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77810E7F2476EA4800C5315F /* Tiles.swift */; };
+		771ABDCA247F8A07000A2FAE /* DefaultDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771ABDC9247F8A07000A2FAE /* DefaultDealer.swift */; };
+		7734628524974F5D00790669 /* MakeCustomGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628424974F5D00790669 /* MakeCustomGameView.swift */; };
+		7734628724974F6900790669 /* MakeTournamentGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628624974F6900790669 /* MakeTournamentGameView.swift */; };
+		77346289249755DB00790669 /* GameGestureModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77346288249755DB00790669 /* GameGestureModifier.swift */; };
+		7734628B2497587700790669 /* GameCenterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628A2497587700790669 /* GameCenterModifier.swift */; };
+		7734628D2497597800790669 /* GameEndingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628C2497597800790669 /* GameEndingModifier.swift */; };
+		775C202E2487B0E100EDA421 /* MakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C202D2487B0E100EDA421 /* MakeView.swift */; };
+		7784E02E249531F900A2FF12 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7784E02D249531F900A2FF12 /* GameKit.framework */; };
+		77853D7F2491929F004FB25C /* PcgRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77853D7E2491929F004FB25C /* PcgRandom.swift */; };
+		77879FE4249602BC006F0B50 /* GameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77879FE3249602BC006F0B50 /* GameDelegate.swift */; };
+		77885EDA2483FCC000F2AC37 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77885ED92483FCC000F2AC37 /* TileView.swift */; };
+		7789F3142481641200B02432 /* DefaultDealerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789F3132481641200B02432 /* DefaultDealerTests.swift */; };
+		778DB8872479A59E00AB7A6E /* DualityLottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8862479A59E00AB7A6E /* DualityLottery.swift */; };
+		778DB8892479A5A700AB7A6E /* DualityMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8882479A5A700AB7A6E /* DualityMaker.swift */; };
+		778DB88B2479A5B100AB7A6E /* DualityMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB88A2479A5B100AB7A6E /* DualityMerger.swift */; };
+		778DB88D2479A5BD00AB7A6E /* DualityMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB88C2479A5BD00AB7A6E /* DualityMixer.swift */; };
+		778DB88F2479A5C900AB7A6E /* InsanityLottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB88E2479A5C900AB7A6E /* InsanityLottery.swift */; };
+		778DB8912479A5D400AB7A6E /* InsanityMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8902479A5D400AB7A6E /* InsanityMaker.swift */; };
+		778DB8932479A5E100AB7A6E /* InsanityMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8922479A5E100AB7A6E /* InsanityMerger.swift */; };
+		778DB8952479A5F500AB7A6E /* InsanityMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8942479A5F500AB7A6E /* InsanityMixer.swift */; };
+		778DB8972479A5FF00AB7A6E /* FibonacciLottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8962479A5FF00AB7A6E /* FibonacciLottery.swift */; };
+		778DB8992479A60B00AB7A6E /* FibonacciMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8982479A60B00AB7A6E /* FibonacciMaker.swift */; };
+		778DB89B2479A61500AB7A6E /* FibonacciMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB89A2479A61500AB7A6E /* FibonacciMerger.swift */; };
+		778DB89D2479A61F00AB7A6E /* FibonacciMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB89C2479A61F00AB7A6E /* FibonacciMixer.swift */; };
+		778DB89F2479A63C00AB7A6E /* DualityLotteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB89E2479A63C00AB7A6E /* DualityLotteryTests.swift */; };
+		778DB8A12479A64600AB7A6E /* DualityMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8A02479A64600AB7A6E /* DualityMakerTests.swift */; };
+		778DB8A32479A65100AB7A6E /* DualityMergerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8A22479A65100AB7A6E /* DualityMergerTests.swift */; };
+		778DB8A52479A65A00AB7A6E /* DualityMixerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8A42479A65A00AB7A6E /* DualityMixerTests.swift */; };
+		778DB8A72479A66500AB7A6E /* InsanityLotteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8A62479A66500AB7A6E /* InsanityLotteryTests.swift */; };
+		778DB8A92479A67100AB7A6E /* InsanityMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8A82479A67100AB7A6E /* InsanityMakerTests.swift */; };
+		778DB8AB2479A67C00AB7A6E /* InsanityMergerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8AA2479A67C00AB7A6E /* InsanityMergerTests.swift */; };
+		778DB8AD2479A68900AB7A6E /* InsanityMixerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8AC2479A68900AB7A6E /* InsanityMixerTests.swift */; };
+		778DB8AF2479A6A100AB7A6E /* FibonacciLotteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8AE2479A6A100AB7A6E /* FibonacciLotteryTests.swift */; };
+		778DB8B12479A6B100AB7A6E /* FibonacciMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8B02479A6B100AB7A6E /* FibonacciMakerTests.swift */; };
+		778DB8B32479A6BE00AB7A6E /* FibonacciMergerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8B22479A6BE00AB7A6E /* FibonacciMergerTests.swift */; };
+		778DB8B52479A6CD00AB7A6E /* FibonacciMixerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB8B42479A6CD00AB7A6E /* FibonacciMixerTests.swift */; };
+		7791186F2478166E006BCD51 /* TilesDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791186E2478166E006BCD51 /* TilesDeck.swift */; };
+		7791187124781790006BCD51 /* TilesDeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791187024781790006BCD51 /* TilesDeckTests.swift */; };
+		7791187524784A7A006BCD51 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791187424784A7A006BCD51 /* Game.swift */; };
+		7791187724784A87006BCD51 /* GameMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791187624784A87006BCD51 /* GameMaker.swift */; };
+		7791187B24785D5F006BCD51 /* GameEdition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791187A24785D5F006BCD51 /* GameEdition.swift */; };
+		7791187D247860AF006BCD51 /* Maker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791187C247860AF006BCD51 /* Maker.swift */; };
+		7791187F24786BA1006BCD51 /* GameMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791187E24786BA1006BCD51 /* GameMakerTests.swift */; };
+		7791188124786CFC006BCD51 /* TestMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791188024786CFC006BCD51 /* TestMaker.swift */; };
+		77AFCD0724927C39007BC3BA /* Icon+PreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFCD0324927C39007BC3BA /* Icon+PreviewHelpers.swift */; };
+		77AFCD0A24927C39007BC3BA /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFCD0624927C39007BC3BA /* Icon.swift */; };
+		77B706402488062A00D37817 /* GameEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7063F2488062A00D37817 /* GameEnvironment.swift */; };
+		77CA0F41247EF182007BBE6D /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA0F40247EF182007BBE6D /* Dealer.swift */; };
+		77CB30EE2478F50100744F21 /* SimpleMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB30ED2478F50100744F21 /* SimpleMerger.swift */; };
+		77CB30F02478F50C00744F21 /* SimpleMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB30EF2478F50C00744F21 /* SimpleMixer.swift */; };
+		77CB30F22478F51700744F21 /* SimpleLottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB30F12478F51700744F21 /* SimpleLottery.swift */; };
+		77CB30F42478F52400744F21 /* SimpleMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB30F32478F52300744F21 /* SimpleMaker.swift */; };
+		77CB30FB24790D9200744F21 /* SimpleLotteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB30FA24790D9200744F21 /* SimpleLotteryTests.swift */; };
+		77CB30FD24790D9C00744F21 /* SimpleMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB30FC24790D9C00744F21 /* SimpleMakerTests.swift */; };
+		77CB30FF24790DA500744F21 /* SimpleMergerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB30FE24790DA500744F21 /* SimpleMergerTests.swift */; };
+		77CB310124790DAE00744F21 /* SimpleMixerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB310024790DAE00744F21 /* SimpleMixerTests.swift */; };
+		77D2D53F2490189700E516D6 /* LazyInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2D53E2490189700E516D6 /* LazyInt.swift */; };
+		77D579892483D5B200881407 /* AreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D579882483D5B200881407 /* AreaView.swift */; };
+		77DE6DA624851BF50004EE13 /* LayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE6DA524851BF50004EE13 /* LayerView.swift */; };
+		77DE6DA8248520E50004EE13 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE6DA7248520E50004EE13 /* GameView.swift */; };
+		77DE6DAA248528E60004EE13 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE6DA9248528E60004EE13 /* DeckView.swift */; };
+		77EF2E832484CAA900CD702E /* TileKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771558D92477C06300A8CAA1 /* TileKit.framework */; };
+		77F6AB722496AF5A004A5B83 /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F6AB712496AF5A004A5B83 /* AppNotifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		77119C9124715DA7004C5775 /* PBXContainerItemProxy */ = {
+		771558E32477C06300A8CAA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 77119C7224715DA6004C5775 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 77119C7924715DA6004C5775;
-			remoteInfo = NeinTile;
+			remoteGlobalIDString = 771558D82477C06300A8CAA1;
+			remoteInfo = TileKit;
 		};
-		77119C9C24715DA7004C5775 /* PBXContainerItemProxy */ = {
+		771558EC2477C06300A8CAA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 77119C7224715DA6004C5775 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 77119C7924715DA6004C5775;
-			remoteInfo = NeinTile;
+			remoteGlobalIDString = 771558D82477C06300A8CAA1;
+			remoteInfo = TileKit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		771558F32477C06300A8CAA1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				771559052477C21200A8CAA1 /* TileKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		77119C7A24715DA6004C5775 /* NeinTile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeinTile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77119C7D24715DA6004C5775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77119C7F24715DA6004C5775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		77119C8124715DA6004C5775 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		77119C8324715DA7004C5775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77119C8624715DA7004C5775 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		77119C8924715DA7004C5775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77119C8B24715DA7004C5775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77119C9024715DA7004C5775 /* NeinTileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeinTileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		77119C9424715DA7004C5775 /* NeinTileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeinTileTests.swift; sourceTree = "<group>"; };
-		77119C9624715DA7004C5775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77119C9B24715DA7004C5775 /* NeinTileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeinTileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		77119C9F24715DA7004C5775 /* NeinTileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeinTileUITests.swift; sourceTree = "<group>"; };
-		77119CA124715DA7004C5775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77119CAE2471615F004C5775 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		77119CB324716DEF004C5775 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		77119CB524716E9E004C5775 /* TileHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileHint.swift; sourceTree = "<group>"; };
+		77119CB924716F93004C5775 /* TilesArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilesArea.swift; sourceTree = "<group>"; };
+		77119CBD247179DD004C5775 /* TilesAreaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilesAreaTests.swift; sourceTree = "<group>"; };
+		77119CC72471A404004C5775 /* MoveDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveDirection.swift; sourceTree = "<group>"; };
+		77119CC92471A4A6004C5775 /* Merger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merger.swift; sourceTree = "<group>"; };
+		77119CCB2471A5B5004C5775 /* MoveIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveIterator.swift; sourceTree = "<group>"; };
+		77119CD42471B6D1004C5775 /* MoveIteratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveIteratorTests.swift; sourceTree = "<group>"; };
+		77119CDC2471D4C5004C5775 /* TileIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileIndex.swift; sourceTree = "<group>"; };
+		7713C81824793AC900302183 /* ClassicMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicMerger.swift; sourceTree = "<group>"; };
+		7713C81A24793DA400302183 /* ClassicLottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicLottery.swift; sourceTree = "<group>"; };
+		7713C81C2479488E00302183 /* ClassicMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicMixer.swift; sourceTree = "<group>"; };
+		7713C81E2479495A00302183 /* ClassicMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicMaker.swift; sourceTree = "<group>"; };
+		7713C82024794BA600302183 /* ClassicLotteryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicLotteryTests.swift; sourceTree = "<group>"; };
+		7713C82224794BAD00302183 /* ClassicMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicMakerTests.swift; sourceTree = "<group>"; };
+		7713C82424794BB600302183 /* ClassicMergerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicMergerTests.swift; sourceTree = "<group>"; };
+		7713C82624794BC500302183 /* ClassicMixerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicMixerTests.swift; sourceTree = "<group>"; };
+		771558D92477C06300A8CAA1 /* TileKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TileKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		771558DC2477C06300A8CAA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		771558E12477C06300A8CAA1 /* TileKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TileKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		771558EA2477C06300A8CAA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		771ABDC9247F8A07000A2FAE /* DefaultDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDealer.swift; sourceTree = "<group>"; };
+		7734628424974F5D00790669 /* MakeCustomGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCustomGameView.swift; sourceTree = "<group>"; };
+		7734628624974F6900790669 /* MakeTournamentGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTournamentGameView.swift; sourceTree = "<group>"; };
+		77346288249755DB00790669 /* GameGestureModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGestureModifier.swift; sourceTree = "<group>"; };
+		7734628A2497587700790669 /* GameCenterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterModifier.swift; sourceTree = "<group>"; };
+		7734628C2497597800790669 /* GameEndingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndingModifier.swift; sourceTree = "<group>"; };
+		77427717247319CC00343F43 /* TilesDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilesDeck.swift; sourceTree = "<group>"; };
+		7742771924731A4B00343F43 /* Mixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mixer.swift; sourceTree = "<group>"; };
+		7742771B24731A5B00343F43 /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
+		774E95792474680300923BE2 /* NeutralGameOfDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeutralGameOfDice.swift; sourceTree = "<group>"; };
+		775C202D2487B0E100EDA421 /* MakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeView.swift; sourceTree = "<group>"; };
+		77810E7024768BBB00C5315F /* Tiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiles.swift; sourceTree = "<group>"; };
+		77810E752476E3F700C5315F /* TestLottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLottery.swift; sourceTree = "<group>"; };
+		77810E772476E40300C5315F /* TestMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMerger.swift; sourceTree = "<group>"; };
+		77810E792476E40D00C5315F /* TestMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMixer.swift; sourceTree = "<group>"; };
+		77810E7F2476EA4800C5315F /* Tiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiles.swift; sourceTree = "<group>"; };
+		77810E812476EBB200C5315F /* TilesArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilesArea.swift; sourceTree = "<group>"; };
+		77825F14249139620057FAAE /* NeinTile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NeinTile.entitlements; sourceTree = "<group>"; };
+		7784E02D249531F900A2FF12 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		77853D7E2491929F004FB25C /* PcgRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PcgRandom.swift; sourceTree = "<group>"; };
+		77879FE3249602BC006F0B50 /* GameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDelegate.swift; sourceTree = "<group>"; };
+		77885ED92483FCC000F2AC37 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		7789F3132481641200B02432 /* DefaultDealerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDealerTests.swift; sourceTree = "<group>"; };
+		778DB8862479A59E00AB7A6E /* DualityLottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualityLottery.swift; sourceTree = "<group>"; };
+		778DB8882479A5A700AB7A6E /* DualityMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualityMaker.swift; sourceTree = "<group>"; };
+		778DB88A2479A5B100AB7A6E /* DualityMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualityMerger.swift; sourceTree = "<group>"; };
+		778DB88C2479A5BD00AB7A6E /* DualityMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualityMixer.swift; sourceTree = "<group>"; };
+		778DB88E2479A5C900AB7A6E /* InsanityLottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsanityLottery.swift; sourceTree = "<group>"; };
+		778DB8902479A5D400AB7A6E /* InsanityMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsanityMaker.swift; sourceTree = "<group>"; };
+		778DB8922479A5E100AB7A6E /* InsanityMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsanityMerger.swift; sourceTree = "<group>"; };
+		778DB8942479A5F500AB7A6E /* InsanityMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsanityMixer.swift; sourceTree = "<group>"; };
+		778DB8962479A5FF00AB7A6E /* FibonacciLottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciLottery.swift; sourceTree = "<group>"; };
+		778DB8982479A60B00AB7A6E /* FibonacciMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciMaker.swift; sourceTree = "<group>"; };
+		778DB89A2479A61500AB7A6E /* FibonacciMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciMerger.swift; sourceTree = "<group>"; };
+		778DB89C2479A61F00AB7A6E /* FibonacciMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciMixer.swift; sourceTree = "<group>"; };
+		778DB89E2479A63C00AB7A6E /* DualityLotteryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualityLotteryTests.swift; sourceTree = "<group>"; };
+		778DB8A02479A64600AB7A6E /* DualityMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualityMakerTests.swift; sourceTree = "<group>"; };
+		778DB8A22479A65100AB7A6E /* DualityMergerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualityMergerTests.swift; sourceTree = "<group>"; };
+		778DB8A42479A65A00AB7A6E /* DualityMixerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualityMixerTests.swift; sourceTree = "<group>"; };
+		778DB8A62479A66500AB7A6E /* InsanityLotteryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsanityLotteryTests.swift; sourceTree = "<group>"; };
+		778DB8A82479A67100AB7A6E /* InsanityMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsanityMakerTests.swift; sourceTree = "<group>"; };
+		778DB8AA2479A67C00AB7A6E /* InsanityMergerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsanityMergerTests.swift; sourceTree = "<group>"; };
+		778DB8AC2479A68900AB7A6E /* InsanityMixerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsanityMixerTests.swift; sourceTree = "<group>"; };
+		778DB8AE2479A6A100AB7A6E /* FibonacciLotteryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciLotteryTests.swift; sourceTree = "<group>"; };
+		778DB8B02479A6B100AB7A6E /* FibonacciMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciMakerTests.swift; sourceTree = "<group>"; };
+		778DB8B22479A6BE00AB7A6E /* FibonacciMergerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciMergerTests.swift; sourceTree = "<group>"; };
+		778DB8B42479A6CD00AB7A6E /* FibonacciMixerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciMixerTests.swift; sourceTree = "<group>"; };
+		7791186E2478166E006BCD51 /* TilesDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilesDeck.swift; sourceTree = "<group>"; };
+		7791187024781790006BCD51 /* TilesDeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilesDeckTests.swift; sourceTree = "<group>"; };
+		7791187424784A7A006BCD51 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		7791187624784A87006BCD51 /* GameMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMaker.swift; sourceTree = "<group>"; };
+		7791187A24785D5F006BCD51 /* GameEdition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEdition.swift; sourceTree = "<group>"; };
+		7791187C247860AF006BCD51 /* Maker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maker.swift; sourceTree = "<group>"; };
+		7791187E24786BA1006BCD51 /* GameMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMakerTests.swift; sourceTree = "<group>"; };
+		7791188024786CFC006BCD51 /* TestMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMaker.swift; sourceTree = "<group>"; };
+		7792E7F324758DCB001B92B6 /* GameOfDiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfDiceProtocol.swift; sourceTree = "<group>"; };
+		77AFCD0324927C39007BC3BA /* Icon+PreviewHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Icon+PreviewHelpers.swift"; sourceTree = "<group>"; };
+		77AFCD0424927C39007BC3BA /* IconGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconGenerator.swift; sourceTree = "<group>"; };
+		77AFCD0524927C39007BC3BA /* generate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generate.swift; sourceTree = "<group>"; };
+		77AFCD0624927C39007BC3BA /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		77B7063F2488062A00D37817 /* GameEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEnvironment.swift; sourceTree = "<group>"; };
+		77CA0F40247EF182007BBE6D /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		77CB30ED2478F50100744F21 /* SimpleMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMerger.swift; sourceTree = "<group>"; };
+		77CB30EF2478F50C00744F21 /* SimpleMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMixer.swift; sourceTree = "<group>"; };
+		77CB30F12478F51700744F21 /* SimpleLottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLottery.swift; sourceTree = "<group>"; };
+		77CB30F32478F52300744F21 /* SimpleMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMaker.swift; sourceTree = "<group>"; };
+		77CB30FA24790D9200744F21 /* SimpleLotteryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLotteryTests.swift; sourceTree = "<group>"; };
+		77CB30FC24790D9C00744F21 /* SimpleMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMakerTests.swift; sourceTree = "<group>"; };
+		77CB30FE24790DA500744F21 /* SimpleMergerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMergerTests.swift; sourceTree = "<group>"; };
+		77CB310024790DAE00744F21 /* SimpleMixerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMixerTests.swift; sourceTree = "<group>"; };
+		77D2D53E2490189700E516D6 /* LazyInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyInt.swift; sourceTree = "<group>"; };
+		77D579882483D5B200881407 /* AreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaView.swift; sourceTree = "<group>"; };
+		77DE6DA524851BF50004EE13 /* LayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerView.swift; sourceTree = "<group>"; };
+		77DE6DA7248520E50004EE13 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		77DE6DA9248528E60004EE13 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
+		77F6AB712496AF5A004A5B83 /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
+		77FF20BF2477B324003C2552 /* ChaoticGameOfDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaoticGameOfDice.swift; sourceTree = "<group>"; };
+		77FF20C12477B4D8003C2552 /* LawfulGameOfDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawfulGameOfDice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,17 +255,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77EF2E832484CAA900CD702E /* TileKit.framework in Frameworks */,
+				7784E02E249531F900A2FF12 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77119C8D24715DA7004C5775 /* Frameworks */ = {
+		771558D62477C06300A8CAA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77119C9824715DA7004C5775 /* Frameworks */ = {
+		771558DE2477C06300A8CAA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,13 +277,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77052FAD247879080012E187 /* GameEditions */ = {
+			isa = PBXGroup;
+			children = (
+				7713C81A24793DA400302183 /* ClassicLottery.swift */,
+				7713C81E2479495A00302183 /* ClassicMaker.swift */,
+				7713C81824793AC900302183 /* ClassicMerger.swift */,
+				7713C81C2479488E00302183 /* ClassicMixer.swift */,
+				771ABDC9247F8A07000A2FAE /* DefaultDealer.swift */,
+				778DB8862479A59E00AB7A6E /* DualityLottery.swift */,
+				778DB8882479A5A700AB7A6E /* DualityMaker.swift */,
+				778DB88A2479A5B100AB7A6E /* DualityMerger.swift */,
+				778DB88C2479A5BD00AB7A6E /* DualityMixer.swift */,
+				778DB8962479A5FF00AB7A6E /* FibonacciLottery.swift */,
+				778DB8982479A60B00AB7A6E /* FibonacciMaker.swift */,
+				778DB89A2479A61500AB7A6E /* FibonacciMerger.swift */,
+				778DB89C2479A61F00AB7A6E /* FibonacciMixer.swift */,
+				778DB88E2479A5C900AB7A6E /* InsanityLottery.swift */,
+				778DB8902479A5D400AB7A6E /* InsanityMaker.swift */,
+				778DB8922479A5E100AB7A6E /* InsanityMerger.swift */,
+				778DB8942479A5F500AB7A6E /* InsanityMixer.swift */,
+				77CB30F12478F51700744F21 /* SimpleLottery.swift */,
+				77CB30F32478F52300744F21 /* SimpleMaker.swift */,
+				77CB30ED2478F50100744F21 /* SimpleMerger.swift */,
+				77CB30EF2478F50C00744F21 /* SimpleMixer.swift */,
+			);
+			path = GameEditions;
+			sourceTree = "<group>";
+		};
 		77119C7124715DA6004C5775 = {
 			isa = PBXGroup;
 			children = (
 				77119C7C24715DA6004C5775 /* NeinTile */,
-				77119C9324715DA7004C5775 /* NeinTileTests */,
-				77119C9E24715DA7004C5775 /* NeinTileUITests */,
+				771558DA2477C06300A8CAA1 /* TileKit */,
+				771558E72477C06300A8CAA1 /* TileKitTests */,
 				77119C7B24715DA6004C5775 /* Products */,
+				771559022477C1B300A8CAA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,8 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				77119C7A24715DA6004C5775 /* NeinTile.app */,
-				77119C9024715DA7004C5775 /* NeinTileTests.xctest */,
-				77119C9B24715DA7004C5775 /* NeinTileUITests.xctest */,
+				771558D92477C06300A8CAA1 /* TileKit.framework */,
+				771558E12477C06300A8CAA1 /* TileKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,10 +329,15 @@
 		77119C7C24715DA6004C5775 /* NeinTile */ = {
 			isa = PBXGroup;
 			children = (
+				77AFCD0224927C0F007BC3BA /* Icon */,
+				77D579832483D1D400881407 /* Views */,
 				77119C7D24715DA6004C5775 /* AppDelegate.swift */,
+				77F6AB712496AF5A004A5B83 /* AppNotifications.swift */,
+				77879FE3249602BC006F0B50 /* GameDelegate.swift */,
+				77B7063F2488062A00D37817 /* GameEnvironment.swift */,
 				77119C7F24715DA6004C5775 /* SceneDelegate.swift */,
-				77119C8124715DA6004C5775 /* ContentView.swift */,
 				77119C8324715DA7004C5775 /* Assets.xcassets */,
+				77825F14249139620057FAAE /* NeinTile.entitlements */,
 				77119C8824715DA7004C5775 /* LaunchScreen.storyboard */,
 				77119C8B24715DA7004C5775 /* Info.plist */,
 				77119C8524715DA7004C5775 /* Preview Content */,
@@ -118,25 +353,166 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		77119C9324715DA7004C5775 /* NeinTileTests */ = {
+		77119CBF24718322004C5775 /* Abstractions */ = {
 			isa = PBXGroup;
 			children = (
-				77119C9424715DA7004C5775 /* NeinTileTests.swift */,
-				77119C9624715DA7004C5775 /* Info.plist */,
+				77CA0F40247EF182007BBE6D /* Dealer.swift */,
+				7742771B24731A5B00343F43 /* Lottery.swift */,
+				7791187C247860AF006BCD51 /* Maker.swift */,
+				77119CC92471A4A6004C5775 /* Merger.swift */,
+				7742771924731A4B00343F43 /* Mixer.swift */,
 			);
-			path = NeinTileTests;
+			path = Abstractions;
 			sourceTree = "<group>";
 		};
-		77119C9E24715DA7004C5775 /* NeinTileUITests */ = {
+		77119CCF2471A8D5004C5775 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				77119C9F24715DA7004C5775 /* NeinTileUITests.swift */,
-				77119CA124715DA7004C5775 /* Info.plist */,
+				77810E752476E3F700C5315F /* TestLottery.swift */,
+				7791188024786CFC006BCD51 /* TestMaker.swift */,
+				77810E772476E40300C5315F /* TestMerger.swift */,
+				77810E792476E40D00C5315F /* TestMixer.swift */,
+				77810E7F2476EA4800C5315F /* Tiles.swift */,
+				77810E812476EBB200C5315F /* TilesArea.swift */,
+				7791186E2478166E006BCD51 /* TilesDeck.swift */,
 			);
-			path = NeinTileUITests;
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		771558DA2477C06300A8CAA1 /* TileKit */ = {
+			isa = PBXGroup;
+			children = (
+				77119CBF24718322004C5775 /* Abstractions */,
+				77052FAD247879080012E187 /* GameEditions */,
+				77FF20C32477B6C0003C2552 /* GameOfDice */,
+				77D2D53D2490188300E516D6 /* Utilities */,
+				7791187424784A7A006BCD51 /* Game.swift */,
+				7791187A24785D5F006BCD51 /* GameEdition.swift */,
+				7791187624784A87006BCD51 /* GameMaker.swift */,
+				77119CB324716DEF004C5775 /* Move.swift */,
+				77119CC72471A404004C5775 /* MoveDirection.swift */,
+				77119CCB2471A5B5004C5775 /* MoveIterator.swift */,
+				77119CAE2471615F004C5775 /* Tile.swift */,
+				77119CB524716E9E004C5775 /* TileHint.swift */,
+				77119CDC2471D4C5004C5775 /* TileIndex.swift */,
+				77810E7024768BBB00C5315F /* Tiles.swift */,
+				77119CB924716F93004C5775 /* TilesArea.swift */,
+				77427717247319CC00343F43 /* TilesDeck.swift */,
+				771558DC2477C06300A8CAA1 /* Info.plist */,
+			);
+			path = TileKit;
+			sourceTree = "<group>";
+		};
+		771558E72477C06300A8CAA1 /* TileKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				77CB30F924790CB800744F21 /* GameEditions */,
+				77119CCF2471A8D5004C5775 /* Utilities */,
+				7791187E24786BA1006BCD51 /* GameMakerTests.swift */,
+				77119CD42471B6D1004C5775 /* MoveIteratorTests.swift */,
+				77119CBD247179DD004C5775 /* TilesAreaTests.swift */,
+				7791187024781790006BCD51 /* TilesDeckTests.swift */,
+				771558EA2477C06300A8CAA1 /* Info.plist */,
+			);
+			path = TileKitTests;
+			sourceTree = "<group>";
+		};
+		771559022477C1B300A8CAA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7784E02D249531F900A2FF12 /* GameKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		77AFCD0224927C0F007BC3BA /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				77AFCD0524927C39007BC3BA /* generate.swift */,
+				77AFCD0624927C39007BC3BA /* Icon.swift */,
+				77AFCD0324927C39007BC3BA /* Icon+PreviewHelpers.swift */,
+				77AFCD0424927C39007BC3BA /* IconGenerator.swift */,
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
+		77CB30F924790CB800744F21 /* GameEditions */ = {
+			isa = PBXGroup;
+			children = (
+				7713C82024794BA600302183 /* ClassicLotteryTests.swift */,
+				7713C82224794BAD00302183 /* ClassicMakerTests.swift */,
+				7713C82424794BB600302183 /* ClassicMergerTests.swift */,
+				7713C82624794BC500302183 /* ClassicMixerTests.swift */,
+				7789F3132481641200B02432 /* DefaultDealerTests.swift */,
+				778DB89E2479A63C00AB7A6E /* DualityLotteryTests.swift */,
+				778DB8A02479A64600AB7A6E /* DualityMakerTests.swift */,
+				778DB8A22479A65100AB7A6E /* DualityMergerTests.swift */,
+				778DB8A42479A65A00AB7A6E /* DualityMixerTests.swift */,
+				778DB8AE2479A6A100AB7A6E /* FibonacciLotteryTests.swift */,
+				778DB8B02479A6B100AB7A6E /* FibonacciMakerTests.swift */,
+				778DB8B22479A6BE00AB7A6E /* FibonacciMergerTests.swift */,
+				778DB8B42479A6CD00AB7A6E /* FibonacciMixerTests.swift */,
+				778DB8A62479A66500AB7A6E /* InsanityLotteryTests.swift */,
+				778DB8A82479A67100AB7A6E /* InsanityMakerTests.swift */,
+				778DB8AA2479A67C00AB7A6E /* InsanityMergerTests.swift */,
+				778DB8AC2479A68900AB7A6E /* InsanityMixerTests.swift */,
+				77CB30FA24790D9200744F21 /* SimpleLotteryTests.swift */,
+				77CB30FC24790D9C00744F21 /* SimpleMakerTests.swift */,
+				77CB30FE24790DA500744F21 /* SimpleMergerTests.swift */,
+				77CB310024790DAE00744F21 /* SimpleMixerTests.swift */,
+			);
+			path = GameEditions;
+			sourceTree = "<group>";
+		};
+		77D2D53D2490188300E516D6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				77D2D53E2490189700E516D6 /* LazyInt.swift */,
+				77853D7E2491929F004FB25C /* PcgRandom.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		77D579832483D1D400881407 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				77D579882483D5B200881407 /* AreaView.swift */,
+				77DE6DA9248528E60004EE13 /* DeckView.swift */,
+				7734628A2497587700790669 /* GameCenterModifier.swift */,
+				7734628C2497597800790669 /* GameEndingModifier.swift */,
+				77346288249755DB00790669 /* GameGestureModifier.swift */,
+				77DE6DA7248520E50004EE13 /* GameView.swift */,
+				77DE6DA524851BF50004EE13 /* LayerView.swift */,
+				7734628424974F5D00790669 /* MakeCustomGameView.swift */,
+				7734628624974F6900790669 /* MakeTournamentGameView.swift */,
+				775C202D2487B0E100EDA421 /* MakeView.swift */,
+				77885ED92483FCC000F2AC37 /* TileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		77FF20C32477B6C0003C2552 /* GameOfDice */ = {
+			isa = PBXGroup;
+			children = (
+				77FF20BF2477B324003C2552 /* ChaoticGameOfDice.swift */,
+				7792E7F324758DCB001B92B6 /* GameOfDiceProtocol.swift */,
+				77FF20C12477B4D8003C2552 /* LawfulGameOfDice.swift */,
+				774E95792474680300923BE2 /* NeutralGameOfDice.swift */,
+			);
+			path = GameOfDice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		771558D42477C06300A8CAA1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		77119C7924715DA6004C5775 /* NeinTile */ = {
@@ -145,52 +521,61 @@
 			buildPhases = (
 				77119C7624715DA6004C5775 /* Sources */,
 				77119C7724715DA6004C5775 /* Frameworks */,
+				77AFCD112492CFE8007BC3BA /* ShellScript */,
 				77119C7824715DA6004C5775 /* Resources */,
+				771558F32477C06300A8CAA1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				771558ED2477C06300A8CAA1 /* PBXTargetDependency */,
 			);
 			name = NeinTile;
+			packageProductDependencies = (
+			);
 			productName = NeinTile;
 			productReference = 77119C7A24715DA6004C5775 /* NeinTile.app */;
 			productType = "com.apple.product-type.application";
 		};
-		77119C8F24715DA7004C5775 /* NeinTileTests */ = {
+		771558D82477C06300A8CAA1 /* TileKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 77119CA724715DA7004C5775 /* Build configuration list for PBXNativeTarget "NeinTileTests" */;
+			buildConfigurationList = 771558F02477C06300A8CAA1 /* Build configuration list for PBXNativeTarget "TileKit" */;
 			buildPhases = (
-				77119C8C24715DA7004C5775 /* Sources */,
-				77119C8D24715DA7004C5775 /* Frameworks */,
-				77119C8E24715DA7004C5775 /* Resources */,
+				771558D42477C06300A8CAA1 /* Headers */,
+				771558D52477C06300A8CAA1 /* Sources */,
+				771558D62477C06300A8CAA1 /* Frameworks */,
+				771558D72477C06300A8CAA1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				77119C9224715DA7004C5775 /* PBXTargetDependency */,
 			);
-			name = NeinTileTests;
-			productName = NeinTileTests;
-			productReference = 77119C9024715DA7004C5775 /* NeinTileTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = TileKit;
+			packageProductDependencies = (
+			);
+			productName = TileKit;
+			productReference = 771558D92477C06300A8CAA1 /* TileKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		77119C9A24715DA7004C5775 /* NeinTileUITests */ = {
+		771558E02477C06300A8CAA1 /* TileKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 77119CAA24715DA7004C5775 /* Build configuration list for PBXNativeTarget "NeinTileUITests" */;
+			buildConfigurationList = 771558F42477C06300A8CAA1 /* Build configuration list for PBXNativeTarget "TileKitTests" */;
 			buildPhases = (
-				77119C9724715DA7004C5775 /* Sources */,
-				77119C9824715DA7004C5775 /* Frameworks */,
-				77119C9924715DA7004C5775 /* Resources */,
+				771558DD2477C06300A8CAA1 /* Sources */,
+				771558DE2477C06300A8CAA1 /* Frameworks */,
+				771558DF2477C06300A8CAA1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				77119C9D24715DA7004C5775 /* PBXTargetDependency */,
+				771558E42477C06300A8CAA1 /* PBXTargetDependency */,
 			);
-			name = NeinTileUITests;
-			productName = NeinTileUITests;
-			productReference = 77119C9B24715DA7004C5775 /* NeinTileUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = TileKitTests;
+			packageProductDependencies = (
+			);
+			productName = TileKitTests;
+			productReference = 771558E12477C06300A8CAA1 /* TileKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -198,20 +583,18 @@
 		77119C7224715DA6004C5775 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Axel Heer";
 				TargetAttributes = {
 					77119C7924715DA6004C5775 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
-					77119C8F24715DA7004C5775 = {
-						CreatedOnToolsVersion = 11.4.1;
-						TestTargetID = 77119C7924715DA6004C5775;
+					771558D82477C06300A8CAA1 = {
+						CreatedOnToolsVersion = 11.5;
 					};
-					77119C9A24715DA7004C5775 = {
-						CreatedOnToolsVersion = 11.4.1;
-						TestTargetID = 77119C7924715DA6004C5775;
+					771558E02477C06300A8CAA1 = {
+						CreatedOnToolsVersion = 11.5;
 					};
 				};
 			};
@@ -224,13 +607,15 @@
 				Base,
 			);
 			mainGroup = 77119C7124715DA6004C5775;
+			packageReferences = (
+			);
 			productRefGroup = 77119C7B24715DA6004C5775 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				77119C7924715DA6004C5775 /* NeinTile */,
-				77119C8F24715DA7004C5775 /* NeinTileTests */,
-				77119C9A24715DA7004C5775 /* NeinTileUITests */,
+				771558D82477C06300A8CAA1 /* TileKit */,
+				771558E02477C06300A8CAA1 /* TileKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -246,14 +631,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77119C8E24715DA7004C5775 /* Resources */ = {
+		771558D72477C06300A8CAA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77119C9924715DA7004C5775 /* Resources */ = {
+		771558DF2477C06300A8CAA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,45 +647,155 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		77AFCD112492CFE8007BC3BA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/$(PRODUCT_NAME)/Icon/Icon.swift",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "[[ \"$ENABLE_PREVIEWS\" = \"NO\" ]] || exit 0\n[[ \"$MAC_OS_X_VERSION_MAJOR\" -ge \"101500\" ]] || exit 0\n\nTMPFILE=`mktemp /tmp/SwiftUIcon.swift.XXXXXX` || exit 1\ntrap \"rm -f $TMPFILE\" EXIT\n\nif [ -z \"$SCRIPT_INPUT_FILE_0\" ]\nthen\n    echo \"error: You must specify your Icon.swift as the first Input File in the Build Phase.\"\n    exit 1\nfi\n\ncat ${SCRIPT_INPUT_FILE_0%/*}/*.swift > $TMPFILE\n\nxcrun -sdk macosx swift $TMPFILE\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		77119C7624715DA6004C5775 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77DE6DAA248528E60004EE13 /* DeckView.swift in Sources */,
+				77AFCD0724927C39007BC3BA /* Icon+PreviewHelpers.swift in Sources */,
+				77DE6DA624851BF50004EE13 /* LayerView.swift in Sources */,
+				7734628524974F5D00790669 /* MakeCustomGameView.swift in Sources */,
+				775C202E2487B0E100EDA421 /* MakeView.swift in Sources */,
+				7734628D2497597800790669 /* GameEndingModifier.swift in Sources */,
 				77119C7E24715DA6004C5775 /* AppDelegate.swift in Sources */,
 				77119C8024715DA6004C5775 /* SceneDelegate.swift in Sources */,
-				77119C8224715DA6004C5775 /* ContentView.swift in Sources */,
+				77D579892483D5B200881407 /* AreaView.swift in Sources */,
+				7734628724974F6900790669 /* MakeTournamentGameView.swift in Sources */,
+				77AFCD0A24927C39007BC3BA /* Icon.swift in Sources */,
+				77885EDA2483FCC000F2AC37 /* TileView.swift in Sources */,
+				77DE6DA8248520E50004EE13 /* GameView.swift in Sources */,
+				77346289249755DB00790669 /* GameGestureModifier.swift in Sources */,
+				77B706402488062A00D37817 /* GameEnvironment.swift in Sources */,
+				7734628B2497587700790669 /* GameCenterModifier.swift in Sources */,
+				77F6AB722496AF5A004A5B83 /* AppNotifications.swift in Sources */,
+				77879FE4249602BC006F0B50 /* GameDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77119C8C24715DA7004C5775 /* Sources */ = {
+		771558D52477C06300A8CAA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77119C9524715DA7004C5775 /* NeinTileTests.swift in Sources */,
+				778DB88F2479A5C900AB7A6E /* InsanityLottery.swift in Sources */,
+				778DB89D2479A61F00AB7A6E /* FibonacciMixer.swift in Sources */,
+				77CA0F41247EF182007BBE6D /* Dealer.swift in Sources */,
+				77CB30F22478F51700744F21 /* SimpleLottery.swift in Sources */,
+				778DB8892479A5A700AB7A6E /* DualityMaker.swift in Sources */,
+				7713C81D2479488E00302183 /* ClassicMixer.swift in Sources */,
+				771559082477C25200A8CAA1 /* Lottery.swift in Sources */,
+				778DB89B2479A61500AB7A6E /* FibonacciMerger.swift in Sources */,
+				771559092477C25200A8CAA1 /* Merger.swift in Sources */,
+				7713C81924793AC900302183 /* ClassicMerger.swift in Sources */,
+				7715590A2477C25200A8CAA1 /* Mixer.swift in Sources */,
+				7715590B2477C25200A8CAA1 /* ChaoticGameOfDice.swift in Sources */,
+				778DB88B2479A5B100AB7A6E /* DualityMerger.swift in Sources */,
+				7715590C2477C25200A8CAA1 /* GameOfDiceProtocol.swift in Sources */,
+				7791187D247860AF006BCD51 /* Maker.swift in Sources */,
+				77D2D53F2490189700E516D6 /* LazyInt.swift in Sources */,
+				7715590D2477C25200A8CAA1 /* LawfulGameOfDice.swift in Sources */,
+				77853D7F2491929F004FB25C /* PcgRandom.swift in Sources */,
+				771ABDCA247F8A07000A2FAE /* DefaultDealer.swift in Sources */,
+				7713C81B24793DA400302183 /* ClassicLottery.swift in Sources */,
+				778DB8992479A60B00AB7A6E /* FibonacciMaker.swift in Sources */,
+				7715590E2477C25200A8CAA1 /* NeutralGameOfDice.swift in Sources */,
+				778DB8932479A5E100AB7A6E /* InsanityMerger.swift in Sources */,
+				77CB30F02478F50C00744F21 /* SimpleMixer.swift in Sources */,
+				778DB88D2479A5BD00AB7A6E /* DualityMixer.swift in Sources */,
+				7791187724784A87006BCD51 /* GameMaker.swift in Sources */,
+				778DB8872479A59E00AB7A6E /* DualityLottery.swift in Sources */,
+				7715590F2477C25200A8CAA1 /* MoveDirection.swift in Sources */,
+				7791187B24785D5F006BCD51 /* GameEdition.swift in Sources */,
+				771559102477C25200A8CAA1 /* MoveIterator.swift in Sources */,
+				77CB30EE2478F50100744F21 /* SimpleMerger.swift in Sources */,
+				77CB30F42478F52400744F21 /* SimpleMaker.swift in Sources */,
+				778DB8912479A5D400AB7A6E /* InsanityMaker.swift in Sources */,
+				771559112477C25200A8CAA1 /* Tile.swift in Sources */,
+				771559122477C25200A8CAA1 /* TileHint.swift in Sources */,
+				771559132477C25200A8CAA1 /* TileIndex.swift in Sources */,
+				771559142477C25200A8CAA1 /* Move.swift in Sources */,
+				7791187524784A7A006BCD51 /* Game.swift in Sources */,
+				778DB8952479A5F500AB7A6E /* InsanityMixer.swift in Sources */,
+				771559152477C25200A8CAA1 /* Tiles.swift in Sources */,
+				771559162477C25200A8CAA1 /* TilesArea.swift in Sources */,
+				778DB8972479A5FF00AB7A6E /* FibonacciLottery.swift in Sources */,
+				771559172477C25200A8CAA1 /* TilesDeck.swift in Sources */,
+				7713C81F2479495A00302183 /* ClassicMaker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77119C9724715DA7004C5775 /* Sources */ = {
+		771558DD2477C06300A8CAA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77119CA024715DA7004C5775 /* NeinTileUITests.swift in Sources */,
+				778DB8AB2479A67C00AB7A6E /* InsanityMergerTests.swift in Sources */,
+				7713C82524794BB600302183 /* ClassicMergerTests.swift in Sources */,
+				778DB8B12479A6B100AB7A6E /* FibonacciMakerTests.swift in Sources */,
+				771559192477C26A00A8CAA1 /* MoveIteratorTests.swift in Sources */,
+				778DB8B32479A6BE00AB7A6E /* FibonacciMergerTests.swift in Sources */,
+				778DB8A72479A66500AB7A6E /* InsanityLotteryTests.swift in Sources */,
+				7715591A2477C26A00A8CAA1 /* TilesAreaTests.swift in Sources */,
+				778DB8AD2479A68900AB7A6E /* InsanityMixerTests.swift in Sources */,
+				7791186F2478166E006BCD51 /* TilesDeck.swift in Sources */,
+				7715591B2477C26A00A8CAA1 /* TestLottery.swift in Sources */,
+				7715591C2477C26A00A8CAA1 /* TestMerger.swift in Sources */,
+				778DB8A32479A65100AB7A6E /* DualityMergerTests.swift in Sources */,
+				7715591D2477C26A00A8CAA1 /* TestMixer.swift in Sources */,
+				7791187124781790006BCD51 /* TilesDeckTests.swift in Sources */,
+				77CB30FF24790DA500744F21 /* SimpleMergerTests.swift in Sources */,
+				7715591E2477C26A00A8CAA1 /* TilesArea.swift in Sources */,
+				778DB8AF2479A6A100AB7A6E /* FibonacciLotteryTests.swift in Sources */,
+				7791187F24786BA1006BCD51 /* GameMakerTests.swift in Sources */,
+				77CB310124790DAE00744F21 /* SimpleMixerTests.swift in Sources */,
+				7713C82724794BC500302183 /* ClassicMixerTests.swift in Sources */,
+				77CB30FD24790D9C00744F21 /* SimpleMakerTests.swift in Sources */,
+				7713C82324794BAD00302183 /* ClassicMakerTests.swift in Sources */,
+				778DB8A12479A64600AB7A6E /* DualityMakerTests.swift in Sources */,
+				778DB8A92479A67100AB7A6E /* InsanityMakerTests.swift in Sources */,
+				7789F3142481641200B02432 /* DefaultDealerTests.swift in Sources */,
+				778DB8A52479A65A00AB7A6E /* DualityMixerTests.swift in Sources */,
+				7713C82124794BA600302183 /* ClassicLotteryTests.swift in Sources */,
+				7791188124786CFC006BCD51 /* TestMaker.swift in Sources */,
+				778DB8B52479A6CD00AB7A6E /* FibonacciMixerTests.swift in Sources */,
+				7715591F2477C26A00A8CAA1 /* Tiles.swift in Sources */,
+				778DB89F2479A63C00AB7A6E /* DualityLotteryTests.swift in Sources */,
+				77CB30FB24790D9200744F21 /* SimpleLotteryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		77119C9224715DA7004C5775 /* PBXTargetDependency */ = {
+		771558E42477C06300A8CAA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 77119C7924715DA6004C5775 /* NeinTile */;
-			targetProxy = 77119C9124715DA7004C5775 /* PBXContainerItemProxy */;
+			target = 771558D82477C06300A8CAA1 /* TileKit */;
+			targetProxy = 771558E32477C06300A8CAA1 /* PBXContainerItemProxy */;
 		};
-		77119C9D24715DA7004C5775 /* PBXTargetDependency */ = {
+		771558ED2477C06300A8CAA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 77119C7924715DA6004C5775 /* NeinTile */;
-			targetProxy = 77119C9C24715DA7004C5775 /* PBXContainerItemProxy */;
+			target = 771558D82477C06300A8CAA1 /* TileKit */;
+			targetProxy = 771558EC2477C06300A8CAA1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -366,7 +861,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +915,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -433,8 +928,11 @@
 		77119CA524715DA7004C5775 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NeinTile/NeinTile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"NeinTile/Preview Content\"";
 				DEVELOPMENT_TEAM = T78DL5445N;
 				ENABLE_PREVIEWS = YES;
@@ -445,6 +943,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.heer.axel.NeinTile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -453,8 +952,11 @@
 		77119CA624715DA7004C5775 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NeinTile/NeinTile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"NeinTile/Preview Content\"";
 				DEVELOPMENT_TEAM = T78DL5445N;
 				ENABLE_PREVIEWS = YES;
@@ -465,92 +967,101 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.heer.axel.NeinTile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		77119CA824715DA7004C5775 /* Debug */ = {
+		771558F12477C06300A8CAA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T78DL5445N;
-				INFOPLIST_FILE = NeinTileTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TileKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.heer.axel.NeinTileTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.heer.axel.TileKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeinTile.app/NeinTile";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		77119CA924715DA7004C5775 /* Release */ = {
+		771558F22477C06300A8CAA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T78DL5445N;
-				INFOPLIST_FILE = NeinTileTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TileKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.heer.axel.NeinTileTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.heer.axel.TileKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeinTile.app/NeinTile";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		77119CAB24715DA7004C5775 /* Debug */ = {
+		771558F52477C06300A8CAA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T78DL5445N;
-				INFOPLIST_FILE = NeinTileUITests/Info.plist;
+				INFOPLIST_FILE = TileKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.heer.axel.NeinTileUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.heer.axel.TileKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NeinTile;
 			};
 			name = Debug;
 		};
-		77119CAC24715DA7004C5775 /* Release */ = {
+		771558F62477C06300A8CAA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T78DL5445N;
-				INFOPLIST_FILE = NeinTileUITests/Info.plist;
+				INFOPLIST_FILE = TileKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.heer.axel.NeinTileUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.heer.axel.TileKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NeinTile;
 			};
 			name = Release;
 		};
@@ -575,20 +1086,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		77119CA724715DA7004C5775 /* Build configuration list for PBXNativeTarget "NeinTileTests" */ = {
+		771558F02477C06300A8CAA1 /* Build configuration list for PBXNativeTarget "TileKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				77119CA824715DA7004C5775 /* Debug */,
-				77119CA924715DA7004C5775 /* Release */,
+				771558F12477C06300A8CAA1 /* Debug */,
+				771558F22477C06300A8CAA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		77119CAA24715DA7004C5775 /* Build configuration list for PBXNativeTarget "NeinTileUITests" */ = {
+		771558F42477C06300A8CAA1 /* Build configuration list for PBXNativeTarget "TileKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				77119CAB24715DA7004C5775 /* Debug */,
-				77119CAC24715DA7004C5775 /* Release */,
+				771558F52477C06300A8CAA1 /* Debug */,
+				771558F62477C06300A8CAA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
