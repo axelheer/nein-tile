@@ -21,7 +21,7 @@ class MoveIteratorTests: XCTestCase {
     func testBlockedUp() {
         let tightTiles = makeTestTiles(rowCount: 1)
         
-        var subject = MoveIterator(tiles: tightTiles, direction: .up)
+        var subject = MoveIterator(tiles: tightTiles, direction: .top)
         
         XCTAssertNil(subject.next())
     }
@@ -29,7 +29,7 @@ class MoveIteratorTests: XCTestCase {
     func testBlockedDown() {
         let tightTiles = makeTestTiles(rowCount: 1)
         
-        var subject = MoveIterator(tiles: tightTiles, direction: .down)
+        var subject = MoveIterator(tiles: tightTiles, direction: .bottom)
         
         XCTAssertNil(subject.next())
     }
@@ -71,7 +71,7 @@ class MoveIteratorTests: XCTestCase {
     func testMoveUp() {
         let tiles = makeTestTiles()
         
-        let subject = MoveIterator(tiles: tiles, direction: .up)
+        let subject = MoveIterator(tiles: tiles, direction: .top)
         
         assertMoves(tiles, subject, source: { 60 - $0 - 4 * ($0 / 12) }, target: { $0 + 4 })
     }
@@ -79,7 +79,7 @@ class MoveIteratorTests: XCTestCase {
     func testMoveDown() {
         let tiles = makeTestTiles()
         
-        let subject = MoveIterator(tiles: tiles, direction: .down)
+        let subject = MoveIterator(tiles: tiles, direction: .bottom)
         
         assertMoves(tiles, subject, source: { 5 + $0 + 4 * ($0 / 12) }, target: { $0 - 4 })
     }
@@ -141,7 +141,7 @@ class MoveIteratorTests: XCTestCase {
     func testMarkUp() {
         let tiles = makeTestTiles()
         
-        let subject = MoveIterator(tiles: tiles, direction: .up)
+        let subject = MoveIterator(tiles: tiles, direction: .top)
         
         assertMarks(subject, mark: { TileIndex(col: 3 - $0 % 4, row: 0, lay: 3 - $0 / 12) })
     }
@@ -149,7 +149,7 @@ class MoveIteratorTests: XCTestCase {
     func testMarkDown() {
         let tiles = makeTestTiles()
         
-        let subject = MoveIterator(tiles: tiles, direction: .down)
+        let subject = MoveIterator(tiles: tiles, direction: .bottom)
         
         assertMarks(subject, mark: { TileIndex(col: $0 % 4, row: 3, lay: $0 / 12) })
     }

@@ -1,10 +1,21 @@
-public final class Game: GameInfo {
-    internal override init(deck: TilesDeck, area: TilesArea, apprentice: Bool, slippery: Bool) {
-        super.init(deck: deck, area: area, apprentice: apprentice, slippery: slippery)
+import Foundation
+
+internal final class Game: GameInfo {
+    public let apprentice: Bool
+    public let slippery: Bool
+    
+    public init(deck: TilesDeck, area: TilesArea, apprentice: Bool, slippery: Bool) {
+        self.apprentice = apprentice
+        self.slippery = slippery
+        
+        super.init(deck: deck, area: area)
     }
     
-    private override init(deck: TilesDeck, area: TilesArea, apprentice: Bool, slippery: Bool, move: MoveDirection?, last: Game?) {
-        super.init(deck: deck, area: area, apprentice: apprentice, slippery: slippery, move: move, last: last)
+    private init(id: UUID, deck: TilesDeck, area: TilesArea, apprentice: Bool, slippery: Bool, move: MoveDirection?, last: Game?) {
+        self.apprentice = apprentice
+        self.slippery = slippery
+        
+        super.init(id: id, deck: deck, area: area, move: move, last: last)
     }
     
     public override func view(to direction: MoveDirection) -> GameInfo? {
@@ -15,10 +26,9 @@ public final class Game: GameInfo {
                 nextTile: .empty
             )
             return GameInfo(
+                id: id,
                 deck: deck,
                 area: nextArea,
-                apprentice: apprentice,
-                slippery: slippery,
                 move: direction,
                 last: self
             )
@@ -37,6 +47,7 @@ public final class Game: GameInfo {
                 maxValue: nextArea.tiles.maxValue
             )
             return Game(
+                id: id,
                 deck: nextDeck,
                 area: nextArea,
                 apprentice: apprentice,
@@ -49,33 +60,30 @@ public final class Game: GameInfo {
     }
 }
 
-public class GameInfo {
+public class GameInfo: Identifiable {
+    public let id: UUID
+    
     public let deck: TilesDeck
     public let area: TilesArea
-    
-    public let apprentice: Bool
-    public let slippery: Bool
 
     public let move: MoveDirection?
-    public let last: Game?
+    public let last: GameInfo?
     
-    public init(deck: TilesDeck, area: TilesArea, apprentice: Bool, slippery: Bool) {
+    public init(deck: TilesDeck, area: TilesArea) {
         self.deck = deck
         self.area = area
-        
-        self.apprentice = apprentice
-        self.slippery = slippery
         
         self.move = nil
         self.last = nil
+        
+        id = UUID()
     }
     
-    internal init(deck: TilesDeck, area: TilesArea, apprentice: Bool, slippery: Bool, move: MoveDirection?, last: Game?) {
+    fileprivate init(id: UUID, deck: TilesDeck, area: TilesArea, move: MoveDirection?, last: GameInfo?) {
+        self.id = id
+        
         self.deck = deck
         self.area = area
-        
-        self.apprentice = apprentice
-        self.slippery = slippery
         
         self.move = move
         self.last = last

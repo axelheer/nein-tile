@@ -19,6 +19,14 @@ class GameEnvironment: ObservableObject {
         _current = .init(initialValue: initial.makeGame())
         _layer = .init(initialValue: initial.layCount - 1)
     }
+    
+    init(_ initialGame: GameInfo) {
+        let initial = GameMaker()
+        
+        _gameMaker = .init(initialValue: initial)
+        _current = .init(initialValue: initialGame)
+        _layer = .init(initialValue: initialGame.area.tiles.layCount - 1)
+    }
 }
 
 enum Tournament: String, CaseIterable {

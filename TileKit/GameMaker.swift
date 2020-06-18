@@ -117,7 +117,7 @@ public struct GameMaker {
         )
     }
     
-    public func makeGame() -> Game {
+    public func makeGame() -> GameInfo {
         let maker = custom ?? edition.maker(deterministic: deterministic)
         var tiles = Tiles(
             colCount: colCount,

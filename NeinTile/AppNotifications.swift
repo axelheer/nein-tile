@@ -2,9 +2,9 @@ import SwiftUI
 import TileKit
 
 enum AppNotifications: String {
+    case controller
     case gameCenter
     case gameCenterError
-    case keyCommand
     
     func post(object: Any?) {
         NotificationCenter.default.post(name: .init(self.rawValue), object: object)
@@ -19,17 +19,19 @@ enum AppNotifications: String {
     }
 }
 
-enum KeyCommand {
+enum ControllerCommand {
     case layer(Int)
     case move(MoveDirection)
     case undo
+    
+    case nextSample
 }
 
 enum GameCenterCommand {
     case authenticate
-    case achievements
-    case leaderboard
-    case edition(GameEdition, Double)
-    case tileCount(Int, Double)
-    case tournament(Tournament, Int)
+    case showAchievements
+    case showLeaderboard
+    case submitEdition(GameEdition, Double)
+    case submitTileCount(Int, Double)
+    case submitTotalScore(Tournament, Int)
 }

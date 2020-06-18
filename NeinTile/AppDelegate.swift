@@ -5,19 +5,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     override var keyCommands: [UIKeyCommand]? {
         var mappings: [(String, Any, String)] = [
-            ("d", "right", "Move to the right"),
-            ("a", "left",  "Move to the left"),
-            ("w", "up",    "Move to the up"),
-            ("s", "down",  "Move to the down"),
-            ("e", "front", "Move to the front"),
-            ("q", "back",  "Move to the back"),
+            ("d", "right",  "Move to the right"),
+            ("a", "left",   "Move to the left"),
+            ("w", "top",    "Move to the top"),
+            ("s", "bottom", "Move to the bottom"),
+            ("e", "front",  "Move to the front"),
+            ("q", "back",   "Move to the back"),
             
-            (UIKeyCommand.inputRightArrow, "right", "Move to the right"),
-            (UIKeyCommand.inputLeftArrow,  "left",  "Move to the left"),
-            (UIKeyCommand.inputUpArrow,    "up",    "Move to the up"),
-            (UIKeyCommand.inputDownArrow,  "down",  "Move to the down"),
-            (UIKeyCommand.inputPageUp,     "front", "Move to the front"),
-            (UIKeyCommand.inputPageDown,   "back",  "Move to the back"),
+            (UIKeyCommand.inputRightArrow, "right",  "Move to the right"),
+            (UIKeyCommand.inputLeftArrow,  "left",   "Move to the left"),
+            (UIKeyCommand.inputUpArrow,    "top",    "Move to the top"),
+            (UIKeyCommand.inputDownArrow,  "bottom", "Move to the bottom"),
+            (UIKeyCommand.inputPageUp,     "front",  "Move to the front"),
+            (UIKeyCommand.inputPageDown,   "back",   "Move to the back"),
         ]
         
         if #available(iOS 13.4, *) {
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ]
         }
         
-        let moves = mappings.map { (input, tag, title) in
+        var moves = mappings.map { (input, tag, title) in
             UIKeyCommand(
                 title: title,
                 action: #selector(handleKeyCommand(sender:)),
@@ -46,35 +46,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             )
         }
         
-        let undo = UIKeyCommand(
-            title: "",
-            action: #selector(handleKeyCommand(sender:)),
-            input: "z",
-            modifierFlags: .command,
-            propertyList: "undo"
+        moves.append(
+            UIKeyCommand(
+                title: "",
+                action: #selector(handleKeyCommand(sender:)),
+                input: "z",
+                modifierFlags: .command,
+                propertyList: "undo"
+            )
         )
         
-        return moves + [undo]
+        #if DEBUG
+        
+        moves.append(
+            UIKeyCommand(
+                title: "",
+                action: #selector(handleKeyCommand(sender:)),
+                input: "n",
+                modifierFlags: .command,
+                propertyList: "nextSample"
+            )
+        )
+        
+        #endif
+        
+        return moves
     }
     
     @objc func handleKeyCommand(sender: UIKeyCommand) {
         switch sender.propertyList {
+        case "nextSample" as String:
+            AppNotifications.controller.post(object: ControllerCommand.nextSample)
         case "undo" as String:
-            AppNotifications.keyCommand.post(object: KeyCommand.undo)
+            AppNotifications.controller.post(object: ControllerCommand.undo)
         case "right" as String:
-            AppNotifications.keyCommand.post(object: KeyCommand.move(.right))
+            AppNotifications.controller.post(object: ControllerCommand.move(.right))
         case "left" as String:
-            AppNotifications.keyCommand.post(object: KeyCommand.move(.left))
-        case "up" as String:
-            AppNotifications.keyCommand.post(object: KeyCommand.move(.up))
-        case "down" as String:
-            AppNotifications.keyCommand.post(object: KeyCommand.move(.down))
+            AppNotifications.controller.post(object: ControllerCommand.move(.left))
+        case "top" as String:
+            AppNotifications.controller.post(object: ControllerCommand.move(.top))
+        case "bottom" as String:
+            AppNotifications.controller.post(object: ControllerCommand.move(.bottom))
         case "front" as String:
-            AppNotifications.keyCommand.post(object: KeyCommand.move(.front))
+            AppNotifications.controller.post(object: ControllerCommand.move(.front))
         case "back" as String:
-            AppNotifications.keyCommand.post(object: KeyCommand.move(.back))
+            AppNotifications.controller.post(object: ControllerCommand.move(.back))
         case let index as Int:
-            AppNotifications.keyCommand.post(object: KeyCommand.layer(index))
+            AppNotifications.controller.post(object: ControllerCommand.layer(index))
         default:
             print("Unknown command: \(String(describing: sender.propertyList))")
         }

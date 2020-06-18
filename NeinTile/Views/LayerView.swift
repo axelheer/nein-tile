@@ -46,7 +46,7 @@ struct LayerView_Previews: PreviewProvider {
                 .preferredColorScheme(.light)
         }
         .accentColor(Color.orange)
-        .previewLayout(.sizeThatFits)
+        .previewLayout(.fixed(width: 400, height: 60))
         .environmentObject(GameEnvironment())
     }
 }

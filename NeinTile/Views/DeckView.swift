@@ -79,9 +79,9 @@ struct DeckView: View {
     
     func rightButton() {
         if game.tournament != nil {
-            AppNotifications.gameCenter.post(object: GameCenterCommand.leaderboard)
+            AppNotifications.gameCenter.post(object: GameCenterCommand.showLeaderboard)
         } else if game.current.done {
-            AppNotifications.gameCenter.post(object: GameCenterCommand.achievements)
+            AppNotifications.gameCenter.post(object: GameCenterCommand.showAchievements)
         } else if let last = game.current.last {
             withAnimation {
                 game.current = last
@@ -100,7 +100,7 @@ struct InfoView_Previews: PreviewProvider {
                 .preferredColorScheme(.light)
         }
         .accentColor(Color.orange)
-        .previewLayout(.sizeThatFits)
+        .previewLayout(.fixed(width: 400, height: 80))
         .environmentObject(GameEnvironment())
     }
 }

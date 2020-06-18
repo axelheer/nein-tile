@@ -121,14 +121,17 @@ struct TileSizePreferenceKey: PreferenceKey {
 struct TilesView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            AreaView()
-                .preferredColorScheme(.dark)
-            AreaView()
-                .preferredColorScheme(.light)
+            ForEach(GameSamples.allSamples) { sample in
+                AreaView()
+                    .environmentObject(GameEnvironment(sample))
+                    .preferredColorScheme(.dark)
+                AreaView()
+                    .environmentObject(GameEnvironment(sample))
+                    .preferredColorScheme(.light)
+            }
         }
         .accentColor(Color.orange)
         .previewLayout(.fixed(width: 400, height: 400))
-        .environmentObject(GameEnvironment())
     }
 }
 #endif

@@ -34,15 +34,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         switch command {
         case .authenticate:
             gameCenter.authenticate(root: rootController)
-        case .achievements:
+        case .showAchievements:
             gameCenter.showAchievements(root: rootController)
-        case .leaderboard:
+        case .showLeaderboard:
             gameCenter.showLeaderboard(root: rootController)
-        case .edition(let edition, let progress):
+        case .submitEdition(let edition, let progress):
             gameCenter.submitEdition(edition, progress)
-        case .tileCount(let tileCount, let progress):
+        case .submitTileCount(let tileCount, let progress):
             gameCenter.submitTileCount(tileCount, progress)
-        case .tournament(let tournament, let totalScore):
+        case .submitTotalScore(let tournament, let totalScore):
             gameCenter.submitTotalScore(tournament, totalScore)
         }
     }

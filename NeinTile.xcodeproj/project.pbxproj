@@ -51,6 +51,7 @@
 		7734628B2497587700790669 /* GameCenterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628A2497587700790669 /* GameCenterModifier.swift */; };
 		7734628D2497597800790669 /* GameEndingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628C2497597800790669 /* GameEndingModifier.swift */; };
 		775C202E2487B0E100EDA421 /* MakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C202D2487B0E100EDA421 /* MakeView.swift */; };
+		7761EF5C249B40630027152E /* GameSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7761EF5B249B40630027152E /* GameSamples.swift */; };
 		7784E02E249531F900A2FF12 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7784E02D249531F900A2FF12 /* GameKit.framework */; };
 		77853D7F2491929F004FB25C /* PcgRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77853D7E2491929F004FB25C /* PcgRandom.swift */; };
 		77879FE4249602BC006F0B50 /* GameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77879FE3249602BC006F0B50 /* GameDelegate.swift */; };
@@ -181,6 +182,7 @@
 		7742771B24731A5B00343F43 /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
 		774E95792474680300923BE2 /* NeutralGameOfDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeutralGameOfDice.swift; sourceTree = "<group>"; };
 		775C202D2487B0E100EDA421 /* MakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeView.swift; sourceTree = "<group>"; };
+		7761EF5B249B40630027152E /* GameSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSamples.swift; sourceTree = "<group>"; };
 		77810E7024768BBB00C5315F /* Tiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiles.swift; sourceTree = "<group>"; };
 		77810E752476E3F700C5315F /* TestLottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLottery.swift; sourceTree = "<group>"; };
 		77810E772476E40300C5315F /* TestMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMerger.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				77F6AB712496AF5A004A5B83 /* AppNotifications.swift */,
 				77879FE3249602BC006F0B50 /* GameDelegate.swift */,
 				77B7063F2488062A00D37817 /* GameEnvironment.swift */,
+				7761EF5B249B40630027152E /* GameSamples.swift */,
 				77119C7F24715DA6004C5775 /* SceneDelegate.swift */,
 				77119C8324715DA7004C5775 /* Assets.xcassets */,
 				77825F14249139620057FAAE /* NeinTile.entitlements */,
@@ -679,6 +682,7 @@
 				7734628524974F5D00790669 /* MakeCustomGameView.swift in Sources */,
 				775C202E2487B0E100EDA421 /* MakeView.swift in Sources */,
 				7734628D2497597800790669 /* GameEndingModifier.swift in Sources */,
+				7761EF5C249B40630027152E /* GameSamples.swift in Sources */,
 				77119C7E24715DA6004C5775 /* AppDelegate.swift in Sources */,
 				77119C8024715DA6004C5775 /* SceneDelegate.swift in Sources */,
 				77D579892483D5B200881407 /* AreaView.swift in Sources */,

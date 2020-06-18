@@ -6,6 +6,7 @@ struct GameGestureModifier: ViewModifier {
     
     @State private var moveTo: MoveDirection?
     @State private var tileSize: CGFloat = 0
+    @State private var sampleIndex: Int = 0
     
     let onFinish: (GameInfo) -> Void
    
@@ -105,14 +106,14 @@ struct GameGestureModifier: ViewModifier {
             .onPreferenceChange(TileSizePreferenceKey.self) { size in
                 self.tileSize = size
             }
-            .onReceive(AppNotifications.keyCommand.publisher(), perform: handleKeyCommand)
+            .onReceive(AppNotifications.controller.publisher(), perform: handleKeyCommand)
             .contentShape(Rectangle())
             .gesture(swipe)
             .gesture(pinch)
     }
     
     func handleKeyCommand(notification: Notification) {
-        guard let command = notification.object as? KeyCommand else {
+        guard let command = notification.object as? ControllerCommand else {
             return
         }
         
@@ -137,6 +138,11 @@ struct GameGestureModifier: ViewModifier {
                     game.current = last
                 }
             }
+        case .nextSample:
+            game.current = GameSamples.allSamples[sampleIndex]
+            game.layer = game.current.area.tiles.layCount - 1
+            
+            sampleIndex = (sampleIndex + 1) % GameSamples.allSamples.count
         }
     }
     
@@ -144,17 +150,17 @@ struct GameGestureModifier: ViewModifier {
         let direction = moveTo ?? (
             abs(dragBy.width) > abs(dragBy.height)
                 ? (dragBy.width > 0 ? .right : .left)
-                : (dragBy.height < 0 ? .up : .down)
+                : (dragBy.height < 0 ? .top : .bottom)
         )
         switch direction {
         case .right:
             return (.init(width: max(0, min(tileSize, dragBy.width)), height: 0), .right)
         case .left:
             return (.init(width: max(-tileSize, min(0, dragBy.width)), height: 0), .left)
-        case .up:
-            return (.init(width: 0, height: max(-tileSize, min(0, dragBy.height))), .up)
-        case .down:
-            return (.init(width: 0, height: max(0, min(tileSize, dragBy.height))), .down)
+        case .top:
+            return (.init(width: 0, height: max(-tileSize, min(0, dragBy.height))), .top)
+        case .bottom:
+            return (.init(width: 0, height: max(0, min(tileSize, dragBy.height))), .bottom)
         default:
             return (.zero, .right)
         }

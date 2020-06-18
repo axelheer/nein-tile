@@ -62,14 +62,14 @@ struct GameView: View {
     func onFinish(_ next: GameInfo) {
         if let tournament = game.tournament {
             AppNotifications.gameCenter.post(
-                object: GameCenterCommand.tournament(tournament, next.score))
+                object: GameCenterCommand.submitTotalScore(tournament, next.score))
         } else {
             AppNotifications.gameCenter.post(
-                object: GameCenterCommand.edition(game.gameMaker.edition, Double(next.score) / 10_000))
+                object: GameCenterCommand.submitEdition(game.gameMaker.edition, Double(next.score) / 10_000))
             if achievements.contains(next.area.tiles.count) {
                 let progress = Double(next.score) / Double(next.area.tiles.count * 10)
                 AppNotifications.gameCenter.post(
-                    object: GameCenterCommand.tileCount(next.area.tiles.count, progress))
+                    object: GameCenterCommand.submitTileCount(next.area.tiles.count, progress))
             }
         }
     }
@@ -79,12 +79,15 @@ struct GameView: View {
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            GameView()
-                .preferredColorScheme(.dark)
-            GameView()
-                .preferredColorScheme(.light)
+            ForEach(GameSamples.allSamples) { sample in
+                GameView()
+                    .environmentObject(GameEnvironment(sample))
+                    .preferredColorScheme(.dark)
+                GameView()
+                    .environmentObject(GameEnvironment(sample))
+                    .preferredColorScheme(.light)
+            }
         }
-        .environmentObject(GameEnvironment())
     }
 }
 #endif
