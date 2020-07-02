@@ -9,7 +9,7 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
     func authenticate(root rootController: UIViewController) {
         GKLocalPlayer.local.authenticateHandler = { (viewController, error) in
             if let e = error {
-                AppNotifications.gameCenterError.post(object: e)
+                print("Failed to authenticate: \(e.localizedDescription)")
             }
             if let controller = viewController {
                 rootController.present(
@@ -77,9 +77,9 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
     private func submitAchievement(_ achievement: GKAchievement) {
         achievement.showsCompletionBanner = true
         
-        GKAchievement.report([achievement]) {error in
+        GKAchievement.report([achievement]) { error in
             if let e = error {
-                AppNotifications.gameCenterError.post(object: e)
+                print("Failed to submit achievement: \(e.localizedDescription)")
             }
         }
     }
@@ -95,7 +95,7 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
         
         GKScore.report([score]) { error in
             if let e = error {
-                AppNotifications.gameCenterError.post(object: e)
+                print("Failed to submit score: \(e.localizedDescription)")
             }
         }
     }

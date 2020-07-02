@@ -4,7 +4,6 @@ import TileKit
 enum AppNotifications: String {
     case controller
     case gameCenter
-    case gameCenterError
     
     func post(object: Any?) {
         NotificationCenter.default.post(name: .init(self.rawValue), object: object)

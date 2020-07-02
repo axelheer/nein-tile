@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct GameEndingModifier: ViewModifier {
+struct EndingModifier: ViewModifier {
     @Environment (\.colorScheme) var colorScheme
     
     @EnvironmentObject var game: GameEnvironment
@@ -30,8 +30,8 @@ struct GameEndingModifier: ViewModifier {
 }
 
 extension View {
-    func applyGameEnding() -> some View {
-        return self.modifier(GameEndingModifier())
+    func applyEnding() -> some View {
+        return self.modifier(EndingModifier())
     }
 }
 

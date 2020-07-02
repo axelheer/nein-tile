@@ -1,7 +1,7 @@
 import SwiftUI
 import TileKit
 
-struct GameGestureModifier: ViewModifier {
+struct GestureModifier: ViewModifier {
     @EnvironmentObject var game: GameEnvironment
     
     @State private var moveTo: MoveDirection?
@@ -180,7 +180,7 @@ struct GameGestureModifier: ViewModifier {
 }
 
 extension View {
-    func applyGameGestures(onFinish: @escaping (GameInfo) -> Void) -> some View {
-        return self.modifier(GameGestureModifier(onFinish: onFinish))
+    func applyGestures(onFinish: @escaping (GameInfo) -> Void) -> some View {
+        return self.modifier(GestureModifier(onFinish: onFinish))
     }
 }

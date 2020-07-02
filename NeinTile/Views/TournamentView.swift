@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TournamentGameView: View {
+struct TournamentView: View {
     @Binding var tournament: Tournament
     
     let onStart: () -> Void
@@ -47,12 +47,12 @@ struct MakeTournamentView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            TournamentGameView(
+            TournamentView(
                 tournament: $tournament,
                 onStart: { }
             )
             .preferredColorScheme(.dark)
-            TournamentGameView(
+            TournamentView(
                 tournament: $tournament,
                 onStart: { }
             )

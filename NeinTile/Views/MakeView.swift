@@ -41,7 +41,7 @@ struct MakeView: View {
     
     var body: some View {
         TabView(selection: $showTournament) {
-            CustomGameView(
+            CustomView(
                 edition: $edition,
                 colCount: $colCount,
                 rowCount: $rowCount,
@@ -56,7 +56,7 @@ struct MakeView: View {
                 Text("Custom game")
             }
             .tag(false)
-            TournamentGameView(
+            TournamentView(
                 tournament: $tournament,
                 onStart: startGame
             )

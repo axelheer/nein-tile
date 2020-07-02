@@ -1,7 +1,7 @@
 import SwiftUI
 import TileKit
 
-struct CustomGameView: View {
+struct CustomView: View {
     @Binding var edition: GameEdition
     
     @Binding var colCount: Int
@@ -107,7 +107,7 @@ struct MakeCustomGameView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            CustomGameView(
+            CustomView(
                 edition: $edition,
                 colCount: $colCount,
                 rowCount: $rowCount,
@@ -118,7 +118,7 @@ struct MakeCustomGameView_Previews: PreviewProvider {
                 onStart: { }
             )
             .preferredColorScheme(.dark)
-            CustomGameView(
+            CustomView(
                 edition: $edition,
                 colCount: $colCount,
                 rowCount: $rowCount,

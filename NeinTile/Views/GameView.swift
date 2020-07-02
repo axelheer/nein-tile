@@ -50,12 +50,13 @@ struct GameView: View {
                 .padding()
             AreaView()
                 .padding()
-                .applyGameEnding()
-                .applyGameGestures(onFinish: onFinish)
-            LayerView()
-                .padding()
+                .applyEnding()
+                .applyGestures(onFinish: onFinish)
+            if game.current.area.tiles.layCount > 1 {
+                LayerView()
+                    .padding()
+            }
         }
-        .applyGameCenter()
         .accentColor(Color.orange)
     }
     
