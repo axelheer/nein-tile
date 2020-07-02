@@ -23,11 +23,11 @@ struct DeckView: View {
             Button(action: leftButton) {
                 Image(systemName: game.current.done ? "plus.circle" : "plus")
                     .rotationEffect(.init(degrees: game.current.done ? 360 : 0))
-                    .animation(Animation.easeInOut(duration: 1.0).repeatCount(game.current.done ? 7 : 1))
+                    .animation(Animation.easeInOut(duration: 1.0).repeatCount(game.current.done ? 21 : 1))
                     .padding()
             }
             .sheet(isPresented: $showMaker) {
-                MakeView(previous: self.game.gameMaker, tournament: self.game.tournament)
+                MakeView(previous: self.game.current, tournament: self.game.tournament)
                     .environmentObject(self.game)
             }
             Spacer()

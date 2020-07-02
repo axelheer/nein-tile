@@ -45,8 +45,8 @@
 		7715591E2477C26A00A8CAA1 /* TilesArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77810E812476EBB200C5315F /* TilesArea.swift */; };
 		7715591F2477C26A00A8CAA1 /* Tiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77810E7F2476EA4800C5315F /* Tiles.swift */; };
 		771ABDCA247F8A07000A2FAE /* DefaultDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771ABDC9247F8A07000A2FAE /* DefaultDealer.swift */; };
-		7734628524974F5D00790669 /* MakeCustomGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628424974F5D00790669 /* MakeCustomGameView.swift */; };
-		7734628724974F6900790669 /* MakeTournamentGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628624974F6900790669 /* MakeTournamentGameView.swift */; };
+		7734628524974F5D00790669 /* CustomGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628424974F5D00790669 /* CustomGameView.swift */; };
+		7734628724974F6900790669 /* TournamentGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628624974F6900790669 /* TournamentGameView.swift */; };
 		77346289249755DB00790669 /* GameGestureModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77346288249755DB00790669 /* GameGestureModifier.swift */; };
 		7734628B2497587700790669 /* GameCenterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628A2497587700790669 /* GameCenterModifier.swift */; };
 		7734628D2497597800790669 /* GameEndingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628C2497597800790669 /* GameEndingModifier.swift */; };
@@ -172,8 +172,8 @@
 		771558E12477C06300A8CAA1 /* TileKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TileKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		771558EA2477C06300A8CAA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		771ABDC9247F8A07000A2FAE /* DefaultDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDealer.swift; sourceTree = "<group>"; };
-		7734628424974F5D00790669 /* MakeCustomGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCustomGameView.swift; sourceTree = "<group>"; };
-		7734628624974F6900790669 /* MakeTournamentGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTournamentGameView.swift; sourceTree = "<group>"; };
+		7734628424974F5D00790669 /* CustomGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGameView.swift; sourceTree = "<group>"; };
+		7734628624974F6900790669 /* TournamentGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentGameView.swift; sourceTree = "<group>"; };
 		77346288249755DB00790669 /* GameGestureModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGestureModifier.swift; sourceTree = "<group>"; };
 		7734628A2497587700790669 /* GameCenterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterModifier.swift; sourceTree = "<group>"; };
 		7734628C2497597800790669 /* GameEndingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndingModifier.swift; sourceTree = "<group>"; };
@@ -480,16 +480,16 @@
 			isa = PBXGroup;
 			children = (
 				77D579882483D5B200881407 /* AreaView.swift */,
+				7734628424974F5D00790669 /* CustomGameView.swift */,
 				77DE6DA9248528E60004EE13 /* DeckView.swift */,
 				7734628A2497587700790669 /* GameCenterModifier.swift */,
 				7734628C2497597800790669 /* GameEndingModifier.swift */,
 				77346288249755DB00790669 /* GameGestureModifier.swift */,
 				77DE6DA7248520E50004EE13 /* GameView.swift */,
 				77DE6DA524851BF50004EE13 /* LayerView.swift */,
-				7734628424974F5D00790669 /* MakeCustomGameView.swift */,
-				7734628624974F6900790669 /* MakeTournamentGameView.swift */,
 				775C202D2487B0E100EDA421 /* MakeView.swift */,
 				77885ED92483FCC000F2AC37 /* TileView.swift */,
+				7734628624974F6900790669 /* TournamentGameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -679,14 +679,14 @@
 				77DE6DAA248528E60004EE13 /* DeckView.swift in Sources */,
 				77AFCD0724927C39007BC3BA /* Icon+PreviewHelpers.swift in Sources */,
 				77DE6DA624851BF50004EE13 /* LayerView.swift in Sources */,
-				7734628524974F5D00790669 /* MakeCustomGameView.swift in Sources */,
+				7734628524974F5D00790669 /* CustomGameView.swift in Sources */,
 				775C202E2487B0E100EDA421 /* MakeView.swift in Sources */,
 				7734628D2497597800790669 /* GameEndingModifier.swift in Sources */,
 				7761EF5C249B40630027152E /* GameSamples.swift in Sources */,
 				77119C7E24715DA6004C5775 /* AppDelegate.swift in Sources */,
 				77119C8024715DA6004C5775 /* SceneDelegate.swift in Sources */,
 				77D579892483D5B200881407 /* AreaView.swift in Sources */,
-				7734628724974F6900790669 /* MakeTournamentGameView.swift in Sources */,
+				7734628724974F6900790669 /* TournamentGameView.swift in Sources */,
 				77AFCD0A24927C39007BC3BA /* Icon.swift in Sources */,
 				77885EDA2483FCC000F2AC37 /* TileView.swift in Sources */,
 				77DE6DA8248520E50004EE13 /* GameView.swift in Sources */,

@@ -5,7 +5,7 @@ public struct GameMaker {
     public let rowCount: Int
     public let layCount: Int
     
-    public let edition: GameEdition
+    public let edition: GameEdition?
     
     public let deterministic: Bool
     public let apprentice: Bool
@@ -24,7 +24,7 @@ public struct GameMaker {
         )
     }
     
-    private init(custom: Maker?, colCount: Int, rowCount: Int, layCount: Int, edition: GameEdition, deterministic: Bool, apprentice: Bool, slippery: Bool) {
+    private init(custom: Maker?, colCount: Int, rowCount: Int, layCount: Int, edition: GameEdition?, deterministic: Bool, apprentice: Bool, slippery: Bool) {
         self.custom = custom
         self.colCount = colCount
         self.rowCount = rowCount
@@ -41,7 +41,7 @@ public struct GameMaker {
             colCount: colCount,
             rowCount: rowCount,
             layCount: layCount,
-            edition: edition,
+            edition: nil,
             deterministic: deterministic,
             apprentice: apprentice,
             slippery: slippery
@@ -67,7 +67,7 @@ public struct GameMaker {
     
     public func use(edition: GameEdition) -> GameMaker {
        return GameMaker(
-            custom: custom,
+            custom: nil,
             colCount: colCount,
             rowCount: rowCount,
             layCount: layCount,
@@ -118,7 +118,7 @@ public struct GameMaker {
     }
     
     public func makeGame() -> GameInfo {
-        let maker = custom ?? edition.maker(deterministic: deterministic)
+        let maker = custom ?? edition!.maker(deterministic: deterministic)
         var tiles = Tiles(
             colCount: colCount,
             rowCount: rowCount,
@@ -139,10 +139,9 @@ public struct GameMaker {
             merger: maker.makeMerger()
         )
         return Game(
+            maker: self,
             deck: deck,
-            area: area,
-            apprentice: apprentice,
-            slippery: slippery
+            area: area
         )
     }
 }

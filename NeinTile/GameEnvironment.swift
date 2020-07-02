@@ -2,28 +2,19 @@ import SwiftUI
 import TileKit
 
 class GameEnvironment: ObservableObject {
-    @Published var gameMaker: GameMaker
+    @Published var tournament: Tournament?
     @Published var current: GameInfo
     @Published var layer: Int
-    
-    @Published var tournament: Tournament?
     
     @Published var dragBy: CGSize = .zero
     @Published var magnifyBy: CGFloat = 1
     @Published var preview: GameInfo? = nil
     
-    init() {
-        let initial = GameMaker()
-        
-        _gameMaker = .init(initialValue: initial)
-        _current = .init(initialValue: initial.makeGame())
-        _layer = .init(initialValue: initial.layCount - 1)
+    convenience init() {
+        self.init(GameMaker().makeGame())
     }
     
     init(_ initialGame: GameInfo) {
-        let initial = GameMaker()
-        
-        _gameMaker = .init(initialValue: initial)
         _current = .init(initialValue: initialGame)
         _layer = .init(initialValue: initialGame.area.tiles.layCount - 1)
     }

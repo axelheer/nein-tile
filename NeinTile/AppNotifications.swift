@@ -33,5 +33,5 @@ enum GameCenterCommand {
     case showLeaderboard
     case submitEdition(GameEdition, Double)
     case submitTileCount(Int, Double)
-    case submitTotalScore(Tournament, Int)
+    case submitTotalScore(Tournament?, Int)
 }

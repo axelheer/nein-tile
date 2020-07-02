@@ -106,13 +106,13 @@ struct GameGestureModifier: ViewModifier {
             .onPreferenceChange(TileSizePreferenceKey.self) { size in
                 self.tileSize = size
             }
-            .onReceive(AppNotifications.controller.publisher(), perform: handleKeyCommand)
+            .onReceive(AppNotifications.controller.publisher(), perform: handleController)
             .contentShape(Rectangle())
             .gesture(swipe)
             .gesture(pinch)
     }
     
-    func handleKeyCommand(notification: Notification) {
+    func handleController(notification: Notification) {
         guard let command = notification.object as? ControllerCommand else {
             return
         }

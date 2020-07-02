@@ -19,16 +19,16 @@ struct MakeView: View {
     @State private var showTournament: Bool
     @State private var tournament: Tournament
     
-    init(previous: GameMaker, tournament: Tournament?) {
-        _edition = .init(initialValue: previous.edition)
+    init(previous: GameInfo, tournament: Tournament?) {
+        _edition = .init(initialValue: previous.maker.edition ?? .simple)
         
-        _colCount = .init(initialValue: previous.colCount)
-        _rowCount = .init(initialValue: previous.rowCount)
-        _layCount = .init(initialValue: previous.layCount)
+        _colCount = .init(initialValue: previous.maker.colCount)
+        _rowCount = .init(initialValue: previous.maker.rowCount)
+        _layCount = .init(initialValue: previous.maker.layCount)
         
-        _deterministic = .init(initialValue: previous.deterministic)
-        _apprentice = .init(initialValue: previous.apprentice)
-        _slippery = .init(initialValue: previous.slippery)
+        _deterministic = .init(initialValue: previous.maker.deterministic)
+        _apprentice = .init(initialValue: previous.maker.apprentice)
+        _slippery = .init(initialValue: previous.maker.slippery)
         
         if let tournament = tournament {
             _tournament = .init(initialValue: tournament)
@@ -41,7 +41,7 @@ struct MakeView: View {
     
     var body: some View {
         TabView(selection: $showTournament) {
-            MakeCustomGameView(
+            CustomGameView(
                 edition: $edition,
                 colCount: $colCount,
                 rowCount: $rowCount,
@@ -56,7 +56,7 @@ struct MakeView: View {
                 Text("Custom game")
             }
             .tag(false)
-            MakeTournamentGameView(
+            TournamentGameView(
                 tournament: $tournament,
                 onStart: startGame
             )
@@ -78,11 +78,9 @@ struct MakeView: View {
                 .be(slippery: slippery)
             : tournament.start()
         
-        game.gameMaker = !showTournament ? next : GameMaker()
+        game.tournament = showTournament ? tournament : nil
         game.current = next.makeGame()
         game.layer = next.layCount - 1
-        
-        game.tournament = showTournament ? tournament : nil
         
         presentationMode.wrappedValue.dismiss()
     }
@@ -92,9 +90,9 @@ struct MakeView: View {
 struct MakeView_Previews: PreviewProvider {    
     static var previews: some View {
         Group {
-            MakeView(previous: GameMaker(), tournament: nil)
+            MakeView(previous: GameMaker().makeGame(), tournament: nil)
                 .preferredColorScheme(.dark)
-            MakeView(previous: GameMaker(), tournament: .simple_2d)
+            MakeView(previous: GameMaker().makeGame(), tournament: .simple_2d)
                 .preferredColorScheme(.light)
         }
         .environmentObject(GameEnvironment())

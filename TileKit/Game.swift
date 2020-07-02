@@ -1,32 +1,16 @@
 import Foundation
 
 internal final class Game: GameInfo {
-    public let apprentice: Bool
-    public let slippery: Bool
-    
-    public init(deck: TilesDeck, area: TilesArea, apprentice: Bool, slippery: Bool) {
-        self.apprentice = apprentice
-        self.slippery = slippery
-        
-        super.init(deck: deck, area: area)
-    }
-    
-    private init(id: UUID, deck: TilesDeck, area: TilesArea, apprentice: Bool, slippery: Bool, move: MoveDirection?, last: Game?) {
-        self.apprentice = apprentice
-        self.slippery = slippery
-        
-        super.init(id: id, deck: deck, area: area, move: move, last: last)
-    }
-    
     public override func view(to direction: MoveDirection) -> GameInfo? {
         if area.canMove(to: direction) {
             let nextArea = area.move(
                 to: direction,
-                slippery: slippery,
+                slippery: maker.slippery,
                 nextTile: .empty
             )
             return GameInfo(
                 id: id,
+                maker: maker,
                 deck: deck,
                 area: nextArea,
                 move: direction,
@@ -40,7 +24,7 @@ internal final class Game: GameInfo {
         if area.canMove(to: direction) {
             let nextArea = area.move(
                 to: direction,
-                slippery: slippery,
+                slippery: maker.slippery,
                 nextTile: deck.tile
             )
             let nextDeck = deck.next(
@@ -48,12 +32,11 @@ internal final class Game: GameInfo {
             )
             return Game(
                 id: id,
+                maker: maker,
                 deck: nextDeck,
                 area: nextArea,
-                apprentice: apprentice,
-                slippery: slippery,
-                move: apprentice ? direction : nil,
-                last: apprentice ? self : nil
+                move: maker.apprentice ? direction : nil,
+                last: maker.apprentice ? self : nil
             )
         }
         return self
@@ -62,6 +45,7 @@ internal final class Game: GameInfo {
 
 public class GameInfo: Identifiable {
     public let id: UUID
+    public let maker: GameMaker
     
     public let deck: TilesDeck
     public let area: TilesArea
@@ -69,18 +53,20 @@ public class GameInfo: Identifiable {
     public let move: MoveDirection?
     public let last: GameInfo?
     
-    public init(deck: TilesDeck, area: TilesArea) {
+    public init(maker: GameMaker, deck: TilesDeck, area: TilesArea) {
+        self.id = UUID()
+        self.maker = maker
+        
         self.deck = deck
         self.area = area
         
         self.move = nil
         self.last = nil
-        
-        id = UUID()
     }
     
-    fileprivate init(id: UUID, deck: TilesDeck, area: TilesArea, move: MoveDirection?, last: GameInfo?) {
+    fileprivate init(id: UUID, maker: GameMaker, deck: TilesDeck, area: TilesArea, move: MoveDirection?, last: GameInfo?) {
         self.id = id
+        self.maker = maker
         
         self.deck = deck
         self.area = area

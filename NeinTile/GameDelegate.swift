@@ -84,12 +84,12 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
         }
     }
     
-    func submitTotalScore(_ tournament: Tournament, _ totalScore: Int) {
+    func submitTotalScore(_ tournament: Tournament?, _ totalScore: Int) {
         guard Self.enabled else {
             return
         }
         
-        let score = GKScore(leaderboardIdentifier: tournament.rawValue)
+        let score = GKScore(leaderboardIdentifier: tournament?.rawValue ?? "custom")
         score.value = Int64(totalScore)
         score.context = 0
         

@@ -22,7 +22,7 @@ struct GameSamples {
         let deck = TilesDeck(mixer: maker.makeMixer(), lottery: maker.makeLottery())
         let area = TilesArea(tiles: tiles, dealer: maker.makeDealer(), merger: maker.makeMerger())
         
-        return GameInfo(deck: deck, area: area)
+        return GameInfo(maker: GameMaker().use(custom: maker).use(colCount: tiles.colCount, rowCount: tiles.rowCount, layCount: tiles.layCount), deck: deck, area: area)
     }()
     
     static let classic: GameInfo = {
@@ -48,7 +48,7 @@ struct GameSamples {
         let deck = TilesDeck(mixer: maker.makeMixer(), lottery: maker.makeLottery())
         let area = TilesArea(tiles: tiles, dealer: maker.makeDealer(), merger: maker.makeMerger())
         
-        return GameInfo(deck: deck, area: area)
+        return GameInfo(maker: GameMaker().use(custom: maker).use(colCount: tiles.colCount, rowCount: tiles.rowCount, layCount: tiles.layCount), deck: deck, area: area)
     }()
     
     static let duality: GameInfo = {
@@ -69,7 +69,7 @@ struct GameSamples {
         let deck = TilesDeck(mixer: maker.makeMixer(), lottery: maker.makeLottery())
         let area = TilesArea(tiles: tiles, dealer: maker.makeDealer(), merger: maker.makeMerger())
         
-        return GameInfo(deck: deck, area: area)
+        return GameInfo(maker: GameMaker().use(custom: maker).use(colCount: tiles.colCount, rowCount: tiles.rowCount, layCount: tiles.layCount), deck: deck, area: area)
     }()
     
     static let insanity: GameInfo = {
@@ -88,7 +88,7 @@ struct GameSamples {
         let deck = TilesDeck(mixer: maker.makeMixer(), lottery: maker.makeLottery())
         let area = TilesArea(tiles: tiles, dealer: maker.makeDealer(), merger: maker.makeMerger())
         
-        return GameInfo(deck: deck, area: area)
+        return GameInfo(maker: GameMaker().use(custom: maker).use(colCount: tiles.colCount, rowCount: tiles.rowCount, layCount: tiles.layCount), deck: deck, area: area)
     }()
     
     static let fibonacci: GameInfo = {
@@ -111,7 +111,7 @@ struct GameSamples {
         let deck = TilesDeck(mixer: maker.makeMixer(), lottery: maker.makeLottery())
         let area = TilesArea(tiles: tiles, dealer: maker.makeDealer(), merger: maker.makeMerger())
         
-        return GameInfo(deck: deck, area: area)
+        return GameInfo(maker: GameMaker().use(custom: maker).use(colCount: tiles.colCount, rowCount: tiles.rowCount, layCount: tiles.layCount), deck: deck, area: area)
     }()
 }
 

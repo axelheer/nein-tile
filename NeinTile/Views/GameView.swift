@@ -60,17 +60,18 @@ struct GameView: View {
     }
     
     func onFinish(_ next: GameInfo) {
-        if let tournament = game.tournament {
+        AppNotifications.gameCenter.post(
+            object: GameCenterCommand.submitTotalScore(game.tournament, next.score))
+        if let edition = game.current.maker.edition {
+            let progress = Double(next.score) / Double(10_000)
             AppNotifications.gameCenter.post(
-                object: GameCenterCommand.submitTotalScore(tournament, next.score))
-        } else {
+                object: GameCenterCommand.submitEdition(edition, progress))
+        }
+        let tileCount = next.area.tiles.count
+        if achievements.contains(tileCount) {
+            let progress = Double(next.score) / Double(tileCount * 10)
             AppNotifications.gameCenter.post(
-                object: GameCenterCommand.submitEdition(game.gameMaker.edition, Double(next.score) / 10_000))
-            if achievements.contains(next.area.tiles.count) {
-                let progress = Double(next.score) / Double(next.area.tiles.count * 10)
-                AppNotifications.gameCenter.post(
-                    object: GameCenterCommand.submitTileCount(next.area.tiles.count, progress))
-            }
+                object: GameCenterCommand.submitTileCount(tileCount, progress))
         }
     }
 }

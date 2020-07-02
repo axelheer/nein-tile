@@ -63,7 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 title: "",
                 action: #selector(handleKeyCommand(sender:)),
                 input: "n",
-                modifierFlags: .command,
                 propertyList: "nextSample"
             )
         )
