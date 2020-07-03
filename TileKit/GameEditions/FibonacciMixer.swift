@@ -1,4 +1,4 @@
-public struct FibonacciMixer<GameOfDice: GameOfDiceProtocol>: Mixer {
+public struct FibonacciMixer<GameOfDice: GameOfDiceProtocol>: Mixer, Codable {
     public let gameOfDice: GameOfDice
     
     public init(gameOfDice: GameOfDice) {
@@ -13,5 +13,9 @@ public struct FibonacciMixer<GameOfDice: GameOfDiceProtocol>: Mixer {
     
     public func next() -> FibonacciMixer<GameOfDice> {
         return FibonacciMixer(gameOfDice: gameOfDice.next())
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case gameOfDice
     }
 }

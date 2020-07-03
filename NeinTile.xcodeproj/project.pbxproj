@@ -49,6 +49,9 @@
 		7734628724974F6900790669 /* TournamentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628624974F6900790669 /* TournamentView.swift */; };
 		77346289249755DB00790669 /* GestureModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77346288249755DB00790669 /* GestureModifier.swift */; };
 		7734628D2497597800790669 /* EndingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734628C2497597800790669 /* EndingModifier.swift */; };
+		775768D324AF4677002FCB40 /* AnyDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775768D224AF4677002FCB40 /* AnyDealer.swift */; };
+		775768D624AF4C21002FCB40 /* AnyDealerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775768D524AF4C21002FCB40 /* AnyDealerTests.swift */; };
+		775768D824AF5256002FCB40 /* GameOfDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775768D724AF5256002FCB40 /* GameOfDice.swift */; };
 		775C202E2487B0E100EDA421 /* MakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C202D2487B0E100EDA421 /* MakeView.swift */; };
 		7761EF5C249B40630027152E /* GameSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7761EF5B249B40630027152E /* GameSamples.swift */; };
 		7784E02E249531F900A2FF12 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7784E02D249531F900A2FF12 /* GameKit.framework */; };
@@ -100,6 +103,11 @@
 		77CB30FD24790D9C00744F21 /* SimpleMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB30FC24790D9C00744F21 /* SimpleMakerTests.swift */; };
 		77CB30FF24790DA500744F21 /* SimpleMergerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB30FE24790DA500744F21 /* SimpleMergerTests.swift */; };
 		77CB310124790DAE00744F21 /* SimpleMixerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB310024790DAE00744F21 /* SimpleMixerTests.swift */; };
+		77CB78EC24AFBA3700BEC3D8 /* SimpleSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 77CB78EB24AFBA3700BEC3D8 /* SimpleSample.json */; };
+		77CB78F124AFBA7100BEC3D8 /* ClassicSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 77CB78ED24AFBA7100BEC3D8 /* ClassicSample.json */; };
+		77CB78F224AFBA7100BEC3D8 /* DualitySample.json in Resources */ = {isa = PBXBuildFile; fileRef = 77CB78EE24AFBA7100BEC3D8 /* DualitySample.json */; };
+		77CB78F324AFBA7100BEC3D8 /* FibonacciSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 77CB78EF24AFBA7100BEC3D8 /* FibonacciSample.json */; };
+		77CB78F424AFBA7100BEC3D8 /* InsanitySample.json in Resources */ = {isa = PBXBuildFile; fileRef = 77CB78F024AFBA7100BEC3D8 /* InsanitySample.json */; };
 		77D2D53F2490189700E516D6 /* LazyInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2D53E2490189700E516D6 /* LazyInt.swift */; };
 		77D579892483D5B200881407 /* AreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D579882483D5B200881407 /* AreaView.swift */; };
 		77DE6DA624851BF50004EE13 /* LayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE6DA524851BF50004EE13 /* LayerView.swift */; };
@@ -107,6 +115,12 @@
 		77DE6DAA248528E60004EE13 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE6DA9248528E60004EE13 /* DeckView.swift */; };
 		77EF2E832484CAA900CD702E /* TileKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771558D92477C06300A8CAA1 /* TileKit.framework */; };
 		77F6AB722496AF5A004A5B83 /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F6AB712496AF5A004A5B83 /* AppNotifications.swift */; };
+		77FDE20724AF66EA00F28380 /* AnyLottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FDE20624AF66EA00F28380 /* AnyLottery.swift */; };
+		77FDE20924AF6BA200F28380 /* AnyLotteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FDE20824AF6BA200F28380 /* AnyLotteryTests.swift */; };
+		77FDE20B24AF9AA500F28380 /* AnyMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FDE20A24AF9AA500F28380 /* AnyMerger.swift */; };
+		77FDE20F24AF9D0E00F28380 /* AnyMergerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FDE20E24AF9D0E00F28380 /* AnyMergerTests.swift */; };
+		77FDE21124AFA01400F28380 /* AnyMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FDE21024AFA01400F28380 /* AnyMixer.swift */; };
+		77FDE21324AFA23E00F28380 /* AnyMixerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FDE21224AFA23E00F28380 /* AnyMixerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +193,9 @@
 		7742771924731A4B00343F43 /* Mixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mixer.swift; sourceTree = "<group>"; };
 		7742771B24731A5B00343F43 /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
 		774E95792474680300923BE2 /* NeutralGameOfDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeutralGameOfDice.swift; sourceTree = "<group>"; };
+		775768D224AF4677002FCB40 /* AnyDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDealer.swift; sourceTree = "<group>"; };
+		775768D524AF4C21002FCB40 /* AnyDealerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDealerTests.swift; sourceTree = "<group>"; };
+		775768D724AF5256002FCB40 /* GameOfDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfDice.swift; sourceTree = "<group>"; };
 		775C202D2487B0E100EDA421 /* MakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeView.swift; sourceTree = "<group>"; };
 		7761EF5B249B40630027152E /* GameSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSamples.swift; sourceTree = "<group>"; };
 		77810E7024768BBB00C5315F /* Tiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiles.swift; sourceTree = "<group>"; };
@@ -240,12 +257,23 @@
 		77CB30FC24790D9C00744F21 /* SimpleMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMakerTests.swift; sourceTree = "<group>"; };
 		77CB30FE24790DA500744F21 /* SimpleMergerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMergerTests.swift; sourceTree = "<group>"; };
 		77CB310024790DAE00744F21 /* SimpleMixerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMixerTests.swift; sourceTree = "<group>"; };
+		77CB78EB24AFBA3700BEC3D8 /* SimpleSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SimpleSample.json; sourceTree = "<group>"; };
+		77CB78ED24AFBA7100BEC3D8 /* ClassicSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ClassicSample.json; sourceTree = "<group>"; };
+		77CB78EE24AFBA7100BEC3D8 /* DualitySample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DualitySample.json; sourceTree = "<group>"; };
+		77CB78EF24AFBA7100BEC3D8 /* FibonacciSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FibonacciSample.json; sourceTree = "<group>"; };
+		77CB78F024AFBA7100BEC3D8 /* InsanitySample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = InsanitySample.json; sourceTree = "<group>"; };
 		77D2D53E2490189700E516D6 /* LazyInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyInt.swift; sourceTree = "<group>"; };
 		77D579882483D5B200881407 /* AreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaView.swift; sourceTree = "<group>"; };
 		77DE6DA524851BF50004EE13 /* LayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerView.swift; sourceTree = "<group>"; };
 		77DE6DA7248520E50004EE13 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		77DE6DA9248528E60004EE13 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
 		77F6AB712496AF5A004A5B83 /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
+		77FDE20624AF66EA00F28380 /* AnyLottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyLottery.swift; sourceTree = "<group>"; };
+		77FDE20824AF6BA200F28380 /* AnyLotteryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyLotteryTests.swift; sourceTree = "<group>"; };
+		77FDE20A24AF9AA500F28380 /* AnyMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyMerger.swift; sourceTree = "<group>"; };
+		77FDE20E24AF9D0E00F28380 /* AnyMergerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyMergerTests.swift; sourceTree = "<group>"; };
+		77FDE21024AFA01400F28380 /* AnyMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyMixer.swift; sourceTree = "<group>"; };
+		77FDE21224AFA23E00F28380 /* AnyMixerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyMixerTests.swift; sourceTree = "<group>"; };
 		77FF20BF2477B324003C2552 /* ChaoticGameOfDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaoticGameOfDice.swift; sourceTree = "<group>"; };
 		77FF20C12477B4D8003C2552 /* LawfulGameOfDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawfulGameOfDice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -331,6 +359,7 @@
 			children = (
 				77AFCD0224927C0F007BC3BA /* Icon */,
 				77D579832483D1D400881407 /* Views */,
+				77CB78E824AFB8F300BEC3D8 /* Samples */,
 				77119C7D24715DA6004C5775 /* AppDelegate.swift */,
 				77F6AB712496AF5A004A5B83 /* AppNotifications.swift */,
 				77879FE3249602BC006F0B50 /* GameDelegate.swift */,
@@ -369,6 +398,7 @@
 		77119CCF2471A8D5004C5775 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				775768D724AF5256002FCB40 /* GameOfDice.swift */,
 				77810E752476E3F700C5315F /* TestLottery.swift */,
 				7791188024786CFC006BCD51 /* TestMaker.swift */,
 				77810E772476E40300C5315F /* TestMerger.swift */,
@@ -384,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				77119CBF24718322004C5775 /* Abstractions */,
+				775768D124AF465E002FCB40 /* Codables */,
 				77052FAD247879080012E187 /* GameEditions */,
 				77FF20C32477B6C0003C2552 /* GameOfDice */,
 				77D2D53D2490188300E516D6 /* Utilities */,
@@ -407,6 +438,7 @@
 		771558E72477C06300A8CAA1 /* TileKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				775768D424AF4C00002FCB40 /* Codables */,
 				77CB30F924790CB800744F21 /* GameEditions */,
 				77119CCF2471A8D5004C5775 /* Utilities */,
 				7791187E24786BA1006BCD51 /* GameMakerTests.swift */,
@@ -424,6 +456,28 @@
 				7784E02D249531F900A2FF12 /* GameKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		775768D124AF465E002FCB40 /* Codables */ = {
+			isa = PBXGroup;
+			children = (
+				775768D224AF4677002FCB40 /* AnyDealer.swift */,
+				77FDE20624AF66EA00F28380 /* AnyLottery.swift */,
+				77FDE20A24AF9AA500F28380 /* AnyMerger.swift */,
+				77FDE21024AFA01400F28380 /* AnyMixer.swift */,
+			);
+			path = Codables;
+			sourceTree = "<group>";
+		};
+		775768D424AF4C00002FCB40 /* Codables */ = {
+			isa = PBXGroup;
+			children = (
+				775768D524AF4C21002FCB40 /* AnyDealerTests.swift */,
+				77FDE20824AF6BA200F28380 /* AnyLotteryTests.swift */,
+				77FDE20E24AF9D0E00F28380 /* AnyMergerTests.swift */,
+				77FDE21224AFA23E00F28380 /* AnyMixerTests.swift */,
+			);
+			path = Codables;
 			sourceTree = "<group>";
 		};
 		77AFCD0224927C0F007BC3BA /* Icon */ = {
@@ -463,6 +517,18 @@
 				77CB310024790DAE00744F21 /* SimpleMixerTests.swift */,
 			);
 			path = GameEditions;
+			sourceTree = "<group>";
+		};
+		77CB78E824AFB8F300BEC3D8 /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				77CB78ED24AFBA7100BEC3D8 /* ClassicSample.json */,
+				77CB78EE24AFBA7100BEC3D8 /* DualitySample.json */,
+				77CB78EF24AFBA7100BEC3D8 /* FibonacciSample.json */,
+				77CB78F024AFBA7100BEC3D8 /* InsanitySample.json */,
+				77CB78EB24AFBA3700BEC3D8 /* SimpleSample.json */,
+			);
+			path = Samples;
 			sourceTree = "<group>";
 		};
 		77D2D53D2490188300E516D6 /* Utilities */ = {
@@ -626,7 +692,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				77119C8A24715DA7004C5775 /* LaunchScreen.storyboard in Resources */,
+				77CB78F324AFBA7100BEC3D8 /* FibonacciSample.json in Resources */,
+				77CB78EC24AFBA3700BEC3D8 /* SimpleSample.json in Resources */,
+				77CB78F124AFBA7100BEC3D8 /* ClassicSample.json in Resources */,
+				77CB78F424AFBA7100BEC3D8 /* InsanitySample.json in Resources */,
 				77119C8724715DA7004C5775 /* Preview Assets.xcassets in Resources */,
+				77CB78F224AFBA7100BEC3D8 /* DualitySample.json in Resources */,
 				77119C8424715DA7004C5775 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,6 +776,8 @@
 				778DB8892479A5A700AB7A6E /* DualityMaker.swift in Sources */,
 				7713C81D2479488E00302183 /* ClassicMixer.swift in Sources */,
 				771559082477C25200A8CAA1 /* Lottery.swift in Sources */,
+				775768D324AF4677002FCB40 /* AnyDealer.swift in Sources */,
+				77FDE20724AF66EA00F28380 /* AnyLottery.swift in Sources */,
 				778DB89B2479A61500AB7A6E /* FibonacciMerger.swift in Sources */,
 				771559092477C25200A8CAA1 /* Merger.swift in Sources */,
 				7713C81924793AC900302183 /* ClassicMerger.swift in Sources */,
@@ -718,6 +791,7 @@
 				77853D7F2491929F004FB25C /* PcgRandom.swift in Sources */,
 				771ABDCA247F8A07000A2FAE /* DefaultDealer.swift in Sources */,
 				7713C81B24793DA400302183 /* ClassicLottery.swift in Sources */,
+				77FDE21124AFA01400F28380 /* AnyMixer.swift in Sources */,
 				778DB8992479A60B00AB7A6E /* FibonacciMaker.swift in Sources */,
 				7715590E2477C25200A8CAA1 /* NeutralGameOfDice.swift in Sources */,
 				778DB8932479A5E100AB7A6E /* InsanityMerger.swift in Sources */,
@@ -739,6 +813,7 @@
 				778DB8952479A5F500AB7A6E /* InsanityMixer.swift in Sources */,
 				771559152477C25200A8CAA1 /* Tiles.swift in Sources */,
 				771559162477C25200A8CAA1 /* TilesArea.swift in Sources */,
+				77FDE20B24AF9AA500F28380 /* AnyMerger.swift in Sources */,
 				778DB8972479A5FF00AB7A6E /* FibonacciLottery.swift in Sources */,
 				771559172477C25200A8CAA1 /* TilesDeck.swift in Sources */,
 				7713C81F2479495A00302183 /* ClassicMaker.swift in Sources */,
@@ -755,7 +830,9 @@
 				771559192477C26A00A8CAA1 /* MoveIteratorTests.swift in Sources */,
 				778DB8B32479A6BE00AB7A6E /* FibonacciMergerTests.swift in Sources */,
 				778DB8A72479A66500AB7A6E /* InsanityLotteryTests.swift in Sources */,
+				77FDE20924AF6BA200F28380 /* AnyLotteryTests.swift in Sources */,
 				7715591A2477C26A00A8CAA1 /* TilesAreaTests.swift in Sources */,
+				775768D824AF5256002FCB40 /* GameOfDice.swift in Sources */,
 				778DB8AD2479A68900AB7A6E /* InsanityMixerTests.swift in Sources */,
 				7791186F2478166E006BCD51 /* TilesDeck.swift in Sources */,
 				7715591B2477C26A00A8CAA1 /* TestLottery.swift in Sources */,
@@ -763,6 +840,7 @@
 				778DB8A32479A65100AB7A6E /* DualityMergerTests.swift in Sources */,
 				7715591D2477C26A00A8CAA1 /* TestMixer.swift in Sources */,
 				7791187124781790006BCD51 /* TilesDeckTests.swift in Sources */,
+				77FDE20F24AF9D0E00F28380 /* AnyMergerTests.swift in Sources */,
 				77CB30FF24790DA500744F21 /* SimpleMergerTests.swift in Sources */,
 				7715591E2477C26A00A8CAA1 /* TilesArea.swift in Sources */,
 				778DB8AF2479A6A100AB7A6E /* FibonacciLotteryTests.swift in Sources */,
@@ -774,10 +852,12 @@
 				778DB8A12479A64600AB7A6E /* DualityMakerTests.swift in Sources */,
 				778DB8A92479A67100AB7A6E /* InsanityMakerTests.swift in Sources */,
 				7789F3142481641200B02432 /* DefaultDealerTests.swift in Sources */,
+				775768D624AF4C21002FCB40 /* AnyDealerTests.swift in Sources */,
 				778DB8A52479A65A00AB7A6E /* DualityMixerTests.swift in Sources */,
 				7713C82124794BA600302183 /* ClassicLotteryTests.swift in Sources */,
 				7791188124786CFC006BCD51 /* TestMaker.swift in Sources */,
 				778DB8B52479A6CD00AB7A6E /* FibonacciMixerTests.swift in Sources */,
+				77FDE21324AFA23E00F28380 /* AnyMixerTests.swift in Sources */,
 				7715591F2477C26A00A8CAA1 /* Tiles.swift in Sources */,
 				778DB89F2479A63C00AB7A6E /* DualityLotteryTests.swift in Sources */,
 				77CB30FB24790D9200744F21 /* SimpleLotteryTests.swift in Sources */,

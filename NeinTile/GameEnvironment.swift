@@ -3,20 +3,20 @@ import TileKit
 
 class GameEnvironment: ObservableObject {
     @Published var tournament: Tournament?
-    @Published var current: GameInfo
+    @Published var current: Game
     @Published var layer: Int
     
     @Published var dragBy: CGSize = .zero
     @Published var magnifyBy: CGFloat = 1
-    @Published var preview: GameInfo? = nil
+    @Published var preview: Game? = nil
     
     convenience init() {
         self.init(GameMaker().makeGame())
     }
     
-    init(_ initialGame: GameInfo) {
-        _current = .init(initialValue: initialGame)
-        _layer = .init(initialValue: initialGame.area.tiles.layCount - 1)
+    init(_ initial: Game) {
+        _current = .init(initialValue: initial)
+        _layer = .init(initialValue: initial.area.tiles.layCount - 1)
     }
 }
 

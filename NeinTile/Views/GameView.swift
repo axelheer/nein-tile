@@ -60,10 +60,11 @@ struct GameView: View {
         .accentColor(Color.orange)
     }
     
-    func onFinish(_ next: GameInfo) {
+    func onFinish(_ next: Game) {
         AppNotifications.gameCenter.post(
             object: GameCenterCommand.submitTotalScore(game.tournament, next.score))
-        if let edition = game.current.maker.edition {
+        let edition = game.current.maker.edition
+        if GameEdition.allCases.contains(edition) {
             let progress = Double(next.score) / Double(10_000)
             AppNotifications.gameCenter.post(
                 object: GameCenterCommand.submitEdition(edition, progress))

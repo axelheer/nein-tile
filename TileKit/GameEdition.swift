@@ -1,4 +1,4 @@
-public enum GameEdition: Int, CaseIterable {
+public enum GameEdition: String, CaseIterable, Codable {
     case simple
     case classic
     case duality

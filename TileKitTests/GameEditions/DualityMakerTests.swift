@@ -7,10 +7,10 @@ class DualityMakerTests: XCTestCase {
             .use(edition: .duality)
             .makeGame()
 
-        XCTAssertTrue(actual.area.dealer is DefaultDealer<NeutralGameOfDice>)
-        XCTAssertTrue(actual.deck.lottery is DualityLottery<NeutralGameOfDice>)
-        XCTAssertTrue(actual.area.merger is DualityMerger)
-        XCTAssertTrue(actual.deck.mixer is DualityMixer<NeutralGameOfDice>)
+        XCTAssertTrue(actual.area.dealer.dealer is DefaultDealer<NeutralGameOfDice>)
+        XCTAssertTrue(actual.deck.lottery.lottery is DualityLottery<NeutralGameOfDice>)
+        XCTAssertTrue(actual.area.merger.merger is DualityMerger)
+        XCTAssertTrue(actual.deck.mixer.mixer is DualityMixer<NeutralGameOfDice>)
     }
     
     func testMakeNonDeterministic() {
@@ -19,9 +19,9 @@ class DualityMakerTests: XCTestCase {
             .be(deterministic: false)
             .makeGame()
 
-        XCTAssertTrue(actual.area.dealer is DefaultDealer<ChaoticGameOfDice>)
-        XCTAssertTrue(actual.deck.lottery is DualityLottery<ChaoticGameOfDice>)
-        XCTAssertTrue(actual.area.merger is DualityMerger)
-        XCTAssertTrue(actual.deck.mixer is DualityMixer<ChaoticGameOfDice>)
+        XCTAssertTrue(actual.area.dealer.dealer is DefaultDealer<ChaoticGameOfDice>)
+        XCTAssertTrue(actual.deck.lottery.lottery is DualityLottery<ChaoticGameOfDice>)
+        XCTAssertTrue(actual.area.merger.merger is DualityMerger)
+        XCTAssertTrue(actual.deck.mixer.mixer is DualityMixer<ChaoticGameOfDice>)
     }
 }

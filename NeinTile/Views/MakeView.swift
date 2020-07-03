@@ -19,8 +19,8 @@ struct MakeView: View {
     @State private var showTournament: Bool
     @State private var tournament: Tournament
     
-    init(previous: GameInfo, tournament: Tournament?) {
-        _edition = .init(initialValue: previous.maker.edition ?? .simple)
+    init(previous: Game, tournament: Tournament?) {
+        _edition = .init(initialValue: previous.maker.edition)
         
         _colCount = .init(initialValue: previous.maker.colCount)
         _rowCount = .init(initialValue: previous.maker.rowCount)

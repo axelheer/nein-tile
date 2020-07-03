@@ -1,4 +1,4 @@
-public struct SimpleLottery<GameOfDice: GameOfDiceProtocol>: Lottery {
+public struct SimpleLottery<GameOfDice: GameOfDiceProtocol>: Lottery, Codable {
     public let gameOfDice: GameOfDice
     
     public init(gameOfDice: GameOfDice) {
@@ -16,5 +16,9 @@ public struct SimpleLottery<GameOfDice: GameOfDiceProtocol>: Lottery {
     
     public func next() -> SimpleLottery<GameOfDice> {
         return SimpleLottery(gameOfDice: gameOfDice.next())
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case gameOfDice
     }
 }

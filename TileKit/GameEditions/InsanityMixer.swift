@@ -1,4 +1,4 @@
-public struct InsanityMixer<GameOfDice: GameOfDiceProtocol>: Mixer {
+public struct InsanityMixer<GameOfDice: GameOfDiceProtocol>: Mixer, Codable {
     public let gameOfDice: GameOfDice
     
     public init(gameOfDice: GameOfDice) {
@@ -29,5 +29,9 @@ public struct InsanityMixer<GameOfDice: GameOfDiceProtocol>: Mixer {
     
     public func next() -> InsanityMixer<GameOfDice> {
         return InsanityMixer(gameOfDice: gameOfDice.next())
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case gameOfDice
     }
 }

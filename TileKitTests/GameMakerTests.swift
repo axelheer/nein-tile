@@ -16,11 +16,7 @@ class GameMakerTests: XCTestCase {
     
     func testMakerMove() {
         let subject = GameMaker()
-            .be(slippery: false)
-            .use(custom: TestMaker())
             .makeGame()
-        
-        (subject.area.merger as! TestMerger).onCanMerge = { (_, t) in t.value % 4 == 0 }
         
         let actual = subject.move(to: .right)
         

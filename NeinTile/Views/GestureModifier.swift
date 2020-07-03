@@ -8,7 +8,7 @@ struct GestureModifier: ViewModifier {
     @State private var tileSize: CGFloat = 0
     @State private var sampleIndex: Int = 0
     
-    let onFinish: (GameInfo) -> Void
+    let onFinish: (Game) -> Void
    
     var swipe: some Gesture {
         DragGesture()
@@ -180,7 +180,7 @@ struct GestureModifier: ViewModifier {
 }
 
 extension View {
-    func applyGestures(onFinish: @escaping (GameInfo) -> Void) -> some View {
+    func applyGestures(onFinish: @escaping (Game) -> Void) -> some View {
         return self.modifier(GestureModifier(onFinish: onFinish))
     }
 }

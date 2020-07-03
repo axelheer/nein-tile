@@ -1,4 +1,4 @@
-public struct Tile: Equatable, Hashable {
+public struct Tile: Equatable, Hashable, Codable {
     public static let empty = Tile(
         value: 0,
         score: 0

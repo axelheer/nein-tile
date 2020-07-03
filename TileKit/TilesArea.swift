@@ -1,10 +1,10 @@
-public struct TilesArea {
-    public let dealer: Dealer
-    public let merger: Merger
+public struct TilesArea: Codable {
+    public let dealer: AnyDealer
+    public let merger: AnyMerger
     
     public let tiles: Tiles
     
-    public init(tiles: Tiles, dealer: Dealer, merger: Merger) {
+    public init(tiles: Tiles, dealer: AnyDealer, merger: AnyMerger) {
         self.tiles = tiles
         self.dealer = dealer
         self.merger = merger

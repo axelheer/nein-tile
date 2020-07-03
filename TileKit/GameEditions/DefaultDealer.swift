@@ -1,4 +1,4 @@
-public struct DefaultDealer<GameOfDice: GameOfDiceProtocol>: Dealer {
+public struct DefaultDealer<GameOfDice: GameOfDiceProtocol>: Dealer, Codable {
     public let gameOfDice: GameOfDice
     
     public let ratio: Int
@@ -21,5 +21,10 @@ public struct DefaultDealer<GameOfDice: GameOfDiceProtocol>: Dealer {
     
     public func next() -> DefaultDealer<GameOfDice> {
         return DefaultDealer(gameOfDice: gameOfDice.next(), ratio: 4)
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case gameOfDice
+        case ratio
     }
 }

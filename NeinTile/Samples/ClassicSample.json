@@ -1,0 +1,205 @@
+{
+  "id" : "BC8250DE-00A6-4DF3-AAB5-A01BBC964197",
+  "maker" : {
+    "colCount" : 4,
+    "rowCount" : 4,
+    "layCount" : 2,
+    "edition" : "classic",
+    "deterministic" : true,
+    "apprentice" : true,
+    "slippery" : true
+  },
+  "deck" : {
+    "lottery" : {
+      "lotteryType" : "classic",
+      "deterministic" : true,
+      "lottery" : {
+        "gameOfDice" : {
+          "child" : 3677997196729127460,
+          "seed" : 9646002440047298852
+        }
+      }
+    },
+    "mixer" : {
+      "mixerType" : "classic",
+      "deterministic" : true,
+      "mixer" : {
+        "gameOfDice" : {
+          "child" : 17713584242440872481,
+          "seed" : 2555913979007810642
+        }
+      }
+    },
+    "hint" : [
+      {
+        "value" : 48,
+        "score" : 0
+      },
+      {
+        "value" : 96,
+        "score" : 0
+      },
+      {
+        "value" : 192,
+        "score" : 0
+      }
+    ],
+    "tile" : {
+      "value" : 96,
+      "score" : 0
+    },
+    "stack" : [
+    ]
+  },
+  "area" : {
+    "dealer" : {
+      "dealerType" : "default",
+      "deterministic" : true,
+      "dealer" : {
+        "ratio" : 4,
+        "gameOfDice" : {
+          "child" : 17824646498218681691,
+          "seed" : 15430994952643285844
+        }
+      }
+    },
+    "merger" : {
+      "mergerType" : "classic"
+    },
+    "tiles" : {
+      "colCount" : 4,
+      "rowCount" : 4,
+      "layCount" : 2,
+      "tiles" : [
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 384,
+          "score" : 0
+        },
+        {
+          "value" : 6,
+          "score" : 0
+        },
+        {
+          "value" : 1536,
+          "score" : 0
+        },
+        {
+          "value" : 3072,
+          "score" : 0
+        },
+        {
+          "value" : 6,
+          "score" : 0
+        },
+        {
+          "value" : 12,
+          "score" : 0
+        },
+        {
+          "value" : 384,
+          "score" : 0
+        },
+        {
+          "value" : 24,
+          "score" : 0
+        },
+        {
+          "value" : 1,
+          "score" : 0
+        },
+        {
+          "value" : 192,
+          "score" : 0
+        },
+        {
+          "value" : 48,
+          "score" : 0
+        },
+        {
+          "value" : 2,
+          "score" : 0
+        },
+        {
+          "value" : 3,
+          "score" : 0
+        },
+        {
+          "value" : 6,
+          "score" : 0
+        },
+        {
+          "value" : 1,
+          "score" : 0
+        },
+        {
+          "value" : 3,
+          "score" : 0
+        }
+      ]
+    }
+  }
+}

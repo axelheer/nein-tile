@@ -1,0 +1,269 @@
+{
+  "id" : "30D2FF7C-A534-42FB-AE5C-5EEDF7EE692C",
+  "maker" : {
+    "colCount" : 5,
+    "rowCount" : 5,
+    "layCount" : 2,
+    "edition" : "insanity",
+    "deterministic" : true,
+    "apprentice" : true,
+    "slippery" : true
+  },
+  "deck" : {
+    "lottery" : {
+      "lotteryType" : "insanity",
+      "deterministic" : true,
+      "lottery" : {
+        "gameOfDice" : {
+          "child" : 3677997196729127460,
+          "seed" : 9646002440047298852
+        }
+      }
+    },
+    "mixer" : {
+      "mixerType" : "insanity",
+      "deterministic" : true,
+      "mixer" : {
+        "gameOfDice" : {
+          "child" : 17713584242440872481,
+          "seed" : 2555913979007810642
+        }
+      }
+    },
+    "hint" : [
+      {
+        "value" : -3,
+        "score" : 0
+      }
+    ],
+    "tile" : {
+      "value" : -3,
+      "score" : 0
+    },
+    "stack" : [
+    ]
+  },
+  "area" : {
+    "dealer" : {
+      "dealerType" : "default",
+      "deterministic" : true,
+      "dealer" : {
+        "ratio" : 4,
+        "gameOfDice" : {
+          "child" : 17824646498218681691,
+          "seed" : 15430994952643285844
+        }
+      }
+    },
+    "merger" : {
+      "mergerType" : "insanity"
+    },
+    "tiles" : {
+      "colCount" : 5,
+      "rowCount" : 5,
+      "layCount" : 2,
+      "tiles" : [
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 6,
+          "score" : 0
+        },
+        {
+          "value" : -3,
+          "score" : 0
+        },
+        {
+          "value" : 12,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 1
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 1
+        },
+        {
+          "value" : 24,
+          "score" : 0
+        },
+        {
+          "value" : 3,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 48,
+          "score" : 0
+        },
+        {
+          "value" : -2,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        }
+      ]
+    }
+  }
+}

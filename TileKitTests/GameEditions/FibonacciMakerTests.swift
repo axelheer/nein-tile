@@ -7,10 +7,10 @@ class FibonacciMakerTests: XCTestCase {
             .use(edition: .fibonacci)
             .makeGame()
 
-        XCTAssertTrue(actual.area.dealer is DefaultDealer<NeutralGameOfDice>)
-        XCTAssertTrue(actual.deck.lottery is FibonacciLottery<NeutralGameOfDice>)
-        XCTAssertTrue(actual.area.merger is FibonacciMerger)
-        XCTAssertTrue(actual.deck.mixer is FibonacciMixer<NeutralGameOfDice>)
+        XCTAssertTrue(actual.area.dealer.dealer is DefaultDealer<NeutralGameOfDice>)
+        XCTAssertTrue(actual.deck.lottery.lottery is FibonacciLottery<NeutralGameOfDice>)
+        XCTAssertTrue(actual.area.merger.merger is FibonacciMerger)
+        XCTAssertTrue(actual.deck.mixer.mixer is FibonacciMixer<NeutralGameOfDice>)
     }
     
     func testMakeNonDeterministic() {
@@ -19,9 +19,9 @@ class FibonacciMakerTests: XCTestCase {
             .be(deterministic: false)
             .makeGame()
 
-        XCTAssertTrue(actual.area.dealer is DefaultDealer<ChaoticGameOfDice>)
-        XCTAssertTrue(actual.deck.lottery is FibonacciLottery<ChaoticGameOfDice>)
-        XCTAssertTrue(actual.area.merger is FibonacciMerger)
-        XCTAssertTrue(actual.deck.mixer is FibonacciMixer<ChaoticGameOfDice>)
+        XCTAssertTrue(actual.area.dealer.dealer is DefaultDealer<ChaoticGameOfDice>)
+        XCTAssertTrue(actual.deck.lottery.lottery is FibonacciLottery<ChaoticGameOfDice>)
+        XCTAssertTrue(actual.area.merger.merger is FibonacciMerger)
+        XCTAssertTrue(actual.deck.mixer.mixer is FibonacciMixer<ChaoticGameOfDice>)
     }
 }

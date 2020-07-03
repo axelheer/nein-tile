@@ -1,19 +1,16 @@
-public struct GameMaker {
-    public let custom: Maker?
-    
+public final class GameMaker: Codable {
     public let colCount: Int
     public let rowCount: Int
     public let layCount: Int
     
-    public let edition: GameEdition?
+    public let edition: GameEdition
     
     public let deterministic: Bool
     public let apprentice: Bool
     public let slippery: Bool
     
-    public init() {
+    public convenience init() {
         self.init(
-            custom: nil,
             colCount: 4,
             rowCount: 4,
             layCount: 1,
@@ -24,28 +21,16 @@ public struct GameMaker {
         )
     }
     
-    private init(custom: Maker?, colCount: Int, rowCount: Int, layCount: Int, edition: GameEdition?, deterministic: Bool, apprentice: Bool, slippery: Bool) {
-        self.custom = custom
+    private init(colCount: Int, rowCount: Int, layCount: Int, edition: GameEdition, deterministic: Bool, apprentice: Bool, slippery: Bool) {
         self.colCount = colCount
         self.rowCount = rowCount
         self.layCount = layCount
+        
         self.edition = edition
+        
         self.deterministic = deterministic
         self.apprentice = apprentice
         self.slippery = slippery
-    }
-    
-    public func use(custom: Maker) -> GameMaker {
-        return GameMaker(
-            custom: custom,
-            colCount: colCount,
-            rowCount: rowCount,
-            layCount: layCount,
-            edition: nil,
-            deterministic: deterministic,
-            apprentice: apprentice,
-            slippery: slippery
-        )
     }
     
     public func use(colCount: Int, rowCount: Int, layCount: Int = 1) -> GameMaker {
@@ -54,7 +39,6 @@ public struct GameMaker {
         precondition(layCount > 0, "Count out of range")
         
         return GameMaker(
-            custom: custom,
             colCount: colCount,
             rowCount: rowCount,
             layCount: layCount,
@@ -67,7 +51,6 @@ public struct GameMaker {
     
     public func use(edition: GameEdition) -> GameMaker {
        return GameMaker(
-            custom: nil,
             colCount: colCount,
             rowCount: rowCount,
             layCount: layCount,
@@ -80,7 +63,6 @@ public struct GameMaker {
     
     public func be(deterministic: Bool) -> GameMaker {
         return GameMaker(
-            custom: custom,
             colCount: colCount,
             rowCount: rowCount,
             layCount: layCount,
@@ -93,7 +75,6 @@ public struct GameMaker {
     
     public func be(apprentice: Bool) -> GameMaker {
         return GameMaker(
-            custom: custom,
             colCount: colCount,
             rowCount: rowCount,
             layCount: layCount,
@@ -106,7 +87,6 @@ public struct GameMaker {
     
     public func be(slippery: Bool) -> GameMaker {
         return GameMaker(
-            custom: custom,
             colCount: colCount,
             rowCount: rowCount,
             layCount: layCount,
@@ -117,16 +97,16 @@ public struct GameMaker {
         )
     }
     
-    public func makeGame() -> GameInfo {
-        let maker = custom ?? edition!.maker(deterministic: deterministic)
+    public func makeGame() -> Game {
+        let maker = edition.maker(deterministic: deterministic)
         var tiles = Tiles(
             colCount: colCount,
             rowCount: rowCount,
             layCount: layCount
         )
         var deck = TilesDeck(
-            mixer: maker.makeMixer(),
-            lottery: maker.makeLottery()
+            mixer: AnyMixer(maker.makeMixer()),
+            lottery: AnyLottery(maker.makeLottery())
         )
         let dealer = maker.makeDealer()
         for index in dealer.part(tiles.indices) {
@@ -135,8 +115,8 @@ public struct GameMaker {
         }
         let area = TilesArea(
             tiles: tiles,
-            dealer: dealer.next(),
-            merger: maker.makeMerger()
+            dealer: AnyDealer(dealer.next()),
+            merger: AnyMerger(maker.makeMerger())
         )
         return Game(
             maker: self,

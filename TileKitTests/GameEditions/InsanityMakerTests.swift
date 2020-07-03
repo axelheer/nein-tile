@@ -7,10 +7,10 @@ class InsanityMakerTests: XCTestCase {
             .use(edition: .insanity)
             .makeGame()
 
-        XCTAssertTrue(actual.area.dealer is DefaultDealer<NeutralGameOfDice>)
-        XCTAssertTrue(actual.deck.lottery is InsanityLottery<NeutralGameOfDice>)
-        XCTAssertTrue(actual.area.merger is InsanityMerger)
-        XCTAssertTrue(actual.deck.mixer is InsanityMixer<NeutralGameOfDice>)
+        XCTAssertTrue(actual.area.dealer.dealer is DefaultDealer<NeutralGameOfDice>)
+        XCTAssertTrue(actual.deck.lottery.lottery is InsanityLottery<NeutralGameOfDice>)
+        XCTAssertTrue(actual.area.merger.merger is InsanityMerger)
+        XCTAssertTrue(actual.deck.mixer.mixer is InsanityMixer<NeutralGameOfDice>)
     }
     
     func testMakeNonDeterministic() {
@@ -19,9 +19,9 @@ class InsanityMakerTests: XCTestCase {
             .be(deterministic: false)
             .makeGame()
 
-        XCTAssertTrue(actual.area.dealer is DefaultDealer<ChaoticGameOfDice>)
-        XCTAssertTrue(actual.deck.lottery is InsanityLottery<ChaoticGameOfDice>)
-        XCTAssertTrue(actual.area.merger is InsanityMerger)
-        XCTAssertTrue(actual.deck.mixer is InsanityMixer<ChaoticGameOfDice>)
+        XCTAssertTrue(actual.area.dealer.dealer is DefaultDealer<ChaoticGameOfDice>)
+        XCTAssertTrue(actual.deck.lottery.lottery is InsanityLottery<ChaoticGameOfDice>)
+        XCTAssertTrue(actual.area.merger.merger is InsanityMerger)
+        XCTAssertTrue(actual.deck.mixer.mixer is InsanityMixer<ChaoticGameOfDice>)
     }
 }

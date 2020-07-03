@@ -14,7 +14,7 @@ class TilesDeckTest: XCTestCase {
     
     func testMixNext() {
         let (subject, _, mixer) = makeTestDeck()
-        mixer.onMix = { [Tile(value: 1, score: 1), Tile(value: 2, score: 2)] }
+        mixer.onMix = { [Tile(value: 2, score: 2), Tile(value: 1, score: 1)] }
         
         let actual = subject.next(maxValue: 0).next(maxValue: 0)
         

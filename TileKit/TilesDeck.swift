@@ -1,19 +1,19 @@
-public struct TilesDeck {
-    public let lottery: Lottery
-    public let mixer: Mixer
+public struct TilesDeck: Codable {
+    public let lottery: AnyLottery
+    public let mixer: AnyMixer
     
     public let tile: Tile
     public let hint: TileHint
     
-    private let stack: ArraySlice<Tile>
+    private let stack: [Tile]
     
-    public init(mixer: Mixer, lottery: Lottery) {
+    public init(mixer: AnyMixer, lottery: AnyLottery) {
         let stack = mixer.mix()
         guard let tile = stack.first else {
             fatalError("Out of tiles")
         }
         self.init(
-            stack: stack.dropFirst(),
+            stack: stack.dropLast(),
             tile: tile,
             hint: .single(tile),
             mixer: mixer.next(),
@@ -21,7 +21,7 @@ public struct TilesDeck {
         )
     }
     
-    private init(stack: ArraySlice<Tile>, tile: Tile, hint: TileHint, mixer: Mixer, lottery: Lottery) {
+    private init(stack: [Tile], tile: Tile, hint: TileHint, mixer: AnyMixer, lottery: AnyLottery) {
         self.stack = stack
         self.tile = tile
         self.hint = hint
@@ -39,9 +39,9 @@ public struct TilesDeck {
                 lottery: lottery.next()
             )
         }
-        if let tile = stack.first {
+        if let tile = stack.last {
             return TilesDeck(
-                stack: stack.dropFirst(),
+                stack: stack.dropLast(),
                 tile: tile,
                 hint: .single(tile),
                 mixer: mixer,

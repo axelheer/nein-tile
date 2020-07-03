@@ -1,0 +1,933 @@
+{
+  "id" : "7CDD375B-FDB8-4E8D-8C2F-F2D297D87CDD",
+  "maker" : {
+    "colCount" : 6,
+    "rowCount" : 6,
+    "layCount" : 6,
+    "edition" : "fibonacci",
+    "deterministic" : true,
+    "apprentice" : true,
+    "slippery" : true
+  },
+  "deck" : {
+    "lottery" : {
+      "lotteryType" : "fibonacci",
+      "deterministic" : true,
+      "lottery" : {
+        "gameOfDice" : {
+          "child" : 3677997196729127460,
+          "seed" : 9646002440047298852
+        }
+      }
+    },
+    "mixer" : {
+      "mixerType" : "fibonacci",
+      "deterministic" : true,
+      "mixer" : {
+        "gameOfDice" : {
+          "child" : 17713584242440872481,
+          "seed" : 2555913979007810642
+        }
+      }
+    },
+    "hint" : [
+      {
+        "value" : 1,
+        "score" : 0
+      }
+    ],
+    "tile" : {
+      "value" : 1,
+      "score" : 0
+    },
+    "stack" : [
+    ]
+  },
+  "area" : {
+    "dealer" : {
+      "dealerType" : "default",
+      "deterministic" : true,
+      "dealer" : {
+        "ratio" : 4,
+        "gameOfDice" : {
+          "child" : 17824646498218681691,
+          "seed" : 15430994952643285844
+        }
+      }
+    },
+    "merger" : {
+      "mergerType" : "fibonacci"
+    },
+    "tiles" : {
+      "colCount" : 6,
+      "rowCount" : 6,
+      "layCount" : 6,
+      "tiles" : [
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 3,
+          "score" : 0
+        },
+        {
+          "value" : 21,
+          "score" : 0
+        },
+        {
+          "value" : 55,
+          "score" : 0
+        },
+        {
+          "value" : 987,
+          "score" : 0
+        },
+        {
+          "value" : 2584,
+          "score" : 0
+        },
+        {
+          "value" : 144,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 3,
+          "score" : 0
+        },
+        {
+          "value" : 13,
+          "score" : 0
+        },
+        {
+          "value" : 2,
+          "score" : 0
+        },
+        {
+          "value" : 21,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 5,
+          "score" : 0
+        },
+        {
+          "value" : 55,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 0,
+          "score" : 0
+        },
+        {
+          "value" : 1,
+          "score" : 0
+        }
+      ]
+    }
+  }
+}
