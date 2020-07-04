@@ -58,6 +58,9 @@ struct GameView: View {
             }
         }
         .accentColor(Color.orange)
+        .onAppear() {
+            AppNotifications.gameCenter.post(object: GameCenterCommand.authenticate)
+        }
     }
     
     func onFinish(_ next: Game) {

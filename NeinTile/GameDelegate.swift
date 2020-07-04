@@ -11,7 +11,7 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
             if let e = error {
                 print("Failed to authenticate: \(e.localizedDescription)")
             }
-            if let controller = viewController {
+            else if let controller = viewController {
                 rootController.present(
                     controller,
                     animated: true,
@@ -50,17 +50,31 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
             return
         }
         
-        if (progress > 1) {
-            let achievement = GKAchievement(identifier: "edition_\(edition)")
-            achievement.percentComplete = progress
+        var achievements = [GKAchievement]()
+        
+        if (progress < 1) {
+            let noob = GKAchievement(identifier: "noob_\(edition)")
+            noob.percentComplete = 100.0
             
-            submitAchievement(achievement)
-        } else {
-            let achievement = GKAchievement(identifier: "noob_\(edition)")
-            achievement.percentComplete = 100.0
-            
-            submitAchievement(achievement)
+            achievements.append(noob)
         }
+        
+        let apprentice = GKAchievement(identifier: "apprentice_\(edition)")
+        apprentice.percentComplete = progress * 10.0
+        
+        achievements.append(apprentice)
+        
+        let mistress = GKAchievement(identifier: "mistress_\(edition)")
+        mistress.percentComplete = progress * 4.0
+        
+        achievements.append(mistress)
+        
+        let edition = GKAchievement(identifier: "edition_\(edition)")
+        edition.percentComplete = progress
+        
+        achievements.append(edition)
+        
+        submitAchievements(achievements)
     }
     
     func submitTileCount(_ tileCount: Int, _ progress: Double) {
@@ -71,13 +85,15 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
         let achievement = GKAchievement(identifier: "tiles_\(tileCount)")
         achievement.percentComplete = progress
         
-        submitAchievement(achievement)
+        submitAchievements([achievement])
     }
     
-    private func submitAchievement(_ achievement: GKAchievement) {
-        achievement.showsCompletionBanner = true
+    private func submitAchievements(_ achievements: [GKAchievement]) {
+        for achievement in achievements {
+            achievement.showsCompletionBanner = true
+        }
         
-        GKAchievement.report([achievement]) { error in
+        GKAchievement.report(achievements) { error in
             if let e = error {
                 print("Failed to submit achievement: \(e.localizedDescription)")
             }
