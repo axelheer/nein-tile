@@ -9,7 +9,7 @@ public struct TilesDeck: Codable {
     
     public init(mixer: AnyMixer, lottery: AnyLottery) {
         let stack = mixer.mix()
-        guard let tile = stack.first else {
+        guard let tile = stack.last else {
             fatalError("Out of tiles")
         }
         self.init(
