@@ -78,6 +78,9 @@ struct GameView: View {
             AppNotifications.gameCenter.post(
                 object: GameCenterCommand.submitTileCount(tileCount, progress))
         }
+        AppNotifications.gameCenter.post(
+            object: GameCenterCommand.saveCurrentGame(next)
+        )
     }
 }
 

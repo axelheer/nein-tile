@@ -1,4 +1,4 @@
-import SwiftUI
+import Foundation
 import TileKit
 
 enum AppNotifications: String {
@@ -28,6 +28,11 @@ enum ControllerCommand {
 
 enum GameCenterCommand {
     case authenticate
+    case authenticated
+    case loadSavedGames
+    case dropSavedGame(UUID)
+    case saveCurrentGame(Game)
+    case savedGameLoaded(Data)
     case showAchievements
     case showLeaderboard
     case submitEdition(GameEdition, Double)

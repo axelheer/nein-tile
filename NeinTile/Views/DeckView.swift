@@ -69,9 +69,9 @@ struct DeckView: View {
     
     var rightButtonDisabled: Bool {
         if game.tournament != nil {
-            return !GameDelegate.enabled
+            return !game.gameCenter
         } else if game.current.done {
-            return !GameDelegate.enabled
+            return !game.gameCenter
         } else {
             return game.current.last == nil
         }

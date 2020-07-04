@@ -16,7 +16,7 @@ struct MakeView: View {
     @State private var apprentice: Bool
     @State private var slippery: Bool
     
-    @State private var showTournament: Bool
+    @State private var currentTab: TabKeys
     @State private var tournament: Tournament
     
     init(previous: Game, tournament: Tournament?) {
@@ -32,15 +32,21 @@ struct MakeView: View {
         
         if let tournament = tournament {
             _tournament = .init(initialValue: tournament)
-            _showTournament = .init(initialValue: true)
+            _currentTab = .init(initialValue: .tournament)
         } else {
             _tournament = .init(initialValue: .simple_2d)
-            _showTournament = .init(initialValue: false)
+            _currentTab = .init(initialValue: .custom)
         }
     }
     
+    enum TabKeys: String {
+        case custom
+        case tournament
+        case historic
+    }
+    
     var body: some View {
-        TabView(selection: $showTournament) {
+        TabView(selection: $currentTab) {
             CustomView(
                 edition: $edition,
                 colCount: $colCount,
@@ -55,7 +61,7 @@ struct MakeView: View {
                 Image(systemName: "wrench")
                 Text("Custom game")
             }
-            .tag(false)
+            .tag(TabKeys.custom)
             TournamentView(
                 tournament: $tournament,
                 onStart: startGame
@@ -64,12 +70,18 @@ struct MakeView: View {
                 Image(systemName: "globe")
                 Text("Tournament game")
             }
-            .tag(true)
+            .tag(TabKeys.tournament)
+            HistoryView()
+            .tabItem {
+                Image(systemName: "clock")
+                Text("Historic games")
+            }
+            .tag(TabKeys.historic)
         }
     }
     
     func startGame() {
-        let next = !showTournament
+        let next = currentTab != .tournament
             ? GameMaker()
                 .use(edition: edition)
                 .use(colCount: colCount, rowCount: rowCount, layCount: layCount)
@@ -78,7 +90,7 @@ struct MakeView: View {
                 .be(slippery: slippery)
             : tournament.start()
         
-        game.tournament = showTournament ? tournament : nil
+        game.tournament = currentTab == .tournament ? tournament : nil
         game.current = next.makeGame()
         game.layer = next.layCount - 1
         

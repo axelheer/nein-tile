@@ -2,21 +2,81 @@ import GameKit
 import TileKit
 
 class GameDelegate: NSObject, GKGameCenterControllerDelegate {
-    static var enabled: Bool {
-        GKLocalPlayer.local.isAuthenticated
-    }
+    var authenticatedPlayer: GKLocalPlayer?
     
     func authenticate(root rootController: UIViewController) {
-        GKLocalPlayer.local.authenticateHandler = { (viewController, error) in
+        let player = GKLocalPlayer.local
+        player.authenticateHandler = { (viewController, error) in
             if let e = error {
                 print("Failed to authenticate: \(e.localizedDescription)")
             }
-            else if let controller = viewController {
+            
+            if let controller = viewController {
                 rootController.present(
                     controller,
                     animated: true,
                     completion: nil
                 )
+            } else if player.isAuthenticated {
+                self.authenticatedPlayer = player
+            } else {
+                self.authenticatedPlayer = nil
+            }
+            
+            AppNotifications.gameCenter.post(object: GameCenterCommand.authenticated)
+        }
+    }
+    
+    func loadSavedGames() {
+        guard let player = authenticatedPlayer else {
+            return
+        }
+        
+        player.fetchSavedGames { (savedGames, error) in
+            if let e = error {
+                print("Failed to fetch saved games: \(e.localizedDescription)")
+            }
+            
+            if let savedGames = savedGames {                
+                for savedGame in savedGames {
+                    savedGame.loadData { (data, error) in
+                        if let e = error {
+                            print("Failed to fetch saved game: \(e.localizedDescription)")
+                        }
+                        
+                        if let data = data {
+                            AppNotifications.gameCenter.post(object: GameCenterCommand.savedGameLoaded(data))
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func dropSavedGame(id: UUID) {
+        guard let player = authenticatedPlayer else {
+            return
+        }
+        
+        player.deleteSavedGames(withName: id.uuidString) { error in
+            if let e = error {
+                print("Failed to drop saved game: \(e.localizedDescription)")
+            }
+        }
+    }
+    
+    func saveCurrentGame(id: UUID, data: Data) {
+        guard let player = authenticatedPlayer else {
+            return
+        }
+        
+        player.saveGameData(data, withName: id.uuidString) { (savedGame, error) in
+            if let e = error {
+                print("Failed to save game data: \(e.localizedDescription)")
+            }
+            
+            if savedGame != nil {
+                AppNotifications.gameCenter.post(object: GameCenterCommand.savedGameLoaded(data))
             }
         }
     }
@@ -30,10 +90,6 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
     }
     
     private func showGameCenter(root rootController: UIViewController, viewState: GKGameCenterViewControllerState) {
-        guard Self.enabled else {
-            return
-        }
-        
         let controller = GKGameCenterViewController()
         controller.gameCenterDelegate = self
         controller.viewState = viewState
@@ -46,10 +102,6 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
     }
     
     func submitEdition(_ edition: GameEdition, _ progress: Double) {
-        guard Self.enabled else {
-            return
-        }
-        
         var achievements = [GKAchievement]()
         
         if (progress < 1) {
@@ -78,10 +130,6 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
     }
     
     func submitTileCount(_ tileCount: Int, _ progress: Double) {
-        guard Self.enabled else {
-            return
-        }
-        
         let achievement = GKAchievement(identifier: "tiles_\(tileCount)")
         achievement.percentComplete = progress
         
@@ -101,10 +149,6 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
     }
     
     func submitTotalScore(_ tournament: Tournament?, _ totalScore: Int) {
-        guard Self.enabled else {
-            return
-        }
-        
         let score = GKScore(leaderboardIdentifier: tournament?.rawValue ?? "custom")
         score.value = Int64(totalScore)
         score.context = 0

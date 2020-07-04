@@ -1,4 +1,6 @@
-import SwiftUI
+import Combine
+import CoreGraphics
+import Foundation
 import TileKit
 
 class GameEnvironment: ObservableObject {
@@ -8,7 +10,10 @@ class GameEnvironment: ObservableObject {
     
     @Published var dragBy: CGSize = .zero
     @Published var magnifyBy: CGFloat = 1
-    @Published var preview: Game? = nil
+    @Published var preview: Game?
+    
+    @Published var gameCenter: Bool = false
+    @Published var gameHistory: [UUID: GameState] = .init()
     
     convenience init() {
         self.init(GameMaker().makeGame())
@@ -18,9 +23,37 @@ class GameEnvironment: ObservableObject {
         _current = .init(initialValue: initial)
         _layer = .init(initialValue: initial.area.tiles.layCount - 1)
     }
+    
+    struct GameState: Codable {
+        let tournament: Tournament?
+        let current: Game
+        let layer: Int
+        let time: Date
+    }
+    
+    func save(_ next: Game? = nil) throws -> (UUID, Data) {
+        let state = GameState(
+            tournament: tournament,
+            current: next ?? current,
+            layer: layer,
+            time: Date()
+        )
+        
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(state)
+        
+        return (state.current.id, data)
+    }
+    
+    func load(data: Data) throws -> GameState {
+        let decoder = JSONDecoder()
+        let state = try decoder.decode(GameState.self, from: data)
+        
+        return state
+    }
 }
 
-enum Tournament: String, CaseIterable {
+enum Tournament: String, CaseIterable, Codable {
     case simple_2d,
          simple_3d,
          classic_2d,

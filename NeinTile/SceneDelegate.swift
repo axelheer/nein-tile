@@ -23,6 +23,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        guard let data = UserDefaults.standard.data(forKey: "GameState") else {
+            return
+        }
+        guard let state = try? game.load(data: data) else {
+            return
+        }
+        
+        if !state.current.done {
+            game.tournament = state.tournament
+            game.current = state.current
+            game.layer = state.layer
+        }
+    }
+    
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        guard let (_, data) = try? game.save() else {
+            return
+        }
+        
+        UserDefaults.standard.set(data, forKey: "GameState")
+    }
+    
     @objc func handleGameCenter(notification: NSNotification) {
         guard let rootController = window?.rootViewController else {
             return
@@ -34,6 +57,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         switch command {
         case .authenticate:
             gameCenter.authenticate(root: rootController)
+        case .authenticated:
+            game.gameCenter = gameCenter.authenticatedPlayer != nil
+        case .loadSavedGames:
+            gameCenter.loadSavedGames()
+        case .dropSavedGame(let id):
+            game.gameHistory[id] = nil
+            gameCenter.dropSavedGame(id: id)
+        case .saveCurrentGame(let next):
+            if let (id, data) = try? game.save(next) {
+                gameCenter.saveCurrentGame(id: id, data: data)
+            }
+        case .savedGameLoaded(let data):
+            if let state = try? game.load(data: data) {
+                game.gameHistory[state.current.id] = state
+            }
         case .showAchievements:
             gameCenter.showAchievements(root: rootController)
         case .showLeaderboard:
