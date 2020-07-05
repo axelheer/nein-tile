@@ -97,7 +97,7 @@ struct TileView_Previews: PreviewProvider {
     static let numbers: [Int] = {
         var result = Array(repeating: 0, count: 64)
         for index in 0 ..< result.count {
-            if (index > 1) {
+            if index > 1 {
                 result[index] = (1 << (index - 2)) * 3
             } else {
                 result[index] = 1 << index

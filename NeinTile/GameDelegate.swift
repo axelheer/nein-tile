@@ -104,22 +104,33 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
     func submitEdition(_ edition: GameEdition, _ progress: Double) {
         var achievements = [GKAchievement]()
         
-        if (progress < 1) {
+        if progress < 1 {
             let noob = GKAchievement(identifier: "noob_\(edition)")
             noob.percentComplete = 100.0
             
             achievements.append(noob)
         }
         
-        let apprentice = GKAchievement(identifier: "apprentice_\(edition)")
-        apprentice.percentComplete = progress * 10.0
+        if progress >= 1 {
+            let apprentice = GKAchievement(identifier: "apprentice_\(edition)")
+            apprentice.percentComplete = 100.0
+            
+            achievements.append(apprentice)
+        }
         
-        achievements.append(apprentice)
+        if progress >= 10 {
+            let fellow = GKAchievement(identifier: "fellow_\(edition)")
+            fellow.percentComplete = 100.0
+            
+            achievements.append(fellow)
+        }
         
-        let mistress = GKAchievement(identifier: "mistress_\(edition)")
-        mistress.percentComplete = progress * 4.0
-        
-        achievements.append(mistress)
+        if progress >= 25 {
+            let mistress = GKAchievement(identifier: "mistress_\(edition)")
+            mistress.percentComplete = 100.0
+            
+            achievements.append(mistress)
+        }
         
         let edition = GKAchievement(identifier: "edition_\(edition)")
         edition.percentComplete = progress

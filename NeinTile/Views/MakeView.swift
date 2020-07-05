@@ -71,12 +71,14 @@ struct MakeView: View {
                 Text("Tournament game")
             }
             .tag(TabKeys.tournament)
-            HistoryView()
-            .tabItem {
-                Image(systemName: "clock")
-                Text("Historic games")
+            if game.gameCenter {
+                HistoryView()
+                .tabItem {
+                    Image(systemName: "clock")
+                    Text("Historic games")
+                }
+                .tag(TabKeys.historic)
             }
-            .tag(TabKeys.historic)
         }
     }
     

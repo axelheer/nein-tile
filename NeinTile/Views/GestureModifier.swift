@@ -127,7 +127,7 @@ struct GestureModifier: ViewModifier {
                 game.current = next
             }
         case .layer(let layer):
-            if (layer < game.current.area.tiles.layCount) {
+            if layer < game.current.area.tiles.layCount {
                 withAnimation {
                     game.layer = layer
                 }
