@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIHostingController(rootView: gameView)
             
             AppNotifications.gameCenter.observer(self, selector: #selector(handleGameCenter(notification:)))
+            AppNotifications.shareIt.observer(self, selector: #selector(handleShareIt(notification:)))
             
             self.window = window
             window.makeKeyAndVisible()
@@ -36,6 +37,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             game.current = state.current
             game.layer = state.layer
         }
+        
+        game.dragBy = .zero
+        game.magnifyBy = 1
+        game.preview = nil
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -82,6 +87,49 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             gameCenter.submitTileCount(tileCount, progress)
         case .submitTotalScore(let tournament, let totalScore):
             gameCenter.submitTotalScore(tournament, totalScore)
+        }
+    }
+    
+    @objc func handleShareIt(notification: NSNotification) {
+        guard let rootController = window?.rootViewController else {
+            return
+        }
+        guard let command = notification.object as? ShareCommand else {
+            return
+        }
+        
+        switch command {
+        case .screen(let bounds, let text):
+            let controller = rootController.presentedViewController ?? rootController
+            guard let view = controller.view else {
+                break
+            }
+            
+            let bounds = view.convert(bounds, from: nil)
+            let renderer = UIGraphicsImageRenderer(bounds: bounds)
+            let image = renderer.image { context in
+                view.layer.render(in: context.cgContext)
+            }
+            
+            let activityController = UIActivityViewController(
+                activityItems: [
+                    URL(string: "https://apps.apple.com/app/nein-tile/id1518189085")!,
+                    image,
+                    text
+                ],
+                applicationActivities: nil
+            )
+            
+            if let popover = activityController.popoverPresentationController {
+                popover.sourceView = view
+                popover.sourceRect = bounds
+            }
+            
+            controller.present(
+                activityController,
+                animated: true,
+                completion: nil
+            )
         }
     }
 }

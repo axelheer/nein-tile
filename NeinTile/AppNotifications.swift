@@ -1,9 +1,11 @@
+import CoreGraphics
 import Foundation
 import TileKit
 
 enum AppNotifications: String {
     case controller
     case gameCenter
+    case shareIt
     
     func post(object: Any?) {
         NotificationCenter.default.post(name: .init(self.rawValue), object: object)
@@ -38,4 +40,8 @@ enum GameCenterCommand {
     case submitEdition(GameEdition, Double)
     case submitTileCount(Int, Double)
     case submitTotalScore(Tournament?, Int)
+}
+
+enum ShareCommand {
+    case screen(CGRect, String)
 }

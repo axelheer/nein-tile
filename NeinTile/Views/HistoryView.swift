@@ -4,11 +4,17 @@ import TileKit
 struct HistoryView: View {
     @EnvironmentObject var game: GameEnvironment
     
+    @State private var bounds = [UUID: CGRect]()
+    
     var body: some View {
         NavigationView {
             Form {
                 List {
-                    makeListBody()
+                    if game.gameHistory.count != 0 {
+                        makeListBody()
+                    } else {
+                        Text("There is no game. For now.")
+                    }
                 }
             }
             .navigationBarTitle("Historic games")
@@ -47,9 +53,17 @@ struct HistoryView: View {
                     Text(format.string(for: time)!)
                         .font(.footnote)
                     Spacer()
-                    Text(Tile.format.string(for: game.current.score)!)
+                    Text("\(Tile.format.string(for: game.current.score)!) points")
                         .font(.subheadline)
+                    Spacer()
+                    Button(action: { self.shareIt(id: game.current.id, score: game.current.score) }) {
+                        Image(systemName: "square.and.arrow.up")
+                            .padding()
+                    }
                 }
+            }
+            .onPreferenceChange(TilesBoundsPreferenceKey.self) { bounds in
+                self.bounds[game.current.id] = bounds
             }
         }
         .onDelete() { indices in
@@ -61,6 +75,16 @@ struct HistoryView: View {
                 )
             }
         }
+    }
+    
+    func shareIt(id: UUID, score: Int) {
+        guard let bounds = bounds[id] else {
+            return
+        }
+        
+        let text = "I scored \(Tile.format.string(for: score)!) points"
+        
+        AppNotifications.shareIt.post(object: ShareCommand.screen(bounds, text))
     }
 }
 
@@ -92,7 +116,6 @@ struct HistoryView_Previews: PreviewProvider {
             HistoryView()
                 .preferredColorScheme(.light)
         }
-        .accentColor(Color.orange)
         .environmentObject(gameEnvironment)
     }
 }
