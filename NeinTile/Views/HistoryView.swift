@@ -9,12 +9,10 @@ struct HistoryView: View {
     var body: some View {
         NavigationView {
             Form {
-                List {
-                    if game.gameHistory.count != 0 {
-                        makeListBody()
-                    } else {
-                        Text("There is no game. For now.")
-                    }
+                if game.gameHistory.count != 0 {
+                    makeListBody()
+                } else {
+                    Text("There is no game. For now.")
                 }
             }
             .navigationBarTitle("Historic games")
@@ -60,6 +58,7 @@ struct HistoryView: View {
                         Image(systemName: "square.and.arrow.up")
                             .padding()
                     }
+                    .buttonStyle(BorderlessButtonStyle())
                 }
             }
             .onPreferenceChange(TilesBoundsPreferenceKey.self) { bounds in

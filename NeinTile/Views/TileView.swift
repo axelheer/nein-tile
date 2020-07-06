@@ -4,30 +4,32 @@ import TileKit
 struct TileView: View {
     @Environment (\.colorScheme) var colorScheme
     
-    var edge: CGFloat? = nil
+    var edge: CGFloat = 0
     var size: CGFloat = 80
-    var tile: Tile? = nil
+    var tile: Tile
     
     var body: some View {
-        Text(tile?.text ?? "")
-            .font(.system(size: size / 3, weight: .heavy))
-            .minimumScaleFactor(0.4)
-            .padding(size / 16)
+        RoundedRectangle(cornerRadius: max(edge, size / 8))
+            .fill(color(tile))
             .frame(
                 width: size - size / 8,
                 height: size - size / 8
             )
-            .background(color(tile))
-            .foregroundColor(textColor(tile))
-            .cornerRadius(edge ?? size / 8)
+            .shadow(
+                color: Color.primary.opacity(0.33),
+                radius: size / 64
+            )
             .padding(size / 16)
-            .lineLimit(1)
+            .overlay(Text(tile.text)
+                .font(.system(size: size / 3, weight: .heavy))
+                .foregroundColor(textColor(tile))
+                .minimumScaleFactor(0.4)
+                .padding(size / 8)
+                .lineLimit(1)
+            )
     }
     
-    func textColor(_ tile: Tile?) -> Color {
-        guard let tile = tile else {
-            return Color.primary
-        }
+    func textColor(_ tile: Tile) -> Color {
         guard tile != .empty else {
             return Color.primary
         }
@@ -45,12 +47,7 @@ struct TileView: View {
         }
     }
     
-    func color(_ tile: Tile?) -> Color {
-        guard let tile = tile else {
-            return colorScheme == .dark
-            ? Color(white: 0.1)
-            : Color(white: 0.9)
-        }
+    func color(_ tile: Tile) -> Color {
         guard tile != .empty else {
             return Color.clear
         }
@@ -109,7 +106,7 @@ struct TileView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             VStack {
-                TileView()
+                TileView(tile: .empty)
                 TileView(tile: Tile(value: .min, score: 0))
                 TileView(tile: Tile(value: 0, score: 1))
                 ForEach(numbers, id: \.self) { value in
@@ -119,7 +116,7 @@ struct TileView_Previews: PreviewProvider {
             }
             .preferredColorScheme(.dark)
             VStack {
-                TileView()
+                TileView(tile: .empty)
                 TileView(tile: Tile(value: .min, score: 0))
                 TileView(tile: Tile(value: 0, score: 1))
                 ForEach(numbers, id: \.self) { value in

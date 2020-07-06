@@ -31,7 +31,11 @@ struct AreaView: View {
                 ForEach(columns, id: \.self) { col in
                     VStack(spacing: 0) {
                         ForEach(rows, id: \.self) { row in
-                            TileView(size: size)
+                            Circle()
+                                .stroke(Color.gray, style: .init(dash: [1, 3]))
+                                .opacity(0.5)
+                                .padding(size / 8)
+                                .frame(width: size, height: size)
                         }
                     }
                 }
@@ -59,18 +63,19 @@ struct AreaView: View {
         let (next, nextOpacity) = nextEffect(col, row, size)
         
         let factor = scale != 0 ? 1 - nextOpacity : 1
+        
+        let overlay = next != tile || scale != 0
+            ? AnyView(TileView(size: size, tile: next)
+                .opacity(nextOpacity)
+            )
+            : AnyView(EmptyView())
        
-        return ZStack {
-            TileView(size: size, tile: tile)
-                .offset(offset)
-                .scaleEffect(scaleEffect)
-                .opacity(opacity * factor)
-            if next != tile || scale != 0 {
-                TileView(size: size, tile: next)
-                    .opacity(nextOpacity)
-            }
-        }
-        .zIndex(-Double(scale))
+        return TileView(size: size, tile: tile)
+            .offset(offset)
+            .scaleEffect(scaleEffect)
+            .opacity(opacity * factor)
+            .zIndex(-Double(scale))
+            .overlay(overlay)
     }
     
     func nextEffect(_ col: Int, _ row: Int, _ size: CGFloat) -> (Tile, Double) {

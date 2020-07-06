@@ -21,9 +21,18 @@ struct EndingModifier: ViewModifier {
                 overlay
                     .opacity(0.8)
                     .transition(AnyTransition.opacity.combined(with: .scale))
-                Text("The\nEnd.")
+                Text("The")
+                    .offset(x: 0, y: -tileSize)
                     .font(.system(size: tileSize, weight: .heavy))
-                    .transition(AnyTransition.opacity.combined(with: .slide))
+                    .transition(AnyTransition.move(edge: .leading).combined(with: .opacity))
+                Text("End")
+                    .font(.system(size: tileSize, weight: .heavy))
+                    .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
+                Text("Ready for the next game?")
+                    .offset(x: 0, y: tileSize)
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: tileSize / 4, weight: .bold))
+                    .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
             }
         }
     }

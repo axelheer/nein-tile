@@ -1,8 +1,6 @@
 import Foundation
 import TileKit
 
-#if DEBUG
-
 struct GameSamples {
     static let allSamples: [Game] = {
        return [simple, classic, duality, insanity, fibonacci]
@@ -21,5 +19,3 @@ struct GameSamples {
         return game
     }
 }
-
-#endif
