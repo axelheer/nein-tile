@@ -90,6 +90,7 @@ struct GestureModifier: ViewModifier {
             withAnimation(.easeIn) {
                 game.current = next
             }
+            game.backup()
         } else {
             withAnimation(.easeOut) {
                 game.dragBy = .zero
@@ -126,6 +127,7 @@ struct GestureModifier: ViewModifier {
             withAnimation {
                 game.current = next
             }
+            game.backup()
         case .layer(let layer):
             if layer < game.current.area.tiles.layCount {
                 withAnimation {
@@ -137,6 +139,7 @@ struct GestureModifier: ViewModifier {
                 withAnimation {
                     game.current = last
                 }
+                game.backup()
             }
         case .nextSample:
             game.current = GameSamples.allSamples[sampleIndex]

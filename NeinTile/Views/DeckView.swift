@@ -85,6 +85,7 @@ struct DeckView: View {
         } else if let last = game.current.last {
             withAnimation {
                 game.current = last
+                game.backup()
             }
         }
     }

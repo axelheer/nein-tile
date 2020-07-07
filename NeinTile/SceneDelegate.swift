@@ -9,6 +9,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        game.restore()
+        
         let gameView = GameView()
             .environmentObject(game)
         
@@ -22,33 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
-    }
-    
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        guard let data = UserDefaults.standard.data(forKey: "GameState") else {
-            return
-        }
-        guard let state = try? game.load(data: data) else {
-            return
-        }
-        
-        if !state.current.done {
-            game.tournament = state.tournament
-            game.current = state.current
-            game.layer = state.layer
-        }
-        
-        game.dragBy = .zero
-        game.magnifyBy = 1
-        game.preview = nil
-    }
-    
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        guard let (_, data) = try? game.save() else {
-            return
-        }
-        
-        UserDefaults.standard.set(data, forKey: "GameState")
     }
     
     @objc func handleGameCenter(notification: NSNotification) {

@@ -31,6 +31,32 @@ class GameEnvironment: ObservableObject {
         let time: Date
     }
     
+    func restore() {
+        guard let data = UserDefaults.standard.data(forKey: "GameState") else {
+            return
+        }
+        guard let state = try? load(data: data) else {
+            return
+        }
+        
+        tournament = state.tournament
+        if !state.current.done {
+            current = state.current
+            layer = state.layer
+        } else {
+            current = state.current.maker.makeGame()
+            layer = current.area.tiles.layCount - 1
+        }
+    }
+    
+    func backup() {
+        guard let (_, data) = try? save() else {
+            return
+        }
+        
+        UserDefaults.standard.set(data, forKey: "GameState")
+    }
+    
     func save(_ next: Game? = nil) throws -> (UUID, Data) {
         let state = GameState(
             tournament: tournament,
