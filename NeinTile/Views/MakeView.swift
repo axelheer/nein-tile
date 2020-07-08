@@ -2,6 +2,7 @@ import SwiftUI
 import TileKit
 
 struct MakeView: View {
+    @Environment(\.undoManager) var undoManager
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var game: GameEnvironment
@@ -92,9 +93,7 @@ struct MakeView: View {
                 .be(slippery: slippery)
             : tournament.start()
         
-        game.tournament = currentTab == .tournament ? tournament : nil
-        game.current = next.makeGame()
-        game.layer = next.layCount - 1
+        game.reset(next.makeGame(), tournament: currentTab == .tournament ? tournament : nil, using: undoManager)
         
         presentationMode.wrappedValue.dismiss()
     }

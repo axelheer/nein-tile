@@ -22,7 +22,7 @@ struct AreaView: View {
         let columns = 0 ..< colCount
         let rows = (0 ..< rowCount).reversed()
         
-        let index: (Int) -> Double = game.preview?.move != .right
+        let index: (Int) -> Double = game.moveTo != .right
             ? { col in -Double(col) }
             : { col in Double(col) }
         

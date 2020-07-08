@@ -18,8 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: gameView)
             
-            AppNotifications.gameCenter.observer(self, selector: #selector(handleGameCenter(notification:)))
-            AppNotifications.shareIt.observer(self, selector: #selector(handleShareIt(notification:)))
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(handleGameCenter(notification:)),
+                name: .init(AppNotifications.gameCenter.rawValue),
+                object: nil
+            )
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(handleShareIt(notification:)),
+                name: .init(AppNotifications.shareIt.rawValue),
+                object: nil
+            )
             
             self.window = window
             window.makeKeyAndVisible()

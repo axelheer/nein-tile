@@ -2,13 +2,12 @@ import SwiftUI
 import TileKit
 
 struct GestureModifier: ViewModifier {
+    @Environment(\.undoManager) var undoManager
+    
     @EnvironmentObject var game: GameEnvironment
     
-    @State private var moveTo: MoveDirection?
     @State private var tileSize: CGFloat = 0
     @State private var sampleIndex: Int = 0
-    
-    let onFinish: (Game) -> Void
    
     var swipe: some Gesture {
         DragGesture()
@@ -16,7 +15,7 @@ struct GestureModifier: ViewModifier {
                 let (dragBy, direction) = self.mapDirection(
                     dragBy: value.translation
                 )
-                self.showGesture(
+                self.game.show(
                     dragBy: dragBy,
                     to: direction
                 )
@@ -25,10 +24,11 @@ struct GestureModifier: ViewModifier {
                 let (dragBy, direction) = self.mapDirection(
                     dragBy: value.predictedEndTranslation
                 )
-                self.applyGesture(
-                    dragBy: dragBy,
-                    to: direction
-                )
+                if abs(dragBy.width) == self.tileSize || abs(dragBy.height) == self.tileSize {
+                    self.game.move(to: direction, using: self.undoManager)
+                } else {
+                    self.game.backout()
+                }
             }
     }
     
@@ -38,7 +38,7 @@ struct GestureModifier: ViewModifier {
                 let (magnifyBy, direction) = self.mapDirection(
                     magnifyBy: value
                 )
-                self.showGesture(
+                self.game.show(
                     magnifyBy: magnifyBy,
                     to: direction
                 )
@@ -47,59 +47,12 @@ struct GestureModifier: ViewModifier {
                 let (magnifyBy, direction) = self.mapDirection(
                     magnifyBy: value
                 )
-                self.applyGesture(
-                    magnifyBy: magnifyBy,
-                    to: direction
-                )
-        }
-    }
-    
-    func showGesture(dragBy: CGSize = .zero, magnifyBy: CGFloat = 1, to direction: MoveDirection) {
-        if moveTo != direction {
-            game.preview = game.current.view(
-                to: direction
-            )
-            moveTo = direction
-        }
-        game.dragBy = dragBy
-        game.magnifyBy = magnifyBy
-    }
-    
-    func applyGesture(dragBy: CGSize = .zero, magnifyBy: CGFloat = 1, to direction: MoveDirection) {
-        let move = max(abs(dragBy.width), abs(dragBy.height)) == tileSize
-            || magnifyBy == 0.5 || magnifyBy == 2.0
-        
-        if moveTo != direction {
-            game.preview = game.current.view(
-                to: direction
-            )
-            moveTo = direction
-        }
-        
-        if move {
-            let next = game.current.move(to: direction)
-            if game.current.done != next.done {
-                onFinish(next)
+                if magnifyBy == 0.5 || magnifyBy == 2.0 {
+                    self.game.move(to: direction, using: self.undoManager)
+                } else {
+                    self.game.backout()
+                }
             }
-            if let preview = game.preview {
-                game.current = preview
-                game.preview = nil
-            }
-            game.dragBy = .zero
-            game.magnifyBy = 1
-            withAnimation(.easeIn) {
-                game.current = next
-            }
-            game.backup()
-        } else {
-            withAnimation(.easeOut) {
-                game.dragBy = .zero
-                game.magnifyBy = 1
-            }
-            game.preview = nil
-        }
-        
-        moveTo = nil
     }
     
     func body(content: Content) -> some View {
@@ -107,7 +60,12 @@ struct GestureModifier: ViewModifier {
             .onPreferenceChange(TileSizePreferenceKey.self) { size in
                 self.tileSize = size
             }
-            .onReceive(AppNotifications.controller.publisher(), perform: handleController)
+            .onReceive(
+                NotificationCenter.default.publisher(
+                    for: .init(AppNotifications.controller.rawValue)
+                ),
+                perform: handleController
+            )
             .contentShape(Rectangle())
             .gesture(swipe)
             .gesture(pinch)
@@ -117,40 +75,22 @@ struct GestureModifier: ViewModifier {
         guard let command = notification.object as? ControllerCommand else {
             return
         }
-        
+
         switch command {
         case .move(let direction):
-            let next = game.current.move(to: direction)
-            if game.current.done != next.done {
-                onFinish(next)
-            }
-            withAnimation {
-                game.current = next
-            }
-            game.backup()
+            game.move(to: direction, using: undoManager)
         case .layer(let layer):
-            if layer < game.current.area.tiles.layCount {
-                withAnimation {
-                    game.layer = layer
-                }
-            }
+            game.show(layer: layer)
         case .undo:
-            if let last = game.current.last {
-                withAnimation {
-                    game.current = last
-                }
-                game.backup()
-            }
+            undoManager?.undo()
         case .nextSample:
-            game.current = GameSamples.allSamples[sampleIndex]
-            game.layer = game.current.area.tiles.layCount - 1
-            
+            game.reset(GameSamples.allSamples[sampleIndex], using: undoManager)
             sampleIndex = (sampleIndex + 1) % GameSamples.allSamples.count
         }
     }
     
     func mapDirection(dragBy: CGSize) -> (CGSize, MoveDirection) {
-        let direction = moveTo ?? (
+        let direction = game.moveTo ?? (
             abs(dragBy.width) > abs(dragBy.height)
                 ? (dragBy.width > 0 ? .right : .left)
                 : (dragBy.height < 0 ? .top : .bottom)
@@ -170,7 +110,7 @@ struct GestureModifier: ViewModifier {
     }
     
     func mapDirection(magnifyBy: CGFloat) -> (CGFloat, MoveDirection) {
-        let direction = moveTo ?? (magnifyBy > 1 ? .front : .back)
+        let direction = game.moveTo ?? (magnifyBy > 1 ? .front : .back)
         switch direction {
         case .front:
             return (max(1.0, min(2.0, magnifyBy)), .front)
@@ -183,7 +123,7 @@ struct GestureModifier: ViewModifier {
 }
 
 extension View {
-    func applyGestures(onFinish: @escaping (Game) -> Void) -> some View {
-        return self.modifier(GestureModifier(onFinish: onFinish))
+    func applyGestures() -> some View {
+        return self.modifier(GestureModifier())
     }
 }

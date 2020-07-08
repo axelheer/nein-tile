@@ -1,4 +1,4 @@
-public final class GameMaker: Codable {
+public struct GameMaker: Codable {
     public let colCount: Int
     public let rowCount: Int
     public let layCount: Int
@@ -9,7 +9,7 @@ public final class GameMaker: Codable {
     public let apprentice: Bool
     public let slippery: Bool
     
-    public convenience init() {
+    public init() {
         self.init(
             colCount: 4,
             rowCount: 4,
@@ -98,7 +98,7 @@ public final class GameMaker: Codable {
     }
     
     public func makeGame() -> Game {
-        let maker = edition.maker(deterministic: deterministic)
+        var maker = edition.maker(deterministic: deterministic)
         var tiles = Tiles(
             colCount: colCount,
             rowCount: rowCount,

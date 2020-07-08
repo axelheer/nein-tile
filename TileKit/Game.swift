@@ -1,14 +1,11 @@
 import Foundation
 
-public final class Game: Codable, Identifiable {
+public struct Game: Codable, Identifiable {
     public let id: UUID
     public let maker: GameMaker
     
     public let deck: TilesDeck
     public let area: TilesArea
-
-    public var move: MoveDirection? = nil
-    public var last: Game? = nil
     
     private var readOnly: Bool = false
     
@@ -20,15 +17,12 @@ public final class Game: Codable, Identifiable {
         self.area = area
     }
     
-    private init(id: UUID, maker: GameMaker, deck: TilesDeck, area: TilesArea, move: MoveDirection?, last: Game?, readOnly: Bool) {
+    private init(id: UUID, maker: GameMaker, deck: TilesDeck, area: TilesArea, readOnly: Bool) {
         self.id = id
         self.maker = maker
         
         self.deck = deck
         self.area = area
-        
-        self.move = move
-        self.last = last
         
         self.readOnly = readOnly
     }
@@ -37,10 +31,6 @@ public final class Game: Codable, Identifiable {
         return MoveDirection.allCases.allSatisfy { direction in
             !area.canMove(to: direction)
         }
-    }
-    
-    public var score: Int {
-        return area.tiles.totalScore
     }
     
     public func view(to direction: MoveDirection) -> Game? {
@@ -55,15 +45,13 @@ public final class Game: Codable, Identifiable {
                 maker: maker,
                 deck: deck,
                 area: nextArea,
-                move: direction,
-                last: self,
                 readOnly: true
             )
         }
         return nil
     }
     
-    public func move(to direction: MoveDirection) -> Game {
+    public func move(to direction: MoveDirection) -> Game? {
         if !readOnly && area.canMove(to: direction) {
             let nextArea = area.move(
                 to: direction,
@@ -78,12 +66,10 @@ public final class Game: Codable, Identifiable {
                 maker: maker,
                 deck: nextDeck,
                 area: nextArea,
-                move: maker.apprentice ? direction : nil,
-                last: maker.apprentice ? self : nil,
                 readOnly: false
             )
         }
-        return self
+        return nil
     }
     
     private enum CodingKeys: String, CodingKey {

@@ -10,14 +10,6 @@ enum AppNotifications: String {
     func post(object: Any?) {
         NotificationCenter.default.post(name: .init(self.rawValue), object: object)
     }
-    
-    func publisher() -> NotificationCenter.Publisher {
-        NotificationCenter.default.publisher(for: .init(self.rawValue))
-    }
-    
-    func observer(_ observer: Any, selector: Selector) {
-        NotificationCenter.default.addObserver(observer, selector: selector, name: .init(self.rawValue), object: nil)
-    }
 }
 
 enum ControllerCommand {

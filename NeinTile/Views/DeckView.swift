@@ -2,6 +2,8 @@ import SwiftUI
 import TileKit
 
 struct DeckView: View {
+    @Environment(\.undoManager) var undoManager
+    
     @EnvironmentObject var game: GameEnvironment
     
     @State private var showMaker = false
@@ -32,7 +34,7 @@ struct DeckView: View {
             }
             Spacer()
             if showScore || game.current.done {
-                Text(Tile.format.string(for: game.current.score)!)
+                Text(Tile.format.string(for: game.current.area.tiles.totalScore)!)
                     .minimumScaleFactor(0.4)
                     .lineLimit(1)
                     .frame(maxWidth: .infinity, minHeight: 80, maxHeight: 80)
@@ -73,7 +75,7 @@ struct DeckView: View {
         } else if game.current.done {
             return !game.gameCenter
         } else {
-            return game.current.last == nil
+            return !(undoManager?.canUndo ?? false)
         }
     }
     
@@ -82,11 +84,8 @@ struct DeckView: View {
             AppNotifications.gameCenter.post(object: GameCenterCommand.showLeaderboard)
         } else if game.current.done {
             AppNotifications.gameCenter.post(object: GameCenterCommand.showAchievements)
-        } else if let last = game.current.last {
-            withAnimation {
-                game.current = last
-                game.backup()
-            }
+        } else {
+            undoManager?.undo()
         }
     }
 }

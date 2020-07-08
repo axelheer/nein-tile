@@ -1,6 +1,6 @@
 public protocol Maker {
-    func makeDealer() -> Dealer
-    func makeLottery() -> Lottery
-    func makeMerger() -> Merger
-    func makeMixer() -> Mixer
+    mutating func makeDealer() -> Dealer
+    mutating func makeLottery() -> Lottery
+    mutating func makeMerger() -> Merger
+    mutating func makeMixer() -> Mixer
 }

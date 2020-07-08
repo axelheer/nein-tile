@@ -5,7 +5,7 @@ struct LayerView: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            Button(action: leftButton) {
+            Button(action: { self.game.show(layer: self.game.layer - 1) }) {
                 Image(systemName: "chevron.left")
                     .padding()
             }
@@ -14,25 +14,13 @@ struct LayerView: View {
             Text("Layer \(game.layer + 1) of \(game.current.area.tiles.layCount)")
                 .frame(maxWidth: .infinity, minHeight: 60, maxHeight: 60)
             Spacer()
-            Button(action: rightButton) {
+            Button(action: { self.game.show(layer: self.game.layer + 1) }) {
                 Image(systemName: "chevron.right")
                     .padding()
             }
             .disabled(game.layer == game.current.area.tiles.layCount - 1)
         }
         .font(.headline)
-    }
-    
-    func leftButton() {
-        withAnimation {
-            game.layer -= 1
-        }
-    }
-    
-    func rightButton() {
-        withAnimation {
-            game.layer += 1
-        }
     }
 }
 

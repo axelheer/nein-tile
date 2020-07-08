@@ -27,11 +27,7 @@ struct HistoryView: View {
         let historicGames = game.gameHistory.values
             .sorted(by: { $0.time > $1.time })
             .map { state -> (game: GameEnvironment, time: Date) in
-            let environment = GameEnvironment()
-            environment.tournament = state.tournament
-            environment.current = state.current
-            environment.layer = state.layer
-            return (environment, state.time)
+                (GameEnvironment(state.current, tournament: state.tournament), state.time)
         }
         
         let format = DateFormatter()
@@ -51,10 +47,10 @@ struct HistoryView: View {
                     Text(format.string(for: time)!)
                         .font(.footnote)
                     Spacer()
-                    Text("\(Tile.format.string(for: game.current.score)!) points")
+                    Text("\(Tile.format.string(for: game.current.area.tiles.totalScore)!) points")
                         .font(.subheadline)
                     Spacer()
-                    Button(action: { self.shareIt(id: game.current.id, score: game.current.score) }) {
+                    Button(action: { self.shareIt(id: game.current.id, score: game.current.area.tiles.totalScore) }) {
                         Image(systemName: "square.and.arrow.up")
                             .padding()
                     }
