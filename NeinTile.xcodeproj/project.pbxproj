@@ -588,6 +588,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77119CA424715DA7004C5775 /* Build configuration list for PBXNativeTarget "NeinTile" */;
 			buildPhases = (
+				77DE0FF024B797DB0053D86B /* ShellScript */,
 				77119C7624715DA6004C5775 /* Sources */,
 				77119C7724715DA6004C5775 /* Frameworks */,
 				77AFCD112492CFE8007BC3BA /* ShellScript */,
@@ -739,6 +740,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "[[ \"$ENABLE_PREVIEWS\" = \"NO\" ]] || exit 0\n[[ \"$MAC_OS_X_VERSION_MAJOR\" -ge \"101500\" ]] || exit 0\n\nTMPFILE=`mktemp /tmp/SwiftUIcon.swift.XXXXXX` || exit 1\ntrap \"rm -f $TMPFILE\" EXIT\n\nif [ -z \"$SCRIPT_INPUT_FILE_0\" ]\nthen\n    echo \"error: You must specify your Icon.swift as the first Input File in the Build Phase.\"\n    exit 1\nfi\n\ncat ${SCRIPT_INPUT_FILE_0%/*}/*.swift > $TMPFILE\n\nxcrun -sdk macosx swift $TMPFILE\n";
+		};
+		77DE0FF024B797DB0053D86B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

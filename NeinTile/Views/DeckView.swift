@@ -3,12 +3,12 @@ import TileKit
 
 struct DeckView: View {
     @Environment(\.undoManager) var undoManager
-    
+
     @EnvironmentObject var game: GameEnvironment
-    
+
     @State private var showMaker = false
     @State private var showScore = false
-    
+
     var tiles: [Tile] {
         switch game.current.deck.hint {
         case let .single(tile):
@@ -19,7 +19,7 @@ struct DeckView: View {
             return [ left, middle, right ]
         }
     }
-    
+
     var body: some View {
         HStack(spacing: 0) {
             Button(action: leftButton) {
@@ -64,11 +64,11 @@ struct DeckView: View {
         }
         .font(.title)
     }
-    
+
     func leftButton() {
         showMaker = true
     }
-    
+
     var rightButtonDisabled: Bool {
         if game.tournament != nil {
             return !game.gameCenter
@@ -78,7 +78,7 @@ struct DeckView: View {
             return !(undoManager?.canUndo ?? false)
         }
     }
-    
+
     func rightButton() {
         if game.tournament != nil {
             AppNotifications.gameCenter.post(object: GameCenterCommand.showLeaderboard)

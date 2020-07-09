@@ -2,15 +2,15 @@ import SwiftUI
 
 struct EndingModifier: ViewModifier {
     @Environment (\.colorScheme) var colorScheme
-    
+
     @EnvironmentObject var game: GameEnvironment
-    
+
     @State private var tileSize: CGFloat = 0
-    
+
     var overlay: Color {
         colorScheme == .dark ? .black : .white
     }
-    
+
     func body(content: Content) -> some View {
         return ZStack {
             content

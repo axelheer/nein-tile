@@ -2,13 +2,13 @@ public struct GameMaker: Codable {
     public let colCount: Int
     public let rowCount: Int
     public let layCount: Int
-    
+
     public let edition: GameEdition
-    
+
     public let deterministic: Bool
     public let apprentice: Bool
     public let slippery: Bool
-    
+
     public init() {
         self.init(
             colCount: 4,
@@ -20,24 +20,30 @@ public struct GameMaker: Codable {
             slippery: true
         )
     }
-    
-    private init(colCount: Int, rowCount: Int, layCount: Int, edition: GameEdition, deterministic: Bool, apprentice: Bool, slippery: Bool) {
+
+    private init(colCount: Int,
+                 rowCount: Int,
+                 layCount: Int,
+                 edition: GameEdition,
+                 deterministic: Bool,
+                 apprentice: Bool,
+                 slippery: Bool) {
         self.colCount = colCount
         self.rowCount = rowCount
         self.layCount = layCount
-        
+
         self.edition = edition
-        
+
         self.deterministic = deterministic
         self.apprentice = apprentice
         self.slippery = slippery
     }
-    
+
     public func use(colCount: Int, rowCount: Int, layCount: Int = 1) -> GameMaker {
         precondition(colCount > 0, "Count out of range")
         precondition(rowCount > 0, "Count out of range")
         precondition(layCount > 0, "Count out of range")
-        
+
         return GameMaker(
             colCount: colCount,
             rowCount: rowCount,
@@ -48,7 +54,7 @@ public struct GameMaker: Codable {
             slippery: slippery
         )
     }
-    
+
     public func use(edition: GameEdition) -> GameMaker {
        return GameMaker(
             colCount: colCount,
@@ -60,7 +66,7 @@ public struct GameMaker: Codable {
             slippery: slippery
         )
     }
-    
+
     public func be(deterministic: Bool) -> GameMaker {
         return GameMaker(
             colCount: colCount,
@@ -72,7 +78,7 @@ public struct GameMaker: Codable {
             slippery: slippery
         )
     }
-    
+
     public func be(apprentice: Bool) -> GameMaker {
         return GameMaker(
             colCount: colCount,
@@ -84,7 +90,7 @@ public struct GameMaker: Codable {
             slippery: slippery
         )
     }
-    
+
     public func be(slippery: Bool) -> GameMaker {
         return GameMaker(
             colCount: colCount,
@@ -96,7 +102,7 @@ public struct GameMaker: Codable {
             slippery: slippery
         )
     }
-    
+
     public func makeGame() -> Game {
         var maker = edition.maker(deterministic: deterministic)
         var tiles = Tiles(

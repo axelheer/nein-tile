@@ -4,33 +4,33 @@ import TileKit
 struct MakeView: View {
     @Environment(\.undoManager) var undoManager
     @Environment(\.presentationMode) var presentationMode
-    
+
     @EnvironmentObject var game: GameEnvironment
-    
+
     @State private var edition: GameEdition
-    
+
     @State private var colCount: Int
     @State private var rowCount: Int
     @State private var layCount: Int
-    
+
     @State private var deterministic: Bool
     @State private var apprentice: Bool
     @State private var slippery: Bool
-    
+
     @State private var currentTab: TabKeys
     @State private var tournament: Tournament
-    
+
     init(previous: Game, tournament: Tournament?) {
         _edition = .init(initialValue: previous.maker.edition)
-        
+
         _colCount = .init(initialValue: previous.maker.colCount)
         _rowCount = .init(initialValue: previous.maker.rowCount)
         _layCount = .init(initialValue: previous.maker.layCount)
-        
+
         _deterministic = .init(initialValue: previous.maker.deterministic)
         _apprentice = .init(initialValue: previous.maker.apprentice)
         _slippery = .init(initialValue: previous.maker.slippery)
-        
+
         if let tournament = tournament {
             _tournament = .init(initialValue: tournament)
             _currentTab = .init(initialValue: .tournament)
@@ -39,13 +39,13 @@ struct MakeView: View {
             _currentTab = .init(initialValue: .custom)
         }
     }
-    
+
     enum TabKeys: String {
         case custom
         case tournament
         case historic
     }
-    
+
     var body: some View {
         TabView(selection: $currentTab) {
             CustomView(
@@ -82,7 +82,7 @@ struct MakeView: View {
             }
         }
     }
-    
+
     func startGame() {
         let next = currentTab != .tournament
             ? GameMaker()
@@ -92,15 +92,15 @@ struct MakeView: View {
                 .be(apprentice: apprentice)
                 .be(slippery: slippery)
             : tournament.start()
-        
+
         game.reset(next.makeGame(), tournament: currentTab == .tournament ? tournament : nil, using: undoManager)
-        
+
         presentationMode.wrappedValue.dismiss()
     }
 }
 
 #if DEBUG
-struct MakeView_Previews: PreviewProvider {    
+struct MakeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             MakeView(previous: GameMaker().makeGame(), tournament: nil)

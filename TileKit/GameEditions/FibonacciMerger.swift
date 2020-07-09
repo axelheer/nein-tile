@@ -1,7 +1,9 @@
+// swiftlint:disable identifier_name
+
 public struct FibonacciMerger: Merger {
     public init() {
     }
-    
+
     public func canMerge(_ source: Tile, _ target: Tile) -> Bool {
         switch (source.value, target.value) {
         case (0, _):
@@ -25,13 +27,13 @@ public struct FibonacciMerger: Merger {
                 || (y < x && y + y > x)
         }
     }
-    
+
     private let one = Tile(value: 1, score: 0)
     private let two = Tile(value: 2, score: 0)
-    
+
     public func merge(_ source: Tile, _ target: Tile) -> Tile {
         assert(canMerge(source, target), "Cannot merge")
-        
+
         switch (source, target) {
         case (_, .empty):
             return source

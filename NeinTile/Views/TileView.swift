@@ -3,11 +3,11 @@ import TileKit
 
 struct TileView: View {
     @Environment (\.colorScheme) var colorScheme
-    
+
     var edge: CGFloat = 0
     var size: CGFloat = 80
     var tile: Tile
-    
+
     var body: some View {
         RoundedRectangle(cornerRadius: max(edge, size / 8))
             .fill(color(tile))
@@ -28,7 +28,7 @@ struct TileView: View {
                 .lineLimit(1)
             )
     }
-    
+
     func textColor(_ tile: Tile) -> Color {
         guard tile != .empty else {
             return Color.primary
@@ -46,7 +46,7 @@ struct TileView: View {
             return Color.primary
         }
     }
-    
+
     func color(_ tile: Tile) -> Color {
         guard tile != .empty else {
             return Color.clear
@@ -74,7 +74,7 @@ extension Tile {
         result.numberStyle = .decimal
         return result
     }()
-    
+
     var text: String {
         guard self != .empty else {
             return ""
@@ -102,7 +102,7 @@ struct TileView_Previews: PreviewProvider {
         }
         return result
     }()
-    
+
     static var previews: some View {
         Group {
             VStack {

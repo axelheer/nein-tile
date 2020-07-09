@@ -6,7 +6,7 @@ enum AppNotifications: String {
     case controller
     case gameCenter
     case shareIt
-    
+
     func post(object: Any?) {
         NotificationCenter.default.post(name: .init(self.rawValue), object: object)
     }
@@ -16,7 +16,7 @@ enum ControllerCommand {
     case layer(Int)
     case move(MoveDirection)
     case undo
-    
+
     case nextSample
 }
 

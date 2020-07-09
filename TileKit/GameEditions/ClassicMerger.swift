@@ -1,7 +1,9 @@
+// swiftlint:disable identifier_name
+
 public struct ClassicMerger: Merger {
     public init() {
     }
-    
+
     public func canMerge(_ source: Tile, _ target: Tile) -> Bool {
         switch (source.value, target.value) {
         case (0, _):
@@ -24,14 +26,14 @@ public struct ClassicMerger: Merger {
             return x == y
         }
     }
-    
+
     private let one   = Tile(value: 1, score: 0)
     private let two   = Tile(value: 2, score: 0)
     private let three = Tile(value: 3, score: 3)
-    
+
     public func merge(_ source: Tile, _ target: Tile) -> Tile {
         assert(canMerge(source, target), "Cannot merge")
-        
+
         switch (source, target) {
         case (_, .empty):
             return source

@@ -1,24 +1,26 @@
+// swiftlint:disable cyclomatic_complexity
+
 public struct AnyMixer: Mixer, Codable {
     public let mixer: Mixer
-    
+
     public init(_ mixer: Mixer) {
         self.mixer = mixer
     }
-    
+
     public func mix() -> [Tile] {
         return mixer.mix()
     }
-    
+
     public func next() -> AnyMixer {
         return AnyMixer(mixer.next())
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case mixerType
         case deterministic
         case mixer
     }
-    
+
     private enum MixerTypes: String, Codable {
         case simple
         case classic
@@ -26,7 +28,7 @@ public struct AnyMixer: Mixer, Codable {
         case insanity
         case fibonacci
     }
-    
+
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let mixerType = try container.decode(MixerTypes.self, forKey: .mixerType)
@@ -54,7 +56,7 @@ public struct AnyMixer: Mixer, Codable {
             mixer = try container.decode(FibonacciMixer<NeutralGameOfDice>.self, forKey: .mixer)
         }
     }
-    
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         switch mixer {
@@ -83,8 +85,11 @@ public struct AnyMixer: Mixer, Codable {
                 codingPath: encoder.codingPath, debugDescription: "Mixer out of range"))
         }
     }
-    
-    private func encode<T: Mixer & Encodable>(_ mixer: T, mixerType: MixerTypes, deterministic: Bool, to container: inout KeyedEncodingContainer<CodingKeys>) throws {
+
+    private func encode<T: Mixer & Encodable>(_ mixer: T,
+                                              mixerType: MixerTypes,
+                                              deterministic: Bool,
+                                              to container: inout KeyedEncodingContainer<CodingKeys>) throws {
         try container.encode(mixerType, forKey: .mixerType)
         try container.encode(deterministic, forKey: .deterministic)
         try container.encode(mixer, forKey: .mixer)

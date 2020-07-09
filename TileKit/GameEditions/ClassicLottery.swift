@@ -4,7 +4,7 @@ public struct ClassicLottery<GameOfDice: GameOfDiceProtocol>: Lottery, Codable {
     public init(gameOfDice: GameOfDice) {
         self.gameOfDice = gameOfDice
     }
-    
+
     private let six = Tile(value: 6, score: 9)
 
     public func draw(maxValue: Int) -> (TileHint, Tile)? {
@@ -34,7 +34,7 @@ public struct ClassicLottery<GameOfDice: GameOfDiceProtocol>: Lottery, Codable {
             pool[index]
         )
     }
-    
+
     private func makePool(maxValue: Int) -> [Tile] {
         let count = (maxValue / six.value).trailingZeroBitCount + 1
         var pool = Array(repeating: six, count: count)
@@ -51,7 +51,7 @@ public struct ClassicLottery<GameOfDice: GameOfDiceProtocol>: Lottery, Codable {
     public func next() -> ClassicLottery<GameOfDice> {
         return ClassicLottery(gameOfDice: gameOfDice.next())
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case gameOfDice
     }

@@ -12,7 +12,7 @@ class FibonacciMakerTests: XCTestCase {
         XCTAssertTrue(actual.area.merger.merger is FibonacciMerger)
         XCTAssertTrue(actual.deck.mixer.mixer is FibonacciMixer<NeutralGameOfDice>)
     }
-    
+
     func testMakeNonDeterministic() {
         let actual = GameMaker()
             .use(edition: .fibonacci)

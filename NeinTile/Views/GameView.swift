@@ -3,7 +3,7 @@ import TileKit
 
 struct GameView: View {
     @EnvironmentObject var game: GameEnvironment
-    
+
     var body: some View {
         VStack(spacing: 0) {
             DeckView()
@@ -19,7 +19,7 @@ struct GameView: View {
             }
         }
         .accentColor(Color.orange)
-        .onAppear() {
+        .onAppear {
             AppNotifications.gameCenter.post(object: GameCenterCommand.authenticate)
         }
     }

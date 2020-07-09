@@ -1,10 +1,10 @@
 public struct DualityLottery<GameOfDice: GameOfDiceProtocol>: Lottery, Codable {
     public let gameOfDice: GameOfDice
-    
+
     public init(gameOfDice: GameOfDice) {
         self.gameOfDice = gameOfDice
     }
-    
+
     public func draw(maxValue: Int) -> (TileHint, Tile)? {
         var random = gameOfDice.roll()
         let zero = Tile(value: 0, score: maxValue)
@@ -12,11 +12,11 @@ public struct DualityLottery<GameOfDice: GameOfDiceProtocol>: Lottery, Codable {
             ? (.single(zero), zero)
             : nil
     }
-    
+
     public func next() -> DualityLottery<GameOfDice> {
         return DualityLottery(gameOfDice: gameOfDice.next())
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case gameOfDice
     }

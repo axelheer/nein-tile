@@ -16,23 +16,23 @@ class AnyDealerTests: XCTestCase {
           "deterministic" : true
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyDealer(DefaultDealer(gameOfDice: NeutralGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyDealer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.dealer is DefaultDealer<NeutralGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }
-    
+
     func testNonDeterministicDefault() throws {
         let expected = """
         {
@@ -46,19 +46,19 @@ class AnyDealerTests: XCTestCase {
           "deterministic" : false
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyDealer(DefaultDealer(gameOfDice: ChaoticGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyDealer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.dealer is DefaultDealer<ChaoticGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }

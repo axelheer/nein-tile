@@ -1,36 +1,38 @@
 import SwiftUI
 import TileKit
 
+// swiftlint:disable large_tuple
+
 struct AreaView: View {
     @EnvironmentObject var game: GameEnvironment
-    
+
     var body: some View {
         GeometryReader { geometry in
             self.makeBody(container: geometry.size, bounds: geometry.frame(in: .global))
         }
     }
-    
+
     func makeBody(container: CGSize, bounds: CGRect) -> some View {
         let colCount = game.current.area.tiles.colCount
         let rowCount = game.current.area.tiles.rowCount
-        
+
         let size = min(
             container.width / CGFloat(colCount),
             container.height / CGFloat(rowCount)
         )
-        
+
         let columns = 0 ..< colCount
         let rows = (0 ..< rowCount).reversed()
-        
+
         let index: (Int) -> Double = game.moveTo != .right
             ? { col in -Double(col) }
             : { col in Double(col) }
-        
+
         return ZStack {
             HStack(spacing: 0) {
-                ForEach(columns, id: \.self) { col in
+                ForEach(columns, id: \.self) { _ in
                     VStack(spacing: 0) {
-                        ForEach(rows, id: \.self) { row in
+                        ForEach(rows, id: \.self) { _ in
                             Circle()
                                 .stroke(Color.gray, style: .init(dash: [1, 3]))
                                 .opacity(0.5)
@@ -54,22 +56,22 @@ struct AreaView: View {
         .preference(key: TileSizePreferenceKey.self, value: size)
         .preference(key: TilesBoundsPreferenceKey.self, value: bounds)
     }
-    
+
     func makeTile(_ col: Int, _ row: Int, _ size: CGFloat) -> some View {
         let tile = game.current.area.tiles[col, row, game.layer]
-        
+
         let (scale, offset, scaleEffect, opacity) = tileEffects(col, row)
-        
+
         let (next, nextOpacity) = nextEffect(col, row, size)
-        
+
         let factor = scale != 0 ? 1 - nextOpacity : 1
-        
+
         let overlay = next != tile || scale != 0
             ? AnyView(TileView(size: size, tile: next)
                 .opacity(nextOpacity)
             )
             : AnyView(EmptyView())
-       
+
         return TileView(size: size, tile: tile)
             .offset(offset)
             .scaleEffect(scaleEffect)
@@ -77,7 +79,7 @@ struct AreaView: View {
             .zIndex(-Double(scale))
             .overlay(overlay)
     }
-    
+
     func nextEffect(_ col: Int, _ row: Int, _ size: CGFloat) -> (Tile, Double) {
         guard let preview = game.preview else {
             return (.empty, 0)
@@ -95,7 +97,7 @@ struct AreaView: View {
             ) / 0.2
         return (next, opacity)
     }
-    
+
     func tileEffects(_ col: Int, _ row: Int) -> (Int, CGSize, CGFloat, Double) {
         guard let preview = game.preview else {
             return (0, .zero, 1, 1)

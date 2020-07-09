@@ -2,22 +2,24 @@ import SwiftUI
 import TileKit
 import UIKit
 
+// swiftlint:disable line_length cyclomatic_complexity identifier_name
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let gameCenter = GameDelegate()
     let game = GameEnvironment()
-    
+
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         game.restore()
-        
+
         let gameView = GameView()
             .environmentObject(game)
-        
+
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: gameView)
-            
+
             NotificationCenter.default.addObserver(
                 self,
                 selector: #selector(handleGameCenter(notification:)),
@@ -30,12 +32,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 name: .init(AppNotifications.shareIt.rawValue),
                 object: nil
             )
-            
+
             self.window = window
             window.makeKeyAndVisible()
         }
     }
-    
+
     @objc func handleGameCenter(notification: NSNotification) {
         guard let rootController = window?.rootViewController else {
             return
@@ -43,7 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let command = notification.object as? GameCenterCommand else {
             return
         }
-        
+
         switch command {
         case .authenticate:
             gameCenter.authenticate(root: rootController)
@@ -74,7 +76,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             gameCenter.submitTotalScore(tournament, totalScore)
         }
     }
-    
+
     @objc func handleShareIt(notification: NSNotification) {
         guard let rootController = window?.rootViewController else {
             return
@@ -82,20 +84,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let command = notification.object as? ShareCommand else {
             return
         }
-        
+
         switch command {
         case .screen(let bounds, let text):
             let controller = rootController.presentedViewController ?? rootController
             guard let view = controller.view else {
                 break
             }
-            
+
             let bounds = view.convert(bounds, from: nil)
             let renderer = UIGraphicsImageRenderer(bounds: bounds)
             let image = renderer.image { context in
                 view.layer.render(in: context.cgContext)
             }
-            
+
             let activityController = UIActivityViewController(
                 activityItems: [
                     URL(string: "https://apps.apple.com/app/nein-tile/id1518189085")!,
@@ -104,12 +106,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 ],
                 applicationActivities: nil
             )
-            
+
             if let popover = activityController.popoverPresentationController {
                 popover.sourceView = view
                 popover.sourceRect = bounds
             }
-            
+
             controller.present(
                 activityController,
                 animated: true,

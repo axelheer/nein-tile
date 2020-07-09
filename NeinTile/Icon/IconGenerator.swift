@@ -5,6 +5,8 @@
 //  Copyright © 2020 Velos Mobile LLC / https://velosmobile.com / All rights reserved.
 //
 
+// swiftlint:disable line_length nesting
+
 import Foundation
 import SwiftUI
 
@@ -43,7 +45,6 @@ struct IconSet<Content: View>: Encodable {
             .init(idiom: .iPad, size: CGSize(width: 76, height: 76), scale: .twoX, placeholder: !idioms.contains(.iPad)),
 
             .init(idiom: .iPad, size: CGSize(width: 83.5, height: 83.5), scale: .twoX, placeholder: !idioms.contains(.iPad)),
-
 
             .init(idiom: .iPhone, size: CGSize(width: 20, height: 20), scale: .twoX, placeholder: !idioms.contains(.iPhone)),
             .init(idiom: .iPhone, size: CGSize(width: 20, height: 20), scale: .threeX, placeholder: !idioms.contains(.iPhone)),

@@ -12,7 +12,7 @@ class ClassicMakerTests: XCTestCase {
         XCTAssertTrue(actual.area.merger.merger is ClassicMerger)
         XCTAssertTrue(actual.deck.mixer.mixer is ClassicMixer<NeutralGameOfDice>)
     }
-    
+
     func testMakeNonDeterministic() {
         let actual = GameMaker()
             .use(edition: .classic)

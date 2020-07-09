@@ -1,22 +1,22 @@
 public struct AnyMerger: Merger, Codable {
     public let merger: Merger
-    
+
     public init(_ merger: Merger) {
         self.merger = merger
     }
-    
+
     public func canMerge(_ source: Tile, _ target: Tile) -> Bool {
         return merger.canMerge(source, target)
     }
-    
+
     public func merge(_ source: Tile, _ target: Tile) -> Tile {
         return merger.merge(source, target)
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case mergerType
     }
-    
+
     private enum MergerTypes: String, Codable {
         case simple
         case classic
@@ -24,7 +24,7 @@ public struct AnyMerger: Merger, Codable {
         case insanity
         case fibonacci
     }
-    
+
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let mergerType = try container.decode(MergerTypes.self, forKey: .mergerType)
@@ -41,7 +41,7 @@ public struct AnyMerger: Merger, Codable {
             merger = FibonacciMerger()
         }
     }
-    
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         switch merger {

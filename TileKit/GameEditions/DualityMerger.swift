@@ -1,7 +1,9 @@
+// swiftlint:disable identifier_name
+
 public struct DualityMerger: Merger {
     public init() {
     }
-    
+
     public func canMerge(_ source: Tile, _ target: Tile) -> Bool {
         switch (source.value, target.value) {
         case (0, _) where source == .empty:
@@ -20,10 +22,10 @@ public struct DualityMerger: Merger {
             return x == y || x + y == 0
         }
     }
-    
+
     public func merge(_ source: Tile, _ target: Tile) -> Tile {
         assert(canMerge(source, target), "Cannot merge")
-        
+
         switch (source, target) {
         case (_, .empty):
             return source

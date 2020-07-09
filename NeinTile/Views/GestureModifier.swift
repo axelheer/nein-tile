@@ -3,12 +3,12 @@ import TileKit
 
 struct GestureModifier: ViewModifier {
     @Environment(\.undoManager) var undoManager
-    
+
     @EnvironmentObject var game: GameEnvironment
-    
+
     @State private var tileSize: CGFloat = 0
     @State private var sampleIndex: Int = 0
-   
+
     var swipe: some Gesture {
         DragGesture()
             .onChanged { value in
@@ -31,7 +31,7 @@ struct GestureModifier: ViewModifier {
                 }
             }
     }
-    
+
     var pinch: some Gesture {
         MagnificationGesture()
             .onChanged { value in
@@ -54,7 +54,7 @@ struct GestureModifier: ViewModifier {
                 }
             }
     }
-    
+
     func body(content: Content) -> some View {
         return content
             .onPreferenceChange(TileSizePreferenceKey.self) { size in
@@ -70,7 +70,7 @@ struct GestureModifier: ViewModifier {
             .gesture(swipe)
             .gesture(pinch)
     }
-    
+
     func handleController(notification: Notification) {
         guard let command = notification.object as? ControllerCommand else {
             return
@@ -88,7 +88,7 @@ struct GestureModifier: ViewModifier {
             sampleIndex = (sampleIndex + 1) % GameSamples.allSamples.count
         }
     }
-    
+
     func mapDirection(dragBy: CGSize) -> (CGSize, MoveDirection) {
         let direction = game.moveTo ?? (
             abs(dragBy.width) > abs(dragBy.height)
@@ -108,7 +108,7 @@ struct GestureModifier: ViewModifier {
             return (.zero, .right)
         }
     }
-    
+
     func mapDirection(magnifyBy: CGFloat) -> (CGFloat, MoveDirection) {
         let direction = game.moveTo ?? (magnifyBy > 1 ? .front : .back)
         switch direction {

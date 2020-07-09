@@ -1,6 +1,8 @@
 import TileKit
 import XCTest
 
+// swiftlint:disable type_body_length
+
 class AnyMixerTests: XCTestCase {
     func testDeterministicSimple() throws {
         let expected = """
@@ -15,23 +17,23 @@ class AnyMixerTests: XCTestCase {
           "mixerType" : "simple"
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyMixer(SimpleMixer(gameOfDice: NeutralGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyMixer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.mixer is SimpleMixer<NeutralGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }
-    
+
     func testDeterministicClassic() throws {
         let expected = """
         {
@@ -45,23 +47,23 @@ class AnyMixerTests: XCTestCase {
           "mixerType" : "classic"
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyMixer(ClassicMixer(gameOfDice: NeutralGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyMixer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.mixer is ClassicMixer<NeutralGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }
-    
+
     func testDeterministicDuality() throws {
         let expected = """
         {
@@ -75,23 +77,23 @@ class AnyMixerTests: XCTestCase {
           "mixerType" : "duality"
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyMixer(DualityMixer(gameOfDice: NeutralGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyMixer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.mixer is DualityMixer<NeutralGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }
-    
+
     func testDeterministicInsanity() throws {
         let expected = """
         {
@@ -105,23 +107,23 @@ class AnyMixerTests: XCTestCase {
           "mixerType" : "insanity"
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyMixer(InsanityMixer(gameOfDice: NeutralGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyMixer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.mixer is InsanityMixer<NeutralGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }
-    
+
     func testDeterministicFibonacci() throws {
         let expected = """
         {
@@ -135,23 +137,23 @@ class AnyMixerTests: XCTestCase {
           "mixerType" : "fibonacci"
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyMixer(FibonacciMixer(gameOfDice: NeutralGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyMixer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.mixer is FibonacciMixer<NeutralGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }
-    
+
     func testNonDeterministicSimple() throws {
         let expected = """
         {
@@ -164,23 +166,23 @@ class AnyMixerTests: XCTestCase {
           "mixerType" : "simple"
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyMixer(SimpleMixer(gameOfDice: ChaoticGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyMixer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.mixer is SimpleMixer<ChaoticGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }
-    
+
     func testNonDeterministicClassic() throws {
         let expected = """
         {
@@ -193,23 +195,23 @@ class AnyMixerTests: XCTestCase {
           "mixerType" : "classic"
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyMixer(ClassicMixer(gameOfDice: ChaoticGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyMixer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.mixer is ClassicMixer<ChaoticGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }
-    
+
     func testNonDeterministicDuality() throws {
         let expected = """
         {
@@ -222,23 +224,23 @@ class AnyMixerTests: XCTestCase {
           "mixerType" : "duality"
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyMixer(DualityMixer(gameOfDice: ChaoticGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyMixer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.mixer is DualityMixer<ChaoticGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }
-    
+
     func testNonDeterministicInsanity() throws {
         let expected = """
         {
@@ -251,23 +253,23 @@ class AnyMixerTests: XCTestCase {
           "mixerType" : "insanity"
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyMixer(InsanityMixer(gameOfDice: ChaoticGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyMixer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.mixer is InsanityMixer<ChaoticGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }
-    
+
     func testNonDeterministicFibonacci() throws {
         let expected = """
         {
@@ -280,19 +282,19 @@ class AnyMixerTests: XCTestCase {
           "mixerType" : "fibonacci"
         }
         """
-        
+
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let decoder = JSONDecoder()
-        
+
         let subject = AnyMixer(FibonacciMixer(gameOfDice: ChaoticGameOfDice()))
-        
+
         let encoded = try encoder.encode(subject)
-        
+
         let actual = String(data: encoded, encoding: .utf8)!
-        
+
         let decoded = try decoder.decode(AnyMixer.self, from: encoded)
-        
+
         XCTAssertTrue(decoded.mixer is FibonacciMixer<ChaoticGameOfDice>)
         XCTAssertEqual(trimGameOfDice(actual), trimGameOfDice(expected))
     }

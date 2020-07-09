@@ -1,7 +1,9 @@
+// swiftlint:disable identifier_name
+
 public struct SimpleMerger: Merger {
     public init() {
     }
-    
+
     public func canMerge(_ source: Tile, _ target: Tile) -> Bool {
         switch (source.value, target.value) {
         case (0, _):
@@ -16,10 +18,10 @@ public struct SimpleMerger: Merger {
             return x == y
         }
     }
-    
+
     public func merge(_ source: Tile, _ target: Tile) -> Tile {
         assert(canMerge(source, target), "Cannot merge")
-        
+
         switch (source, target) {
         case (_, .empty):
             return source

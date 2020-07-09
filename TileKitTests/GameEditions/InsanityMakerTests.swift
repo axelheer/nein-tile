@@ -12,7 +12,7 @@ class InsanityMakerTests: XCTestCase {
         XCTAssertTrue(actual.area.merger.merger is InsanityMerger)
         XCTAssertTrue(actual.deck.mixer.mixer is InsanityMixer<NeutralGameOfDice>)
     }
-    
+
     func testMakeNonDeterministic() {
         let actual = GameMaker()
             .use(edition: .insanity)

@@ -1,11 +1,11 @@
 import SwiftUI
 
-struct Icon : View {
+struct Icon: View {
     var body: some View {
         IconStack { canvas in
             Color.black
                 .edgesIgnoringSafeArea(.all)
-           
+
             ZStack {
                 Text("1")
                     .font(Font.system(size: canvas[300], weight: .heavy))
@@ -50,7 +50,7 @@ struct Icon : View {
 }
 
 #if DEBUG
-struct Icon_Previews : PreviewProvider {
+struct Icon_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             Icon()

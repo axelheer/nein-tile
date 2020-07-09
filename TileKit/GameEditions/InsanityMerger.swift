@@ -1,7 +1,9 @@
+// swiftlint:disable identifier_name cyclomatic_complexity
+
 public struct InsanityMerger: Merger {
     public init() {
     }
-    
+
     public func canMerge(_ source: Tile, _ target: Tile) -> Bool {
         switch (source.value, target.value) {
         case (0, _) where source == .empty:
@@ -36,18 +38,18 @@ public struct InsanityMerger: Merger {
             return x == y || x + y == 0
         }
     }
-    
+
     private let minusOne   = Tile(value: -1, score: 0)
     private let minusTwo   = Tile(value: -2, score: 0)
     private let minusThree = Tile(value: -3, score: 3)
-    
+
     private let plusOne   = Tile(value: 1, score: 0)
     private let plusTwo   = Tile(value: 2, score: 0)
     private let plusThree = Tile(value: 3, score: 3)
-    
+
     public func merge(_ source: Tile, _ target: Tile) -> Tile {
         assert(canMerge(source, target), "Cannot merge")
-        
+
         switch (source, target) {
         case (_, .empty):
             return source

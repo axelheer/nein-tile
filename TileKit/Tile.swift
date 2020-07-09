@@ -3,10 +3,10 @@ public struct Tile: Equatable, Hashable, Codable {
         value: 0,
         score: 0
     )
-    
+
     public let value: Int
     public let score: Int
-    
+
     public init(value: Int, score: Int) {
         self.value = value
         self.score = score

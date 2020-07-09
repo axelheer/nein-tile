@@ -1,12 +1,12 @@
 public struct TilesDeck: Codable {
     public let lottery: AnyLottery
     public let mixer: AnyMixer
-    
+
     public let tile: Tile
     public let hint: TileHint
-    
+
     private let stack: [Tile]
-    
+
     public init(mixer: AnyMixer, lottery: AnyLottery) {
         let stack = mixer.mix()
         guard let tile = stack.last else {
@@ -20,7 +20,7 @@ public struct TilesDeck: Codable {
             lottery: lottery
         )
     }
-    
+
     private init(stack: [Tile], tile: Tile, hint: TileHint, mixer: AnyMixer, lottery: AnyLottery) {
         self.stack = stack
         self.tile = tile
@@ -28,7 +28,7 @@ public struct TilesDeck: Codable {
         self.mixer = mixer
         self.lottery = lottery
     }
-    
+
     public func next(maxValue: Int) -> TilesDeck {
         if let (hint, tile) = lottery.draw(maxValue: maxValue) {
             return TilesDeck(

@@ -3,14 +3,14 @@ import XCTest
 
 class DualityLotteryTests: XCTestCase {
     let zero = Tile(value: 0, score: 1138)
-    
+
     func testDraw() {
         let expectedCauseOfLawful: [Int: (TileHint, Tile)] = [
-            6:  (.single(zero), zero)
+            6: (.single(zero), zero)
         ]
-        
+
         var subject = DualityLottery(gameOfDice: LawfulGameOfDice())
-        
+
         for iteration in 0 ..< 16 {
             let actual = subject.draw(maxValue: 1138)
             if let (expectedHint, expectedTile) = expectedCauseOfLawful[iteration] {
@@ -25,15 +25,15 @@ class DualityLotteryTests: XCTestCase {
             subject = subject.next()
         }
     }
-    
+
     func testNext() {
         let subject = DualityLottery(gameOfDice: LawfulGameOfDice())
-        
+
         let actual = subject.next()
-        
+
         var subjectRoll = subject.gameOfDice.roll()
         var actualRoll = actual.gameOfDice.roll()
-        
+
         XCTAssertNotEqual(actualRoll.next(), subjectRoll.next())
     }
 }

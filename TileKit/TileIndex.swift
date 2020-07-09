@@ -4,11 +4,11 @@ public struct TileIndex: Equatable, Hashable {
         row: 0,
         lay: 0
     )
-    
+
     public let col: Int
     public let row: Int
     public let lay: Int
-    
+
     public init(col: Int, row: Int, lay: Int) {
         self.col = col
         self.row = row

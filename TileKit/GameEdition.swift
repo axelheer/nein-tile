@@ -4,13 +4,13 @@ public enum GameEdition: String, CaseIterable, Codable {
     case duality
     case insanity
     case fibonacci
-    
+
     public func maker(deterministic: Bool) -> Maker {
         return deterministic
             ? maker(gameOfDice: NeutralGameOfDice())
             : maker(gameOfDice: ChaoticGameOfDice())
     }
-    
+
     public func maker<GameOfDice: GameOfDiceProtocol>(gameOfDice: GameOfDice) -> Maker {
         switch self {
         case .simple:

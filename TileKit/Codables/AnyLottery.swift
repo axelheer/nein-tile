@@ -1,24 +1,26 @@
+// swiftlint:disable cyclomatic_complexity
+
 public struct AnyLottery: Lottery, Codable {
     public let lottery: Lottery
-    
+
     public init(_ lottery: Lottery) {
         self.lottery = lottery
     }
-    
+
     public func draw(maxValue: Int) -> (TileHint, Tile)? {
         return lottery.draw(maxValue: maxValue)
     }
-    
+
     public func next() -> AnyLottery {
         return AnyLottery(lottery.next())
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case lotteryType
         case deterministic
         case lottery
     }
-    
+
     private enum LotteryTypes: String, Codable {
         case simple
         case classic
@@ -26,7 +28,7 @@ public struct AnyLottery: Lottery, Codable {
         case insanity
         case fibonacci
     }
-    
+
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let lotteryType = try container.decode(LotteryTypes.self, forKey: .lotteryType)
@@ -54,7 +56,7 @@ public struct AnyLottery: Lottery, Codable {
             lottery = try container.decode(FibonacciLottery<NeutralGameOfDice>.self, forKey: .lottery)
         }
     }
-    
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         switch lottery {
@@ -83,8 +85,11 @@ public struct AnyLottery: Lottery, Codable {
                 codingPath: encoder.codingPath, debugDescription: "Lottery out of range"))
         }
     }
-    
-    private func encode<T: Lottery & Encodable>(_ lottery: T, lotteryType: LotteryTypes, deterministic: Bool, to container: inout KeyedEncodingContainer<CodingKeys>) throws {
+
+    private func encode<T: Lottery & Encodable>(_ lottery: T,
+                                                lotteryType: LotteryTypes,
+                                                deterministic: Bool,
+                                                to container: inout KeyedEncodingContainer<CodingKeys>) throws {
         try container.encode(lotteryType, forKey: .lotteryType)
         try container.encode(deterministic, forKey: .deterministic)
         try container.encode(lottery, forKey: .lottery)

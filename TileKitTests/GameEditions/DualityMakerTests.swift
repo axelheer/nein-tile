@@ -12,7 +12,7 @@ class DualityMakerTests: XCTestCase {
         XCTAssertTrue(actual.area.merger.merger is DualityMerger)
         XCTAssertTrue(actual.deck.mixer.mixer is DualityMixer<NeutralGameOfDice>)
     }
-    
+
     func testMakeNonDeterministic() {
         let actual = GameMaker()
             .use(edition: .duality)

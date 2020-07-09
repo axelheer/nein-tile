@@ -2,10 +2,10 @@ import SwiftUI
 
 struct LayerView: View {
     @EnvironmentObject var game: GameEnvironment
-    
+
     var body: some View {
         HStack(spacing: 0) {
-            Button(action: { self.game.show(layer: self.game.layer - 1) }) {
+            Button(action: leftButton) {
                 Image(systemName: "chevron.left")
                     .padding()
             }
@@ -14,13 +14,21 @@ struct LayerView: View {
             Text("Layer \(game.layer + 1) of \(game.current.area.tiles.layCount)")
                 .frame(maxWidth: .infinity, minHeight: 60, maxHeight: 60)
             Spacer()
-            Button(action: { self.game.show(layer: self.game.layer + 1) }) {
+            Button(action: rightButton) {
                 Image(systemName: "chevron.right")
                     .padding()
             }
             .disabled(game.layer == game.current.area.tiles.layCount - 1)
         }
         .font(.headline)
+    }
+
+    func leftButton() {
+        game.show(layer: game.layer - 1)
+    }
+
+    func rightButton() {
+        game.show(layer: game.layer + 1)
     }
 }
 

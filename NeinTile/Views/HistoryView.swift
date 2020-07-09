@@ -1,11 +1,13 @@
 import SwiftUI
 import TileKit
 
+// swiftlint:disable identifier_name multiple_closures_with_trailing_closure
+
 struct HistoryView: View {
     @EnvironmentObject var game: GameEnvironment
-    
+
     @State private var bounds = [UUID: CGRect]()
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -18,23 +20,23 @@ struct HistoryView: View {
             .navigationBarTitle("Historic games")
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .onAppear() {
+        .onAppear {
             AppNotifications.gameCenter.post(object: GameCenterCommand.loadSavedGames)
         }
     }
-    
+
     func makeListBody() -> some View {
         let historicGames = game.gameHistory.values
             .sorted(by: { $0.time > $1.time })
             .map { state -> (game: GameEnvironment, time: Date) in
                 (GameEnvironment(state.current, tournament: state.tournament), state.time)
         }
-        
+
         let format = DateFormatter()
         format.dateStyle = .medium
         format.timeStyle = .short
         format.doesRelativeDateFormatting = true
-        
+
         return ForEach(historicGames, id: \.game.current.id) { (game, time) in
             HStack(alignment: .center) {
                 AreaView()
@@ -61,24 +63,24 @@ struct HistoryView: View {
                 self.bounds[game.current.id] = bounds
             }
         }
-        .onDelete() { indices in
+        .onDelete { indices in
             for index in indices {
                 let id = historicGames[index].game.current.id
-                
+
                 AppNotifications.gameCenter.post(
                     object: GameCenterCommand.dropSavedGame(id)
                 )
             }
         }
     }
-    
+
     func shareIt(id: UUID, score: Int) {
         guard let bounds = bounds[id] else {
             return
         }
-        
+
         let text = "I scored \(Tile.format.string(for: score)!) points"
-        
+
         AppNotifications.shareIt.post(object: ShareCommand.screen(bounds, text))
     }
 }
@@ -103,7 +105,7 @@ struct HistoryView_Previews: PreviewProvider {
         }
         return environment
     }()
-    
+
     static var previews: some View {
         Group {
             HistoryView()

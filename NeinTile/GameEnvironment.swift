@@ -5,51 +5,51 @@ class GameEnvironment: ObservableObject {
     @Published private(set) var tournament: Tournament?
     @Published private(set) var current: Game
     @Published private(set) var layer: Int
-    
+
     @Published private(set) var dragBy: CGSize = .zero
     @Published private(set) var magnifyBy: CGFloat = 1
     @Published private(set) var moveTo: MoveDirection?
     @Published private(set) var preview: Game?
-    
+
     @Published var gameCenter: Bool = false
     @Published var gameHistory: [UUID: GameState] = .init()
-    
+
     convenience init() {
         self.init(GameMaker().makeGame())
     }
-    
+
     init(_ initial: Game, tournament: Tournament? = nil) {
         _tournament = .init(initialValue: tournament)
         _current = .init(initialValue: initial)
         _layer = .init(initialValue: initial.area.tiles.layCount - 1)
     }
-    
+
     func reset(_ game: Game, tournament: Tournament? = nil, layer: Int? = nil, using undoManager: UndoManager? = nil) {
         self.tournament = tournament
         self.current = game
         self.layer = layer ?? game.area.tiles.layCount - 1
-        
+
         dragBy = .zero
         magnifyBy = 1
         moveTo = nil
         preview = nil
-        
+
         undoManager?.removeAllActions(withTarget: self)
     }
-    
+
     func show(layer: Int) {
         dragBy = .zero
         magnifyBy = 1
         moveTo = nil
         preview = nil
-        
+
         if layer < current.area.tiles.layCount {
             withAnimation {
                 self.layer = layer
             }
         }
     }
-    
+
     func show(dragBy: CGSize = .zero, magnifyBy: CGFloat = 1, to direction: MoveDirection) {
         if self.moveTo != direction {
             self.preview = current.view(
@@ -60,7 +60,7 @@ class GameEnvironment: ObservableObject {
         self.dragBy = dragBy
         self.magnifyBy = magnifyBy
     }
-    
+
     func move(to direction: MoveDirection, using undoManager: UndoManager? = nil) {
         if let next = current.move(to: direction) {
             if current.done != next.done {
@@ -87,7 +87,7 @@ class GameEnvironment: ObservableObject {
             backout()
         }
     }
-    
+
     func backout() {
         moveTo = nil
         preview = nil
@@ -96,7 +96,7 @@ class GameEnvironment: ObservableObject {
             magnifyBy = 1
         }
     }
-    
+
     private func onFinish(_ next: Game) {
         AppNotifications.gameCenter.post(
             object: GameCenterCommand.submitTotalScore(tournament, next.area.tiles.totalScore))
@@ -125,7 +125,7 @@ extension GameEnvironment {
         let layer: Int
         let time: Date
     }
-    
+
     func restore() {
         guard let data = UserDefaults.standard.data(forKey: "GameState") else {
             return
@@ -133,22 +133,22 @@ extension GameEnvironment {
         guard let state = try? load(data: data) else {
             return
         }
-        
+
         if !state.current.done {
             reset(state.current, tournament: state.tournament, layer: state.layer)
         } else {
             reset(state.current.maker.makeGame(), tournament: state.tournament)
         }
     }
-    
+
     func backup(_ next: Game) {
         guard let (_, data) = try? save(next) else {
             return
         }
-        
+
         UserDefaults.standard.set(data, forKey: "GameState")
     }
-    
+
     func save(_ next: Game) throws -> (UUID, Data) {
         let state = GameState(
             tournament: tournament,
@@ -156,20 +156,22 @@ extension GameEnvironment {
             layer: layer,
             time: Date()
         )
-        
+
         let encoder = JSONEncoder()
         let data = try encoder.encode(state)
-        
+
         return (state.current.id, data)
     }
-    
+
     func load(data: Data) throws -> GameState {
         let decoder = JSONDecoder()
         let state = try decoder.decode(GameState.self, from: data)
-        
+
         return state
     }
 }
+
+// swiftlint:disable identifier_name function_body_length cyclomatic_complexity
 
 enum Tournament: String, CaseIterable, Codable {
     case simple_2d,
@@ -192,7 +194,7 @@ enum Tournament: String, CaseIterable, Codable {
          insanity_3d_max,
          fibonacci_2d_max,
          fibonacci_3d_max
-    
+
     func start() -> GameMaker {
         switch self {
         case .simple_2d:
