@@ -12,7 +12,15 @@ class GameEnvironment: ObservableObject {
     @Published private(set) var preview: Game?
 
     @Published var gameCenter: Bool = false
-    @Published var gameHistory: [UUID: GameState] = .init()
+    @Published var gameHistory: [UUID: GameState] = .init() {
+        didSet {
+            historicGames = gameHistory.values.sorted { (left, right) in
+                left.time > right.time
+            }
+        }
+    }
+
+    private(set) var historicGames: [GameState] = .init()
 
     convenience init() {
         self.init(GameMaker().makeGame())
@@ -118,8 +126,14 @@ class GameEnvironment: ObservableObject {
     }
 }
 
+// swiftlint:disable identifier_name
+
 extension GameEnvironment {
-    struct GameState: Codable {
+    struct GameState: Codable, Identifiable {
+        var id: UUID {
+            current.id
+        }
+
         let tournament: Tournament?
         let current: Game
         let layer: Int
@@ -171,7 +185,7 @@ extension GameEnvironment {
     }
 }
 
-// swiftlint:disable identifier_name function_body_length cyclomatic_complexity
+// swiftlint:disable function_body_length cyclomatic_complexity
 
 enum Tournament: String, CaseIterable, Codable {
     case simple_2d,

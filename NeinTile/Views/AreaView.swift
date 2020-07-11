@@ -8,11 +8,11 @@ struct AreaView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            self.makeBody(container: geometry.size, bounds: geometry.frame(in: .global))
+            self.makeBody(container: geometry.size)
         }
     }
 
-    func makeBody(container: CGSize, bounds: CGRect) -> some View {
+    func makeBody(container: CGSize) -> some View {
         let colCount = game.current.area.tiles.colCount
         let rowCount = game.current.area.tiles.rowCount
 
@@ -54,7 +54,6 @@ struct AreaView: View {
             }
         }
         .preference(key: TileSizePreferenceKey.self, value: size)
-        .preference(key: TilesBoundsPreferenceKey.self, value: bounds)
     }
 
     func makeTile(_ col: Int, _ row: Int, _ size: CGFloat) -> some View {
@@ -121,14 +120,6 @@ struct TileSizePreferenceKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
 
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
-    }
-}
-
-struct TilesBoundsPreferenceKey: PreferenceKey {
-    static var defaultValue: CGRect = .zero
-
-    static func reduce(value: inout CGRect, nextValue: () -> CGRect) {
         value = nextValue()
     }
 }

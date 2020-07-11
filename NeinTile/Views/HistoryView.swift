@@ -11,9 +11,41 @@ struct HistoryView: View {
     var body: some View {
         NavigationView {
             Form {
-                if game.gameHistory.count != 0 {
-                    makeListBody()
-                } else {
+                ForEach(game.historicGames) { game in
+                    HStack(alignment: .center) {
+                        ShareView(game: game.current)
+                            .frame(width: 160, height: 160, alignment: .center)
+                        Spacer()
+                        VStack(alignment: .trailing) {
+                            Text(game.title)
+                                .font(.headline)
+                            Text(game.subtitle)
+                                .font(.footnote)
+                            Spacer()
+                            Text(game.description)
+                                .font(.subheadline)
+                            Spacer()
+                            Button(action: { self.shareIt(game: game) }) {
+                                Image(systemName: "square.and.arrow.up")
+                                    .padding()
+                            }
+                            .buttonStyle(BorderlessButtonStyle())
+                        }
+                    }
+                    .onPreferenceChange(ShareBoundsPreferenceKey.self) { bounds in
+                        self.bounds[game.id] = bounds
+                    }
+                }
+                .onDelete { indices in
+                    for index in indices {
+                        let id = self.game.historicGames[index].current.id
+
+                        AppNotifications.gameCenter.post(
+                            object: GameCenterCommand.dropSavedGame(id)
+                        )
+                    }
+                }
+                if game.gameHistory.count == 0 {
                     Text("There is no game. For now.")
                 }
             }
@@ -25,63 +57,38 @@ struct HistoryView: View {
         }
     }
 
-    func makeListBody() -> some View {
-        let historicGames = game.gameHistory.values
-            .sorted(by: { $0.time > $1.time })
-            .map { state -> (game: GameEnvironment, time: Date) in
-                (GameEnvironment(state.current, tournament: state.tournament), state.time)
-        }
-
-        let format = DateFormatter()
-        format.dateStyle = .medium
-        format.timeStyle = .short
-        format.doesRelativeDateFormatting = true
-
-        return ForEach(historicGames, id: \.game.current.id) { (game, time) in
-            HStack(alignment: .center) {
-                AreaView()
-                    .frame(width: 160, height: 160, alignment: .center)
-                    .environmentObject(game)
-                Spacer()
-                VStack(alignment: .trailing) {
-                    Text(game.current.maker.text)
-                        .font(.headline)
-                    Text(format.string(for: time)!)
-                        .font(.footnote)
-                    Spacer()
-                    Text("\(Tile.format.string(for: game.current.area.tiles.totalScore)!) points")
-                        .font(.subheadline)
-                    Spacer()
-                    Button(action: { self.shareIt(id: game.current.id, score: game.current.area.tiles.totalScore) }) {
-                        Image(systemName: "square.and.arrow.up")
-                            .padding()
-                    }
-                    .buttonStyle(BorderlessButtonStyle())
-                }
-            }
-            .onPreferenceChange(TilesBoundsPreferenceKey.self) { bounds in
-                self.bounds[game.current.id] = bounds
-            }
-        }
-        .onDelete { indices in
-            for index in indices {
-                let id = historicGames[index].game.current.id
-
-                AppNotifications.gameCenter.post(
-                    object: GameCenterCommand.dropSavedGame(id)
-                )
-            }
-        }
-    }
-
-    func shareIt(id: UUID, score: Int) {
-        guard let bounds = bounds[id] else {
+    func shareIt(game: GameEnvironment.GameState) {
+        guard let bounds = bounds[game.id] else {
             return
         }
 
-        let text = "I scored \(Tile.format.string(for: score)!) points"
+        AppNotifications.shareIt.post(object: ShareCommand.screen(bounds, game.text))
+    }
+}
 
-        AppNotifications.shareIt.post(object: ShareCommand.screen(bounds, text))
+extension GameEnvironment.GameState {
+    static let format: Formatter = {
+        let result = DateFormatter()
+        result.dateStyle = .medium
+        result.timeStyle = .short
+        result.doesRelativeDateFormatting = true
+        return result
+    }()
+
+    var title: String {
+        current.maker.text
+    }
+
+    var subtitle: String {
+        Self.format.string(for: time)!
+    }
+
+    var description: String {
+        "\(Tile.format.string(for: current.area.tiles.totalScore)!) points"
+    }
+
+    var text: String {
+        "I scored \(description)"
     }
 }
 
