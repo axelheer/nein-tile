@@ -83,11 +83,8 @@ class GameEnvironment: ObservableObject {
             if let preview = preview {
                 current = preview
             }
-            moveTo = nil
-            preview = nil
-            dragBy = .zero
-            magnifyBy = 1
-            withAnimation(.easeIn) {
+            backout()
+            withAnimation {
                 current = next
             }
             backup(next)
@@ -99,10 +96,8 @@ class GameEnvironment: ObservableObject {
     func backout() {
         moveTo = nil
         preview = nil
-        withAnimation {
-            dragBy = .zero
-            magnifyBy = 1
-        }
+        dragBy = .zero
+        magnifyBy = 1
     }
 
     private func onFinish(_ next: Game) {
