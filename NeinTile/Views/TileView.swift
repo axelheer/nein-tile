@@ -8,6 +8,10 @@ struct TileView: View {
     var size: CGFloat = 80
     var tile: Tile
 
+    var shadow: Color {
+        colorScheme == .dark ? .black : .white
+    }
+
     var body: some View {
         RoundedRectangle(cornerRadius: max(edge, size / 8))
             .fill(color(tile))
@@ -16,8 +20,8 @@ struct TileView: View {
                 height: size - size / 8
             )
             .shadow(
-                color: Color.primary.opacity(0.33),
-                radius: size / 64
+                color: shadow,
+                radius: size / 32
             )
             .padding(size / 16)
             .overlay(Text(tile.text)

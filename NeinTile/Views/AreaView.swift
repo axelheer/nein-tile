@@ -24,66 +24,57 @@ struct AreaView: View {
         let columns = 0 ..< colCount
         let rows = (0 ..< rowCount).reversed()
 
-        let index: (Int) -> Double = game.moveTo != .right
+        let index: (Int) -> Double = game.dragBy.width > 0
             ? { col in -Double(col) }
             : { col in Double(col) }
 
-        return ZStack {
-            HStack(spacing: 0) {
-                ForEach(columns, id: \.self) { _ in
-                    VStack(spacing: 0) {
-                        ForEach(rows, id: \.self) { _ in
-                            Circle()
-                                .stroke(Color.gray, style: .init(dash: [1, 3]))
-                                .opacity(0.5)
-                                .padding(size / 8)
-                                .frame(width: size, height: size)
-                        }
+        return HStack(spacing: 0) {
+            ForEach(columns, id: \.self) { _ in
+                VStack(spacing: 0) {
+                    ForEach(rows, id: \.self) { _ in
+                        Circle()
+                            .stroke(Color.gray, style: .init(dash: [1, 3]))
+                            .opacity(0.5)
+                            .padding(size / 8)
+                            .frame(width: size, height: size)
                     }
                 }
             }
-            HStack(spacing: 0) {
-                ForEach(columns, id: \.self) { col in
-                    VStack(spacing: 0) {
-                        ForEach(rows, id: \.self) { row in
-                            self.makeTile(col, row, size)
-                        }
+        }.overlay(HStack(spacing: 0) {
+            ForEach(columns, id: \.self) { col in
+                VStack(spacing: 0) {
+                    ForEach(rows, id: \.self) { row in
+                        self.makeTile(col, row, size)
                     }
-                    .zIndex(index(col))
                 }
+                .zIndex(index(col))
             }
-        }
+        })
         .preference(key: TileSizePreferenceKey.self, value: size)
     }
 
     func makeTile(_ col: Int, _ row: Int, _ size: CGFloat) -> some View {
         let tile = game.current.area.tiles[col, row, game.layer]
+        let next = game.next.area.tiles[col, row, game.layer]
 
         let (scale, offset, scaleEffect, opacity) = tileEffects(col, row)
 
-        let (next, nextOpacity) = nextEffect(col, row, size)
+        let finish = nextEffect(col, row, size)
 
-        let factor = scale != 0 ? 1 - nextOpacity : 1
+        let opacityFactor = scale != 0 ? 1 - finish : 1.0
 
-        let overlay = next != tile || scale != 0
-            ? AnyView(TileView(size: size, tile: next)
-                .opacity(nextOpacity)
-            )
-            : AnyView(EmptyView())
+        let overlayOpacity = finish > 0 ? 1.0 : 0.0
 
         return TileView(size: size, tile: tile)
             .offset(offset)
             .scaleEffect(scaleEffect)
-            .opacity(opacity * factor)
-            .zIndex(-Double(scale))
-            .overlay(overlay)
+            .opacity(opacity * opacityFactor)
+            .overlay(TileView(size: size, tile: next)
+                .opacity(overlayOpacity))
+            .zIndex(Double(scale))
     }
 
-    func nextEffect(_ col: Int, _ row: Int, _ size: CGFloat) -> (Tile, Double) {
-        guard let preview = game.preview else {
-            return (.empty, 0)
-        }
-        let next = preview.area.tiles[col, row, game.layer]
+    func nextEffect(_ col: Int, _ row: Int, _ size: CGFloat) -> Double {
         let dragPreview = (
             max(abs(game.dragBy.width),
                 abs(game.dragBy.height))
@@ -94,14 +85,11 @@ struct AreaView: View {
         let opacity = Double(
             max(0, max(dragPreview, magnifyPreview) - 0.8)
             ) / 0.2
-        return (next, opacity)
+        return opacity
     }
 
     func tileEffects(_ col: Int, _ row: Int) -> (Int, CGSize, CGFloat, Double) {
-        guard let preview = game.preview else {
-            return (0, .zero, 1, 1)
-        }
-        let scale = preview.area.tiles.getMoves(col: col, row: row, lay: game.layer)
+        let scale = game.next.area.tiles.getMoves(col, row, game.layer)
         let offset = CGSize(
             width: game.dragBy.width * CGFloat(scale),
             height: game.dragBy.height * CGFloat(scale)

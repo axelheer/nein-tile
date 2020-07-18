@@ -24,13 +24,11 @@ struct ShareView: View {
 
         let layer = game.area.tiles.layCount - 1
 
-        return ZStack {
-            HStack(spacing: 0) {
-                ForEach(columns, id: \.self) { col in
-                    VStack(spacing: 0) {
-                        ForEach(rows, id: \.self) { row in
-                            TileView(size: size, tile: self.game.area.tiles[col, row, layer])
-                        }
+        return HStack(spacing: 0) {
+            ForEach(columns, id: \.self) { col in
+                VStack(spacing: 0) {
+                    ForEach(rows, id: \.self) { row in
+                        TileView(size: size, tile: self.game.area.tiles[col, row, layer])
                     }
                 }
             }

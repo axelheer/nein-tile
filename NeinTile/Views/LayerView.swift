@@ -21,6 +21,7 @@ struct LayerView: View {
             .disabled(game.layer == game.current.area.tiles.layCount - 1)
         }
         .font(.headline)
+        .animation(nil)
     }
 
     func leftButton() {

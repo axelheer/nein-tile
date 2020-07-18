@@ -25,7 +25,11 @@ struct GestureModifier: ViewModifier {
                     dragBy: value.predictedEndTranslation
                 )
                 if abs(dragBy.width) == self.tileSize || abs(dragBy.height) == self.tileSize {
-                    self.game.move(to: direction, using: self.undoManager)
+                    self.game.move(
+                        dragBy: dragBy,
+                        to: direction,
+                        using: self.undoManager
+                    )
                 } else {
                     self.game.backout()
                 }
@@ -48,7 +52,11 @@ struct GestureModifier: ViewModifier {
                     magnifyBy: value
                 )
                 if magnifyBy == 0.5 || magnifyBy == 2.0 {
-                    self.game.move(to: direction, using: self.undoManager)
+                    self.game.move(
+                        magnifyBy: magnifyBy,
+                        to: direction,
+                        using: self.undoManager
+                    )
                 } else {
                     self.game.backout()
                 }
@@ -77,8 +85,24 @@ struct GestureModifier: ViewModifier {
         }
 
         switch command {
-        case .move(let direction):
-            game.move(to: direction, using: undoManager)
+        case .move(.right):
+            game.show(to: .right)
+            game.move(dragBy: .init(width: tileSize, height: 0), to: .right, using: undoManager)
+        case .move(.left):
+            game.show(to: .left)
+            game.move(dragBy: .init(width: -tileSize, height: 0), to: .left, using: undoManager)
+        case .move(.top):
+            game.show(to: .top)
+            game.move(dragBy: .init(width: 0, height: -tileSize), to: .top, using: undoManager)
+        case .move(.bottom):
+            game.show(to: .bottom)
+            game.move(dragBy: .init(width: 0, height: tileSize), to: .bottom, using: undoManager)
+        case .move(.front):
+            game.show(to: .front)
+            game.move(magnifyBy: 2.0, to: .front, using: undoManager)
+        case .move(.back):
+            game.show(to: .back)
+            game.move(magnifyBy: 0.5, to: .back, using: undoManager)
         case .layer(let layer):
             game.show(layer: layer)
         case .undo:

@@ -61,7 +61,7 @@ public struct Tiles: Codable {
         }
     }
 
-    public func isMerge(col: Int, row: Int, lay: Int) -> Bool {
+    public func isMerge(_ col: Int, _ row: Int, _ lay: Int) -> Bool {
         return isMerge(TileIndex(col: col, row: row, lay: lay))
     }
 
@@ -69,7 +69,7 @@ public struct Tiles: Codable {
         return merge[actualIndex(index)] ?? false
     }
 
-    public func getMoves(col: Int, row: Int, lay: Int) -> Int {
+    public func getMoves(_ col: Int, _ row: Int, _ lay: Int) -> Int {
         return getMoves(TileIndex(col: col, row: row, lay: lay))
     }
 

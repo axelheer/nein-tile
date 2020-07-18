@@ -9,7 +9,7 @@ public struct Game: Codable, Identifiable {
     public let deck: TilesDeck
     public let area: TilesArea
 
-    private var readOnly: Bool = false
+    public let readOnly: Bool
 
     public init(maker: GameMaker, deck: TilesDeck, area: TilesArea) {
         self.id = UUID()
@@ -17,6 +17,8 @@ public struct Game: Codable, Identifiable {
 
         self.deck = deck
         self.area = area
+
+        self.readOnly = false
     }
 
     private init(id: UUID, maker: GameMaker, deck: TilesDeck, area: TilesArea, readOnly: Bool) {
@@ -79,5 +81,32 @@ public struct Game: Codable, Identifiable {
         case maker
         case deck
         case area
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        id = try container.decode(UUID.self, forKey: .id)
+        maker = try container.decode(GameMaker.self, forKey: .maker)
+
+        deck = try container.decode(TilesDeck.self, forKey: .deck)
+        area = try container.decode(TilesArea.self, forKey: .area)
+
+        readOnly = false
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        guard !readOnly else {
+            throw EncodingError.invalidValue(self, .init(
+                codingPath: encoder.codingPath, debugDescription: "Read-only game"))
+        }
+
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(id, forKey: .id)
+        try container.encode(maker, forKey: .maker)
+
+        try container.encode(deck, forKey: .deck)
+        try container.encode(area, forKey: .area)
     }
 }

@@ -63,6 +63,7 @@ struct DeckView: View {
             .disabled(rightButtonDisabled)
         }
         .font(.title)
+        .animation(.easeInOut)
     }
 
     func leftButton() {

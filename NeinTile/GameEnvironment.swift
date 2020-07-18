@@ -1,15 +1,17 @@
 import SwiftUI
 import TileKit
 
+// swiftlint:disable file_length
+
 class GameEnvironment: ObservableObject {
     @Published private(set) var tournament: Tournament?
     @Published private(set) var current: Game
     @Published private(set) var layer: Int
 
+    @Published private(set) var next: Game
     @Published private(set) var dragBy: CGSize = .zero
     @Published private(set) var magnifyBy: CGFloat = 1
     @Published private(set) var moveTo: MoveDirection?
-    @Published private(set) var preview: Game?
 
     @Published var gameCenter: Bool = false
     @Published var gameHistory: [UUID: GameState] = .init() {
@@ -30,46 +32,63 @@ class GameEnvironment: ObservableObject {
         _tournament = .init(initialValue: tournament)
         _current = .init(initialValue: initial)
         _layer = .init(initialValue: initial.area.tiles.layCount - 1)
+        _next = .init(initialValue: initial)
     }
 
-    func reset(_ game: Game, tournament: Tournament? = nil, layer: Int? = nil, using undoManager: UndoManager? = nil) {
+    func reset(_ game: Game,
+               tournament: Tournament? = nil,
+               layer: Int? = nil,
+               using undoManager: UndoManager? = nil) {
         self.tournament = tournament
         self.current = game
         self.layer = layer ?? game.area.tiles.layCount - 1
 
+        next = game
         dragBy = .zero
         magnifyBy = 1
         moveTo = nil
-        preview = nil
 
         undoManager?.removeAllActions(withTarget: self)
     }
 
     func show(layer: Int) {
-        dragBy = .zero
-        magnifyBy = 1
-        moveTo = nil
-        preview = nil
-
         if layer < current.area.tiles.layCount {
-            withAnimation {
+            next = current
+            dragBy = .zero
+            magnifyBy = 1
+            moveTo = nil
+
+            withAnimation(.easeInOut) {
                 self.layer = layer
             }
         }
     }
 
-    func show(dragBy: CGSize = .zero, magnifyBy: CGFloat = 1, to direction: MoveDirection) {
-        if self.moveTo != direction {
-            self.preview = current.view(
-                to: direction
-            )
-            self.moveTo = direction
+    func show(dragBy: CGSize = .zero,
+              magnifyBy: CGFloat = 1,
+              to direction: MoveDirection) {
+        if moveTo != direction {
+            if let next = current.view(to: direction) {
+                self.next = next
+                self.dragBy = dragBy
+                self.magnifyBy = magnifyBy
+                moveTo = direction
+            } else {
+                self.next = current
+                self.dragBy = .zero
+                self.magnifyBy = 1
+                moveTo = nil
+            }
+        } else {
+            self.dragBy = dragBy
+            self.magnifyBy = magnifyBy
         }
-        self.dragBy = dragBy
-        self.magnifyBy = magnifyBy
     }
 
-    func move(to direction: MoveDirection, using undoManager: UndoManager? = nil) {
+    func move(dragBy: CGSize = .zero,
+              magnifyBy: CGFloat = 1,
+              to direction: MoveDirection,
+              using undoManager: UndoManager? = nil) {
         if let next = current.move(to: direction) {
             if current.done != next.done {
                 onFinish(next)
@@ -77,27 +96,34 @@ class GameEnvironment: ObservableObject {
             if current.maker.apprentice {
                 let last = current
                 undoManager?.registerUndo(withTarget: self) { game in
+                    game.next = next
+                    game.dragBy = dragBy
+                    game.magnifyBy = magnifyBy
+                    game.moveTo = direction
                     game.current = last
+                    game.backout()
                 }
             }
-            if let preview = preview {
-                current = preview
-            }
-            backout()
-            withAnimation {
+            withAnimation(.interactiveSpring()) {
+                self.next = next
+                self.dragBy = dragBy
+                self.magnifyBy = magnifyBy
                 current = next
             }
             backup(next)
+            moveTo = nil
         } else {
             backout()
         }
     }
 
     func backout() {
+        withAnimation(.spring()) {
+            next = current
+            dragBy = .zero
+            magnifyBy = 1
+        }
         moveTo = nil
-        preview = nil
-        dragBy = .zero
-        magnifyBy = 1
     }
 
     private func onFinish(_ next: Game) {

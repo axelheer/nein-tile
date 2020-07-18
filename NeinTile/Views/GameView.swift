@@ -9,10 +9,9 @@ struct GameView: View {
             DeckView()
                 .padding()
             AreaView()
-                .applyEnding()
-                .applyGestures()
-                .drawingGroup()
                 .padding()
+                .applyGestures()
+                .applyEnding()
             if game.current.area.tiles.layCount > 1 {
                 LayerView()
                     .padding()
