@@ -2,7 +2,13 @@ import SwiftUI
 import TileKit
 
 struct GameView: View {
+    @Environment (\.colorScheme) var colorScheme
+
     @EnvironmentObject var game: GameEnvironment
+
+    var background: Color {
+        colorScheme == .dark ? .black : .white
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -18,6 +24,7 @@ struct GameView: View {
             }
         }
         .accentColor(Color.orange)
+        .background(background)
         .onAppear {
             AppNotifications.gameCenter.post(object: GameCenterCommand.authenticate)
         }
