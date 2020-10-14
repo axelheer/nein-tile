@@ -7,4 +7,4 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Run tests
-      run: xcodebuild -project NeinTile.xcodeproj -scheme NeinTile build test
+      run: xcodebuild -project NeinTile.xcodeproj -scheme NeinTile build test CODE_SIGNING_ALLOWED=NO
