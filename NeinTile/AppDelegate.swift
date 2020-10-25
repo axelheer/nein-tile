@@ -22,18 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if #available(iOS 13.4, *) {
             mappings += [
-                (UIKeyCommand.f1, 0, "Layer 1"),
-                (UIKeyCommand.f2, 1, "Layer 2"),
-                (UIKeyCommand.f3, 2, "Layer 3"),
-                (UIKeyCommand.f4, 3, "Layer 4"),
-                (UIKeyCommand.f5, 4, "Layer 5"),
-                (UIKeyCommand.f6, 5, "Layer 6"),
-                (UIKeyCommand.f7, 6, "Layer 7"),
-                (UIKeyCommand.f8, 7, "Layer 8"),
-                (UIKeyCommand.f9, 8, "Layer 9"),
-                (UIKeyCommand.f10, 9, "Layer 10"),
-                (UIKeyCommand.f11, 10, "Layer 11"),
-                (UIKeyCommand.f12, 11, "Layer 12")
+                (UIKeyCommand.f1, 0, "Switch to layer 1"),
+                (UIKeyCommand.f2, 1, "Switch to layer 2"),
+                (UIKeyCommand.f3, 2, "Switch to layer 3"),
+                (UIKeyCommand.f4, 3, "Switch to layer 4"),
+                (UIKeyCommand.f5, 4, "Switch to layer 5"),
+                (UIKeyCommand.f6, 5, "Switch to layer 6"),
+                (UIKeyCommand.f7, 6, "Switch to layer 7"),
+                (UIKeyCommand.f8, 7, "Switch to layer 8"),
+                (UIKeyCommand.f9, 8, "Switch to layer 9"),
+                (UIKeyCommand.f10, 9, "Switch to layer 10"),
+                (UIKeyCommand.f11, 10, "Switch to layer 11"),
+                (UIKeyCommand.f12, 11, "Switch to layer 12")
             ]
         }
 

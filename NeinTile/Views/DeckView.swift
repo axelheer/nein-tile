@@ -31,6 +31,7 @@ struct DeckView: View {
             .sheet(isPresented: $showMaker) {
                 MakeView(previous: self.game.current, tournament: self.game.tournament)
                     .environmentObject(self.game)
+                    .font(.body)
             }
             Spacer()
             if showScore || game.current.done {

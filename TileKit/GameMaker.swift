@@ -13,7 +13,7 @@ public struct GameMaker: Codable {
         self.init(
             colCount: 4,
             rowCount: 4,
-            layCount: 1,
+            layCount: 4,
             edition: .simple,
             deterministic: true,
             apprentice: true,

@@ -21,6 +21,9 @@ struct AreaView: View {
             container.height / CGFloat(rowCount)
         )
 
+        let hInset = (container.width - size * CGFloat(colCount)) / 2
+        let vInset = (container.height - size * CGFloat(rowCount)) / 2
+
         let columns = 0 ..< colCount
         let rows = (0 ..< rowCount).reversed()
 
@@ -50,6 +53,14 @@ struct AreaView: View {
                 .zIndex(index(col))
             }
         })
+        .padding(
+            EdgeInsets(
+                top: vInset,
+                leading: hInset,
+                bottom: vInset,
+                trailing: hInset
+            )
+        )
         .preference(key: TileSizePreferenceKey.self, value: size)
     }
 
