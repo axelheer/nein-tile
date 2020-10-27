@@ -72,14 +72,12 @@ struct AreaView: View {
 
         let finish = nextEffect(col, row, size)
 
-        let opacityFactor = scale != 0 ? 1 - finish : 1.0
-
         let overlayOpacity = finish > 0 ? 1.0 : 0.0
 
         return TileView(size: size, tile: tile)
             .offset(offset)
             .scaleEffect(scaleEffect)
-            .opacity(opacity * opacityFactor)
+            .opacity(opacity * (1 - overlayOpacity))
             .overlay(TileView(size: size, tile: next)
                 .opacity(overlayOpacity))
             .zIndex(Double(scale))
