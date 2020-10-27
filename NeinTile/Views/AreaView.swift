@@ -65,25 +65,26 @@ struct AreaView: View {
     }
 
     func makeTile(_ col: Int, _ row: Int, _ size: CGFloat) -> some View {
-        let tile = game.current.area.tiles[col, row, game.layer]
-        let next = game.next.area.tiles[col, row, game.layer]
-
-        let (scale, offset, scaleEffect, opacity) = tileEffects(col, row)
-
         let finish = nextEffect(col, row, size)
 
-        let overlayOpacity = finish > 0 ? 1.0 : 0.0
+        let tile = finish < 1.0
+            ? game.current.area.tiles[col, row, game.layer]
+            : game.next.area.tiles[col, row, game.layer]
+
+        let scale = finish < 1.0
+            ? game.next.area.tiles.getMoves(col, row, game.layer)
+            : 0
+
+        let (offset, scaleEffect, opacity) = tileEffects(col, row, scale)
 
         return TileView(size: size, tile: tile)
             .offset(offset)
             .scaleEffect(scaleEffect)
-            .opacity(opacity * (1 - overlayOpacity))
-            .overlay(TileView(size: size, tile: next)
-                .opacity(overlayOpacity))
+            .opacity(opacity)
             .zIndex(Double(scale))
     }
 
-    func nextEffect(_ col: Int, _ row: Int, _ size: CGFloat) -> Double {
+    func nextEffect(_ col: Int, _ row: Int, _ size: CGFloat) -> CGFloat {
         let dragPreview = (
             max(abs(game.dragBy.width),
                 abs(game.dragBy.height))
@@ -91,14 +92,10 @@ struct AreaView: View {
         let magnifyPreview = game.magnifyBy > 1
             ? game.magnifyBy - 1
             : (1 - game.magnifyBy) / 0.5
-        let opacity = Double(
-            max(0, max(dragPreview, magnifyPreview) - 0.8)
-            ) / 0.2
-        return opacity
+        return max(dragPreview, magnifyPreview)
     }
 
-    func tileEffects(_ col: Int, _ row: Int) -> (Int, CGSize, CGFloat, Double) {
-        let scale = game.next.area.tiles.getMoves(col, row, game.layer)
+    func tileEffects(_ col: Int, _ row: Int, _ scale: Int) -> (CGSize, CGFloat, Double) {
         let offset = CGSize(
             width: game.dragBy.width * CGFloat(scale),
             height: game.dragBy.height * CGFloat(scale)
@@ -109,7 +106,7 @@ struct AreaView: View {
         let opacity = game.magnifyBy > 1
             ? pow(Double(2 - game.magnifyBy), Double(scale))
             : pow(Double(game.magnifyBy * 2 - 1), Double(scale))
-        return (scale, offset, scaleEffect, opacity)
+        return (offset, scaleEffect, opacity)
     }
 }
 
