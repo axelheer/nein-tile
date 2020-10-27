@@ -35,7 +35,7 @@ struct TileView: View {
 
     func textColor(_ tile: Tile) -> Color {
         guard tile != .empty else {
-            return Color.primary
+            return Color.clear
         }
         switch tile.value {
         case 0:

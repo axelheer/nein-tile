@@ -65,22 +65,23 @@ struct AreaView: View {
     }
 
     func makeTile(_ col: Int, _ row: Int, _ size: CGFloat) -> some View {
-        let finish = nextEffect(col, row, size)
+        let tile = game.current.area.tiles[col, row, game.layer]
+        let next = game.next.area.tiles[col, row, game.layer]
 
-        let tile = finish < 1.0
-            ? game.current.area.tiles[col, row, game.layer]
-            : game.next.area.tiles[col, row, game.layer]
-
-        let scale = finish < 1.0
-            ? game.next.area.tiles.getMoves(col, row, game.layer)
-            : 0
+        let scale = game.next.area.tiles.getMoves(col, row, game.layer)
 
         let (offset, scaleEffect, opacity) = tileEffects(col, row, scale)
+
+        let overlayOpacity = nextEffect(col, row, size) < 1.0 ? 0.0 : 1.0
+
+        let opacityFactor = scale > 0 ? 1 - overlayOpacity : 1.0
 
         return TileView(size: size, tile: tile)
             .offset(offset)
             .scaleEffect(scaleEffect)
-            .opacity(opacity)
+            .opacity(opacity * opacityFactor)
+            .overlay(TileView(size: size, tile: next)
+                .opacity(overlayOpacity))
             .zIndex(Double(scale))
     }
 
