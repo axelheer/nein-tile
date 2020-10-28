@@ -15,6 +15,7 @@ import SwiftUI
 enum Idiom: String {
     case iPad = "ipad"
     case iPhone = "iphone"
+    case mac = "mac"
     case marketing = "ios-marketing"
 }
 
@@ -57,6 +58,21 @@ struct IconSet<Content: View>: Encodable {
 
             .init(idiom: .iPhone, size: CGSize(width: 60, height: 60), scale: .twoX, placeholder: !idioms.contains(.iPhone)),
             .init(idiom: .iPhone, size: CGSize(width: 60, height: 60), scale: .threeX, placeholder: !idioms.contains(.iPhone)),
+
+            .init(idiom: .mac, size: CGSize(width: 16, height: 16), scale: .oneX, placeholder: !idioms.contains(.mac)),
+            .init(idiom: .mac, size: CGSize(width: 16, height: 16), scale: .twoX, placeholder: !idioms.contains(.mac)),
+
+            .init(idiom: .mac, size: CGSize(width: 32, height: 32), scale: .oneX, placeholder: !idioms.contains(.mac)),
+            .init(idiom: .mac, size: CGSize(width: 32, height: 32), scale: .twoX, placeholder: !idioms.contains(.mac)),
+
+            .init(idiom: .mac, size: CGSize(width: 128, height: 128), scale: .oneX, placeholder: !idioms.contains(.mac)),
+            .init(idiom: .mac, size: CGSize(width: 128, height: 128), scale: .twoX, placeholder: !idioms.contains(.mac)),
+
+            .init(idiom: .mac, size: CGSize(width: 256, height: 256), scale: .oneX, placeholder: !idioms.contains(.mac)),
+            .init(idiom: .mac, size: CGSize(width: 256, height: 256), scale: .twoX, placeholder: !idioms.contains(.mac)),
+
+            .init(idiom: .mac, size: CGSize(width: 512, height: 512), scale: .oneX, placeholder: !idioms.contains(.mac)),
+            .init(idiom: .mac, size: CGSize(width: 512, height: 512), scale: .twoX, placeholder: !idioms.contains(.mac)),
 
             .init(idiom: .marketing, size: CGSize(width: 1024, height: 1024), scale: .oneX, placeholder: !idioms.contains(.marketing))
         ]

@@ -27,6 +27,7 @@ if deviceFamily.contains("2") {
     idioms.insert(.iPad)
 }
 
+idioms.insert(.mac)
 idioms.insert(.marketing)
 
 let set = IconSet(idioms: idioms, view: Icon())
