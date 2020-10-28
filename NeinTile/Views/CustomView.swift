@@ -73,10 +73,10 @@ struct CustomView: View {
                     }
                 }
                 Section(header: Text("Dimensions"), footer: dimensionsFooter) {
-                    Stepper(value: $colCount, in: 3 ... 12) {
+                    Stepper(value: $colCount, in: 1 ... 12) {
                         Text("Columns: \(colCount)")
                     }
-                    Stepper(value: $rowCount, in: 3 ... 12) {
+                    Stepper(value: $rowCount, in: 1 ... 12) {
                         Text("Rows: \(rowCount)")
                     }
                     Stepper(value: $layCount, in: 1 ... 12) {
