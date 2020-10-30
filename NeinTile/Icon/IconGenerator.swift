@@ -156,7 +156,7 @@ struct IconSet<Content: View>: Encodable {
 
         for image in images {
             if !image.placeholder, let filename = image.filename {
-                let data = try content.generateImageData(size: image.size * image.scale.multiplier)
+                let data = try content.generateImageData(size: image.size * image.scale.multiplier, frame: image.idiom == .mac)
                 try data.write(to: iconSetUrl.appendingPathComponent(filename))
             }
         }
@@ -208,8 +208,10 @@ extension View {
 
     /// Generates an image from the current View
     /// - Parameter size: The size of the image to generate
-    func generateImageData(size: CGSize) throws -> Data {
-        let wrapper = NSHostingView(rootView: self)
+    func generateImageData(size: CGSize, frame: Bool) throws -> Data {
+        let wrapper = frame
+            ? NSHostingView(rootView: self.frameIcon(dimension: min(size.width, size.height)))
+            : NSHostingView(rootView: self)
         wrapper.frame = CGRect(origin: .zero, size: size)
 
         let frame = CGRect(origin: .zero, size: wrapper.convertFromBacking(wrapper.bounds.size))
