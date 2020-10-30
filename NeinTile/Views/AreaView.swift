@@ -1,7 +1,7 @@
 import SwiftUI
 import TileKit
 
-// swiftlint:disable large_tuple
+// swiftlint:disable large_tuple function_body_length
 
 struct AreaView: View {
     @EnvironmentObject var game: GameEnvironment
@@ -21,9 +21,6 @@ struct AreaView: View {
             container.height / CGFloat(rowCount)
         )
 
-        let hInset = (container.width - size * CGFloat(colCount)) / 2
-        let vInset = (container.height - size * CGFloat(rowCount)) / 2
-
         let columns = 0 ..< colCount
         let rows = (0 ..< rowCount).reversed()
 
@@ -31,28 +28,44 @@ struct AreaView: View {
             ? { col in -Double(col) }
             : { col in Double(col) }
 
-        return HStack(spacing: 0) {
-            ForEach(columns, id: \.self) { _ in
-                VStack(spacing: 0) {
-                    ForEach(rows, id: \.self) { _ in
-                        Circle()
-                            .stroke(Color.gray, style: .init(dash: [1, 3]))
-                            .opacity(0.5)
-                            .padding(size / 8)
-                            .frame(width: size, height: size)
+        let hInset = (container.width - size * CGFloat(colCount)) / 2
+        let vInset = (container.height - size * CGFloat(rowCount)) / 2
+
+        return ZStack {
+            HStack(spacing: 0) {
+                ForEach(columns, id: \.self) { _ in
+                    VStack(spacing: 0) {
+                        ForEach(rows, id: \.self) { _ in
+                            Circle()
+                                .stroke(Color.gray, style: .init(dash: [1, 3]))
+                                .opacity(0.5)
+                                .padding(size / 8)
+                                .frame(width: size, height: size)
+                        }
                     }
                 }
             }
-        }.overlay(HStack(spacing: 0) {
-            ForEach(columns, id: \.self) { col in
-                VStack(spacing: 0) {
-                    ForEach(rows, id: \.self) { row in
-                        self.makeTile(col, row, size)
+            HStack(spacing: 0) {
+                ForEach(columns, id: \.self) { col in
+                    VStack(spacing: 0) {
+                        ForEach(rows, id: \.self) { row in
+                            self.makeTile(col, row, size)
+                        }
+                    }
+                    .zIndex(index(col))
+                }
+            }
+            HStack(spacing: 0) {
+                ForEach(columns, id: \.self) { col in
+                    VStack(spacing: 0) {
+                        ForEach(rows, id: \.self) { row in
+                            self.makeNextTile(col, row, size)
+                        }
                     }
                 }
-                .zIndex(index(col))
             }
-        })
+            .animation(nil)
+        }
         .padding(
             EdgeInsets(
                 top: vInset,
@@ -64,28 +77,30 @@ struct AreaView: View {
         .preference(key: TileSizePreferenceKey.self, value: size)
     }
 
+    func makeNextTile(_ col: Int, _ row: Int, _ size: CGFloat) -> some View {
+        let next = game.next.area.tiles[col, row, game.layer]
+
+        let opacity = nextEffect(col, row, size)
+
+        return TileView(size: size, tile: next)
+            .opacity(opacity)
+    }
+
     func makeTile(_ col: Int, _ row: Int, _ size: CGFloat) -> some View {
         let tile = game.current.area.tiles[col, row, game.layer]
-        let next = game.next.area.tiles[col, row, game.layer]
 
         let scale = game.next.area.tiles.getMoves(col, row, game.layer)
 
         let (offset, scaleEffect, opacity) = tileEffects(col, row, scale)
 
-        let overlayOpacity = nextEffect(col, row, size) < 1.0 ? 0.0 : 1.0
-
-        let opacityFactor = scale > 0 ? 1 - overlayOpacity : 1.0
-
         return TileView(size: size, tile: tile)
             .offset(offset)
             .scaleEffect(scaleEffect)
-            .opacity(opacity * opacityFactor)
-            .overlay(TileView(size: size, tile: next)
-                .opacity(overlayOpacity))
+            .opacity(opacity)
             .zIndex(Double(scale))
     }
 
-    func nextEffect(_ col: Int, _ row: Int, _ size: CGFloat) -> CGFloat {
+    func nextEffect(_ col: Int, _ row: Int, _ size: CGFloat) -> Double {
         let dragPreview = (
             max(abs(game.dragBy.width),
                 abs(game.dragBy.height))
@@ -93,7 +108,10 @@ struct AreaView: View {
         let magnifyPreview = game.magnifyBy > 1
             ? game.magnifyBy - 1
             : (1 - game.magnifyBy) / 0.5
-        return max(dragPreview, magnifyPreview)
+        let opacity = Double(
+            max(0, max(dragPreview, magnifyPreview) - 0.8)
+            ) / 0.2
+        return opacity
     }
 
     func tileEffects(_ col: Int, _ row: Int, _ scale: Int) -> (CGSize, CGFloat, Double) {
