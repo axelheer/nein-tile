@@ -18,10 +18,8 @@ struct GameView: View {
                 .padding()
                 .applyGestures()
                 .applyEnding()
-            if game.current.area.tiles.layCount > 1 {
-                LayerView()
-                    .padding()
-            }
+            LayerView()
+                .padding()
         }
         .accentColor(Color.orange)
         .background(background)
