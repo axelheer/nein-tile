@@ -37,7 +37,7 @@ struct AreaView: View {
                     VStack(spacing: 0) {
                         ForEach(rows, id: \.self) { _ in
                             Circle()
-                                .stroke(Color.gray, style: .init(dash: [1, 3]))
+                                .stroke(Color.primary, style: .init(dash: [1, 3]))
                                 .opacity(0.5)
                                 .padding(size / 8)
                                 .frame(width: size, height: size)

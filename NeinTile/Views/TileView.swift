@@ -37,38 +37,26 @@ struct TileView: View {
         guard tile != .empty else {
             return Color.clear
         }
-        switch tile.value {
-        case 0:
-            return Color.black
-        case -1, 1:
-            return Color.black
-        case -2, 2:
-            return Color.black
-        case -3, 3:
-            return Color.black
-        default:
-            return Color.primary
-        }
+        return tile.value != 0
+            ? Color.black
+            : Color.white
     }
 
     func color(_ tile: Tile) -> Color {
         guard tile != .empty else {
             return Color.clear
         }
-        switch tile.value {
-        case 0:
-            return Color.purple
-        case -1, 1:
-            return Color.yellow
-        case -2, 2:
-            return Color.orange
-        case -3, 3:
-            return Color.red
-        default:
-            return colorScheme == .dark
-                ? Color(white: 0.2)
-                : Color(white: 0.8)
-        }
+        let value = tile.value != 0
+            ? tile.value.magnitude - 1
+            : 0
+        let grade = value.bitWidth
+            - value.leadingZeroBitCount
+        let width = value.bitWidth
+        return Color(
+            hue: Double(grade / 3) / Double(width / 6),
+            saturation: 0.5 + Double(grade % 3) / 4,
+            brightness: 1.0
+        )
     }
 }
 
@@ -96,7 +84,7 @@ extension Tile {
 #if DEBUG
 struct TileView_Previews: PreviewProvider {
     static let numbers: [Int] = {
-        var result = Array(repeating: 0, count: 64)
+        var result = Array(repeating: 0, count: 56)
         for index in 0 ..< result.count {
             if index > 1 {
                 result[index] = (1 << (index - 2)) * 3
@@ -109,24 +97,46 @@ struct TileView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            VStack {
-                TileView(tile: .empty)
-                TileView(tile: Tile(value: .min, score: 0))
-                TileView(tile: Tile(value: 0, score: 1))
-                ForEach(numbers, id: \.self) { value in
-                    TileView(tile: Tile(value: value, score: 0))
+            HStack {
+                VStack {
+                    TileView(tile: .empty)
+                    ForEach(numbers, id: \.self) { value in
+                        TileView(tile: Tile(value: value, score: 0))
+                    }
+                    TileView(tile: Tile(value: .max, score: 0))
+                    TileView(tile: Tile(value: .min, score: 0))
+                    TileView(tile: Tile(value: 0, score: 1))
                 }
-                TileView(tile: Tile(value: .max, score: 0))
+                VStack {
+                    TileView(tile: .empty)
+                    ForEach(1 ... 56, id: \.self) { value in
+                        TileView(tile: Tile(value: 1 << value, score: 0))
+                    }
+                    TileView(tile: Tile(value: .max, score: 0))
+                    TileView(tile: Tile(value: .min, score: 0))
+                    TileView(tile: Tile(value: 0, score: 1))
+                }
             }
             .preferredColorScheme(.dark)
-            VStack {
-                TileView(tile: .empty)
-                TileView(tile: Tile(value: .min, score: 0))
-                TileView(tile: Tile(value: 0, score: 1))
-                ForEach(numbers, id: \.self) { value in
-                    TileView(tile: Tile(value: value, score: 0))
+            HStack {
+                VStack {
+                    TileView(tile: .empty)
+                    ForEach(numbers, id: \.self) { value in
+                        TileView(tile: Tile(value: value, score: 0))
+                    }
+                    TileView(tile: Tile(value: .max, score: 0))
+                    TileView(tile: Tile(value: .min, score: 0))
+                    TileView(tile: Tile(value: 0, score: 1))
                 }
-                TileView(tile: Tile(value: .max, score: 0))
+                VStack {
+                    TileView(tile: .empty)
+                    ForEach(1 ... 56, id: \.self) { value in
+                        TileView(tile: Tile(value: 1 << value, score: 0))
+                    }
+                    TileView(tile: Tile(value: .max, score: 0))
+                    TileView(tile: Tile(value: .min, score: 0))
+                    TileView(tile: Tile(value: 0, score: 1))
+                }
             }
             .preferredColorScheme(.light)
         }
