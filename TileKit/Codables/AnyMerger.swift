@@ -23,6 +23,7 @@ public struct AnyMerger: Merger, Codable {
         case duality
         case insanity
         case fibonacci
+        case unlimited
     }
 
     public init(from decoder: Decoder) throws {
@@ -39,6 +40,8 @@ public struct AnyMerger: Merger, Codable {
             merger = InsanityMerger()
         case .fibonacci:
             merger = FibonacciMerger()
+        case .unlimited:
+            merger = UnlimitedMerger()
         }
     }
 
@@ -55,6 +58,8 @@ public struct AnyMerger: Merger, Codable {
             try container.encode(MergerTypes.insanity, forKey: .mergerType)
         case _ as FibonacciMerger:
             try container.encode(MergerTypes.fibonacci, forKey: .mergerType)
+        case _ as UnlimitedMerger:
+            try container.encode(MergerTypes.unlimited, forKey: .mergerType)
         default:
             throw EncodingError.invalidValue(merger, .init(
                 codingPath: encoder.codingPath, debugDescription: "Merger out of range"))

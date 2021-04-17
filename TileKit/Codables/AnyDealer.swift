@@ -21,6 +21,7 @@ public struct AnyDealer: Dealer, Codable {
 
     private enum DealerTypes: String, Codable {
         case `default`
+        case unlimited
     }
 
     public init(from decoder: Decoder) throws {
@@ -32,6 +33,10 @@ public struct AnyDealer: Dealer, Codable {
             dealer = try container.decode(DefaultDealer<ChaoticGameOfDice>.self, forKey: .dealer)
         case (.default, true):
             dealer = try container.decode(DefaultDealer<NeutralGameOfDice>.self, forKey: .dealer)
+        case (.unlimited, false):
+            dealer = try container.decode(UnlimitedDealer<ChaoticGameOfDice>.self, forKey: .dealer)
+        case (.unlimited, true):
+            dealer = try container.decode(UnlimitedDealer<NeutralGameOfDice>.self, forKey: .dealer)
         }
     }
 
@@ -42,6 +47,10 @@ public struct AnyDealer: Dealer, Codable {
             try encode(dealer, dealerType: .default, deterministic: false, to: &container)
         case let dealer as DefaultDealer<NeutralGameOfDice>:
             try encode(dealer, dealerType: .default, deterministic: true, to: &container)
+        case let dealer as UnlimitedDealer<ChaoticGameOfDice>:
+            try encode(dealer, dealerType: .unlimited, deterministic: false, to: &container)
+        case let dealer as UnlimitedDealer<NeutralGameOfDice>:
+            try encode(dealer, dealerType: .unlimited, deterministic: true, to: &container)
         default:
             throw EncodingError.invalidValue(dealer, .init(
                 codingPath: encoder.codingPath, debugDescription: "Dealer out of range"))

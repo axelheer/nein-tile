@@ -27,6 +27,7 @@ public struct AnyMixer: Mixer, Codable {
         case duality
         case insanity
         case fibonacci
+        case unlimited
     }
 
     public init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public struct AnyMixer: Mixer, Codable {
             mixer = try container.decode(FibonacciMixer<ChaoticGameOfDice>.self, forKey: .mixer)
         case (.fibonacci, true):
             mixer = try container.decode(FibonacciMixer<NeutralGameOfDice>.self, forKey: .mixer)
+        case (.unlimited, false):
+            mixer = try container.decode(FibonacciMixer<ChaoticGameOfDice>.self, forKey: .mixer)
+        case (.unlimited, true):
+            mixer = try container.decode(FibonacciMixer<NeutralGameOfDice>.self, forKey: .mixer)
         }
     }
 
@@ -80,6 +85,10 @@ public struct AnyMixer: Mixer, Codable {
             try encode(mixer, mixerType: .fibonacci, deterministic: false, to: &container)
         case let mixer as FibonacciMixer<NeutralGameOfDice>:
             try encode(mixer, mixerType: .fibonacci, deterministic: true, to: &container)
+        case let mixer as UnlimitedMixer<ChaoticGameOfDice>:
+            try encode(mixer, mixerType: .unlimited, deterministic: false, to: &container)
+        case let mixer as UnlimitedMixer<NeutralGameOfDice>:
+            try encode(mixer, mixerType: .unlimited, deterministic: true, to: &container)
         default:
             throw EncodingError.invalidValue(mixer, .init(
                 codingPath: encoder.codingPath, debugDescription: "Mixer out of range"))
