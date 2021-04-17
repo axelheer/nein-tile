@@ -28,7 +28,8 @@ struct CustomView: View {
             + "while 'bonus' tiles play havoc with your efforts.",
         GameEdition.fibonacci: "A fibonacci game represents a nice variety using this famous sequence. "
             + "Although the rules are mostly simple, your brain may need some practice "
-            + "in order to handle it properly..."
+            + "in order to handle it properly...",
+        GameEdition.unlimited: "An unlimited game provides, well, no limits (and no gains either)."
     ]
 
     private let dimensionsExplanation = "A game can be a cube with up to 12x12x12 sides, "

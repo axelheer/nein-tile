@@ -4,6 +4,7 @@ public enum GameEdition: String, CaseIterable, Codable {
     case duality
     case insanity
     case fibonacci
+    case unlimited
 
     public func maker(deterministic: Bool) -> Maker {
         return deterministic
@@ -23,6 +24,8 @@ public enum GameEdition: String, CaseIterable, Codable {
             return InsanityMaker(gameOfDice: gameOfDice)
         case .fibonacci:
             return FibonacciMaker(gameOfDice: gameOfDice)
+        case .unlimited:
+            return UnlimitedMaker(gameOfDice: gameOfDice)
         }
     }
 }

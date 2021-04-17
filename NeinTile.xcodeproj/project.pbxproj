@@ -55,6 +55,10 @@
 		775C202E2487B0E100EDA421 /* MakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C202D2487B0E100EDA421 /* MakeView.swift */; };
 		7761EF5C249B40630027152E /* GameSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7761EF5B249B40630027152E /* GameSamples.swift */; };
 		7765204C24B9CB8F00012CC6 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765204B24B9CB8F00012CC6 /* ShareView.swift */; };
+		777742E4262B0C6D0016C29E /* UnlimitedLottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777742E3262B0C6D0016C29E /* UnlimitedLottery.swift */; };
+		777742E8262B0C7E0016C29E /* UnlimitedMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777742E7262B0C7E0016C29E /* UnlimitedMaker.swift */; };
+		777742EC262B0C8A0016C29E /* UnlimitedMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777742EB262B0C8A0016C29E /* UnlimitedMerger.swift */; };
+		777742F0262B0C970016C29E /* UnlimitedMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777742EF262B0C970016C29E /* UnlimitedMixer.swift */; };
 		77827D9A2545F1B900868F59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77827D992545F1B900868F59 /* LaunchScreen.storyboard */; };
 		7784E02E249531F900A2FF12 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7784E02D249531F900A2FF12 /* GameKit.framework */; };
 		77853D7F2491929F004FB25C /* PcgRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77853D7E2491929F004FB25C /* PcgRandom.swift */; };
@@ -201,6 +205,10 @@
 		775C202D2487B0E100EDA421 /* MakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeView.swift; sourceTree = "<group>"; };
 		7761EF5B249B40630027152E /* GameSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSamples.swift; sourceTree = "<group>"; };
 		7765204B24B9CB8F00012CC6 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		777742E3262B0C6D0016C29E /* UnlimitedLottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedLottery.swift; sourceTree = "<group>"; };
+		777742E7262B0C7E0016C29E /* UnlimitedMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedMaker.swift; sourceTree = "<group>"; };
+		777742EB262B0C8A0016C29E /* UnlimitedMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedMerger.swift; sourceTree = "<group>"; };
+		777742EF262B0C970016C29E /* UnlimitedMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedMixer.swift; sourceTree = "<group>"; };
 		77810E7024768BBB00C5315F /* Tiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiles.swift; sourceTree = "<group>"; };
 		77810E752476E3F700C5315F /* TestLottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLottery.swift; sourceTree = "<group>"; };
 		77810E772476E40300C5315F /* TestMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMerger.swift; sourceTree = "<group>"; };
@@ -333,6 +341,10 @@
 				77CB30F32478F52300744F21 /* SimpleMaker.swift */,
 				77CB30ED2478F50100744F21 /* SimpleMerger.swift */,
 				77CB30EF2478F50C00744F21 /* SimpleMixer.swift */,
+				777742E3262B0C6D0016C29E /* UnlimitedLottery.swift */,
+				777742E7262B0C7E0016C29E /* UnlimitedMaker.swift */,
+				777742EB262B0C8A0016C29E /* UnlimitedMerger.swift */,
+				777742EF262B0C970016C29E /* UnlimitedMixer.swift */,
 			);
 			path = GameEditions;
 			sourceTree = "<group>";
@@ -811,6 +823,7 @@
 				7715590B2477C25200A8CAA1 /* ChaoticGameOfDice.swift in Sources */,
 				778DB88B2479A5B100AB7A6E /* DualityMerger.swift in Sources */,
 				7715590C2477C25200A8CAA1 /* GameOfDiceProtocol.swift in Sources */,
+				777742E4262B0C6D0016C29E /* UnlimitedLottery.swift in Sources */,
 				7791187D247860AF006BCD51 /* Maker.swift in Sources */,
 				77D2D53F2490189700E516D6 /* LazyInt.swift in Sources */,
 				7715590D2477C25200A8CAA1 /* LawfulGameOfDice.swift in Sources */,
@@ -821,9 +834,12 @@
 				778DB8992479A60B00AB7A6E /* FibonacciMaker.swift in Sources */,
 				7715590E2477C25200A8CAA1 /* NeutralGameOfDice.swift in Sources */,
 				778DB8932479A5E100AB7A6E /* InsanityMerger.swift in Sources */,
+				777742F0262B0C970016C29E /* UnlimitedMixer.swift in Sources */,
+				777742EC262B0C8A0016C29E /* UnlimitedMerger.swift in Sources */,
 				77CB30F02478F50C00744F21 /* SimpleMixer.swift in Sources */,
 				778DB88D2479A5BD00AB7A6E /* DualityMixer.swift in Sources */,
 				7791187724784A87006BCD51 /* GameMaker.swift in Sources */,
+				777742E8262B0C7E0016C29E /* UnlimitedMaker.swift in Sources */,
 				778DB8872479A59E00AB7A6E /* DualityLottery.swift in Sources */,
 				7715590F2477C25200A8CAA1 /* MoveDirection.swift in Sources */,
 				7791187B24785D5F006BCD51 /* GameEdition.swift in Sources */,
