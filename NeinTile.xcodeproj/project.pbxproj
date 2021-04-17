@@ -97,6 +97,7 @@
 		7791187D247860AF006BCD51 /* Maker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791187C247860AF006BCD51 /* Maker.swift */; };
 		7791187F24786BA1006BCD51 /* GameMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791187E24786BA1006BCD51 /* GameMakerTests.swift */; };
 		7791188124786CFC006BCD51 /* TestMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791188024786CFC006BCD51 /* TestMaker.swift */; };
+		77ACA725262B21220014F8BC /* UnlimitedDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ACA724262B21220014F8BC /* UnlimitedDealer.swift */; };
 		77AFCD0724927C39007BC3BA /* Icon+PreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFCD0324927C39007BC3BA /* Icon+PreviewHelpers.swift */; };
 		77AFCD0A24927C39007BC3BA /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFCD0624927C39007BC3BA /* Icon.swift */; };
 		77B706402488062A00D37817 /* GameEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B7063F2488062A00D37817 /* GameEnvironment.swift */; };
@@ -255,6 +256,7 @@
 		7791187E24786BA1006BCD51 /* GameMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMakerTests.swift; sourceTree = "<group>"; };
 		7791188024786CFC006BCD51 /* TestMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMaker.swift; sourceTree = "<group>"; };
 		7792E7F324758DCB001B92B6 /* GameOfDiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfDiceProtocol.swift; sourceTree = "<group>"; };
+		77ACA724262B21220014F8BC /* UnlimitedDealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlimitedDealer.swift; sourceTree = "<group>"; };
 		77AFCD0324927C39007BC3BA /* Icon+PreviewHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Icon+PreviewHelpers.swift"; sourceTree = "<group>"; };
 		77AFCD0424927C39007BC3BA /* IconGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconGenerator.swift; sourceTree = "<group>"; };
 		77AFCD0524927C39007BC3BA /* generate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generate.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				77CB30F32478F52300744F21 /* SimpleMaker.swift */,
 				77CB30ED2478F50100744F21 /* SimpleMerger.swift */,
 				77CB30EF2478F50C00744F21 /* SimpleMixer.swift */,
+				77ACA724262B21220014F8BC /* UnlimitedDealer.swift */,
 				777742E3262B0C6D0016C29E /* UnlimitedLottery.swift */,
 				777742E7262B0C7E0016C29E /* UnlimitedMaker.swift */,
 				777742EB262B0C8A0016C29E /* UnlimitedMerger.swift */,
@@ -827,6 +830,7 @@
 				7791187D247860AF006BCD51 /* Maker.swift in Sources */,
 				77D2D53F2490189700E516D6 /* LazyInt.swift in Sources */,
 				7715590D2477C25200A8CAA1 /* LawfulGameOfDice.swift in Sources */,
+				77ACA725262B21220014F8BC /* UnlimitedDealer.swift in Sources */,
 				77853D7F2491929F004FB25C /* PcgRandom.swift in Sources */,
 				771ABDCA247F8A07000A2FAE /* DefaultDealer.swift in Sources */,
 				7713C81B24793DA400302183 /* ClassicLottery.swift in Sources */,

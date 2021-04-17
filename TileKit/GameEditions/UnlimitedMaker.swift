@@ -7,7 +7,7 @@ public struct UnlimitedMaker<GameOfDice: GameOfDiceProtocol>: Maker {
 
     public mutating func makeDealer() -> Dealer {
         gameOfDice = gameOfDice.next()
-        return DefaultDealer(gameOfDice: gameOfDice)
+        return UnlimitedDealer(gameOfDice: gameOfDice)
     }
 
     public mutating func makeLottery() -> Lottery {
