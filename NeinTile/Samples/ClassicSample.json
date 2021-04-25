@@ -3,7 +3,7 @@
   "maker" : {
     "colCount" : 4,
     "rowCount" : 4,
-    "layCount" : 2,
+    "layCount" : 1,
     "edition" : "classic",
     "deterministic" : true,
     "apprentice" : true,
@@ -69,72 +69,8 @@
     "tiles" : {
       "colCount" : 4,
       "rowCount" : 4,
-      "layCount" : 2,
+      "layCount" : 1,
       "tiles" : [
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
         {
           "value" : 384,
           "score" : 0
@@ -188,7 +124,7 @@
           "score" : 0
         },
         {
-          "value" : 6,
+          "value" : 3,
           "score" : 0
         },
         {
