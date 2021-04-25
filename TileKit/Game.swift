@@ -58,20 +58,17 @@ public struct Game: Codable, Identifiable {
 
     public func move(to direction: MoveDirection) -> Game? {
         if !readOnly && area.canMove(to: direction) {
-            var moveDeck = deck // state necessary?
+            var nextDeck = deck // state necessary?
             let nextArea = area.move(
                 to: direction,
                 slippery: maker.slippery
             ) {
-                let nextTile = moveDeck.tile
-                moveDeck = moveDeck.next(
+                let nextTile = nextDeck.tile
+                nextDeck = nextDeck.next(
                     maxValue: area.tiles.maxValue
                 )
                 return nextTile
             }
-            let nextDeck = moveDeck.next(
-                maxValue: nextArea.tiles.maxValue
-            )
             return Game(
                 id: id,
                 maker: maker,
