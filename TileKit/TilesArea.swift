@@ -22,7 +22,7 @@ public struct TilesArea: Codable {
         return false
     }
 
-    public func move(to direction: MoveDirection, slippery: Bool, nextTile: Tile) -> TilesArea {
+    public func move(to direction: MoveDirection, slippery: Bool, nextTile: () -> Tile) -> TilesArea {
         var next = Tiles(tiles)
         var markers = [TileIndex]()
         var mergedEverything = false
@@ -63,11 +63,11 @@ public struct TilesArea: Codable {
                 next[index] == .empty
             }
             for index in dealer.part(dealer.part(freeIndices)) {
-                next[index] = nextTile
+                next[index] = nextTile()
             }
         } else {
             for marker in dealer.part(markers) {
-                next[marker] = nextTile
+                next[marker] = nextTile()
             }
         }
 

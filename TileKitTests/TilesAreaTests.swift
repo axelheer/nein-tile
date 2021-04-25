@@ -27,7 +27,9 @@ class TilesAreaTests: XCTestCase {
         merger.onCanMerge = { (_, t) in t.value % 4 == 0 }
         merger.onMerge = { (s, t) in Tile(value: s.value + t.value, score: s.score + t.score) }
 
-        let actual = subject.move(to: .right, slippery: false, nextTile: .empty)
+        let actual = subject.move(to: .right, slippery: false) {
+            .empty
+        }
 
         for lay in 0 ..< 4 {
             for row in 0 ..< 4 {
@@ -53,7 +55,9 @@ class TilesAreaTests: XCTestCase {
 
         let nextCauseOfLawful = [ (1, 0), (2, 1), (3, 0), (3, 2) ]
 
-        let actual = subject.move(to: .right, slippery: false, nextTile: Tile(value: 0, score: 2))
+        let actual = subject.move(to: .right, slippery: false) {
+            Tile(value: 0, score: 2)
+        }
 
         for lay in 0 ..< 4 {
             for row in 0 ..< 4 {
@@ -73,7 +77,9 @@ class TilesAreaTests: XCTestCase {
         merger.onCanMerge = { (source, _) in source != .empty }
         merger.onMerge = { (s, t) in Tile(value: s.value + t.value, score: s.score + t.score) }
 
-        let actual = subject.move(to: .right, slippery: true, nextTile: .empty)
+        let actual = subject.move(to: .right, slippery: true) {
+            .empty
+        }
 
         for lay in 0 ..< 4 {
             for row in 0 ..< 4 {
@@ -99,7 +105,9 @@ class TilesAreaTests: XCTestCase {
 
         let nextCauseOfLawful = [ (1, 1, 0), (1, 1, 1), (2, 3, 0), (2, 3, 1) ]
 
-        let actual = subject.move(to: .right, slippery: true, nextTile: Tile(value: 0, score: 2))
+        let actual = subject.move(to: .right, slippery: true) {
+            Tile(value: 0, score: 2)
+        }
 
         for lay in 0 ..< 4 {
             for row in 0 ..< 4 {
@@ -120,7 +128,9 @@ class TilesAreaTests: XCTestCase {
         let (subject, merger) = makeTestArea()
         merger.onCanMerge = { (_, _) in true }
 
-        let actual = subject.move(to: .right, slippery: false, nextTile: .empty)
+        let actual = subject.move(to: .right, slippery: false) {
+            .empty
+        }
 
         XCTAssertNotEqual(actual.dealer.part(actual.tiles.indices), subject.dealer.part(actual.tiles.indices))
     }
