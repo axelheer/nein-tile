@@ -3,7 +3,7 @@
   "maker" : {
     "colCount" : 5,
     "rowCount" : 5,
-    "layCount" : 2,
+    "layCount" : 1,
     "edition" : "insanity",
     "deterministic" : true,
     "apprentice" : true,
@@ -61,108 +61,8 @@
     "tiles" : {
       "colCount" : 5,
       "rowCount" : 5,
-      "layCount" : 2,
+      "layCount" : 1,
       "tiles" : [
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
-        {
-          "value" : 0,
-          "score" : 0
-        },
         {
           "value" : 0,
           "score" : 0

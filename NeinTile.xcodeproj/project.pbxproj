@@ -115,6 +115,10 @@
 		77CB78F224AFBA7100BEC3D8 /* DualitySample.json in Resources */ = {isa = PBXBuildFile; fileRef = 77CB78EE24AFBA7100BEC3D8 /* DualitySample.json */; };
 		77CB78F324AFBA7100BEC3D8 /* FibonacciSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 77CB78EF24AFBA7100BEC3D8 /* FibonacciSample.json */; };
 		77CB78F424AFBA7100BEC3D8 /* InsanitySample.json in Resources */ = {isa = PBXBuildFile; fileRef = 77CB78F024AFBA7100BEC3D8 /* InsanitySample.json */; };
+		77D174292636B8ED00F83AC8 /* HaraldLottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D174282636B8ED00F83AC8 /* HaraldLottery.swift */; };
+		77D1742D2636B8FC00F83AC8 /* HaraldMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D1742C2636B8FC00F83AC8 /* HaraldMaker.swift */; };
+		77D174312636B91800F83AC8 /* HaraldMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D174302636B91800F83AC8 /* HaraldMerger.swift */; };
+		77D174352636B92300F83AC8 /* HaraldMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D174342636B92300F83AC8 /* HaraldMixer.swift */; };
 		77D2D53F2490189700E516D6 /* LazyInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2D53E2490189700E516D6 /* LazyInt.swift */; };
 		77D579892483D5B200881407 /* AreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D579882483D5B200881407 /* AreaView.swift */; };
 		77DE6DA624851BF50004EE13 /* LayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE6DA524851BF50004EE13 /* LayerView.swift */; };
@@ -276,6 +280,10 @@
 		77CB78EE24AFBA7100BEC3D8 /* DualitySample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DualitySample.json; sourceTree = "<group>"; };
 		77CB78EF24AFBA7100BEC3D8 /* FibonacciSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FibonacciSample.json; sourceTree = "<group>"; };
 		77CB78F024AFBA7100BEC3D8 /* InsanitySample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = InsanitySample.json; sourceTree = "<group>"; };
+		77D174282636B8ED00F83AC8 /* HaraldLottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaraldLottery.swift; sourceTree = "<group>"; };
+		77D1742C2636B8FC00F83AC8 /* HaraldMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaraldMaker.swift; sourceTree = "<group>"; };
+		77D174302636B91800F83AC8 /* HaraldMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaraldMerger.swift; sourceTree = "<group>"; };
+		77D174342636B92300F83AC8 /* HaraldMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaraldMixer.swift; sourceTree = "<group>"; };
 		77D2D53E2490189700E516D6 /* LazyInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyInt.swift; sourceTree = "<group>"; };
 		77D579882483D5B200881407 /* AreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaView.swift; sourceTree = "<group>"; };
 		77DE6DA524851BF50004EE13 /* LayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerView.swift; sourceTree = "<group>"; };
@@ -335,6 +343,10 @@
 				778DB8982479A60B00AB7A6E /* FibonacciMaker.swift */,
 				778DB89A2479A61500AB7A6E /* FibonacciMerger.swift */,
 				778DB89C2479A61F00AB7A6E /* FibonacciMixer.swift */,
+				77D174282636B8ED00F83AC8 /* HaraldLottery.swift */,
+				77D1742C2636B8FC00F83AC8 /* HaraldMaker.swift */,
+				77D174302636B91800F83AC8 /* HaraldMerger.swift */,
+				77D174342636B92300F83AC8 /* HaraldMixer.swift */,
 				778DB88E2479A5C900AB7A6E /* InsanityLottery.swift */,
 				778DB8902479A5D400AB7A6E /* InsanityMaker.swift */,
 				778DB8922479A5E100AB7A6E /* InsanityMerger.swift */,
@@ -814,6 +826,7 @@
 				778DB89D2479A61F00AB7A6E /* FibonacciMixer.swift in Sources */,
 				77CA0F41247EF182007BBE6D /* Dealer.swift in Sources */,
 				77CB30F22478F51700744F21 /* SimpleLottery.swift in Sources */,
+				77D1742D2636B8FC00F83AC8 /* HaraldMaker.swift in Sources */,
 				778DB8892479A5A700AB7A6E /* DualityMaker.swift in Sources */,
 				7713C81D2479488E00302183 /* ClassicMixer.swift in Sources */,
 				771559082477C25200A8CAA1 /* Lottery.swift in Sources */,
@@ -831,6 +844,7 @@
 				77D2D53F2490189700E516D6 /* LazyInt.swift in Sources */,
 				7715590D2477C25200A8CAA1 /* LawfulGameOfDice.swift in Sources */,
 				77ACA725262B21220014F8BC /* UnlimitedDealer.swift in Sources */,
+				77D174292636B8ED00F83AC8 /* HaraldLottery.swift in Sources */,
 				77853D7F2491929F004FB25C /* PcgRandom.swift in Sources */,
 				771ABDCA247F8A07000A2FAE /* DefaultDealer.swift in Sources */,
 				7713C81B24793DA400302183 /* ClassicLottery.swift in Sources */,
@@ -859,7 +873,9 @@
 				778DB8952479A5F500AB7A6E /* InsanityMixer.swift in Sources */,
 				771559152477C25200A8CAA1 /* Tiles.swift in Sources */,
 				771559162477C25200A8CAA1 /* TilesArea.swift in Sources */,
+				77D174312636B91800F83AC8 /* HaraldMerger.swift in Sources */,
 				77FDE20B24AF9AA500F28380 /* AnyMerger.swift in Sources */,
+				77D174352636B92300F83AC8 /* HaraldMixer.swift in Sources */,
 				778DB8972479A5FF00AB7A6E /* FibonacciLottery.swift in Sources */,
 				771559172477C25200A8CAA1 /* TilesDeck.swift in Sources */,
 				7713C81F2479495A00302183 /* ClassicMaker.swift in Sources */,

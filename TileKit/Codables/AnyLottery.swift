@@ -28,6 +28,7 @@ public struct AnyLottery: Lottery, Codable {
         case insanity
         case fibonacci
         case unlimited
+        case harald
     }
 
     public init(from decoder: Decoder) throws {
@@ -59,6 +60,10 @@ public struct AnyLottery: Lottery, Codable {
             lottery = try container.decode(UnlimitedLottery<ChaoticGameOfDice>.self, forKey: .lottery)
         case (.unlimited, true):
             lottery = try container.decode(UnlimitedLottery<NeutralGameOfDice>.self, forKey: .lottery)
+        case (.harald, false):
+            lottery = try container.decode(HaraldLottery<ChaoticGameOfDice>.self, forKey: .lottery)
+        case (.harald, true):
+            lottery = try container.decode(HaraldLottery<NeutralGameOfDice>.self, forKey: .lottery)
         }
     }
 
@@ -89,6 +94,10 @@ public struct AnyLottery: Lottery, Codable {
             try encode(lottery, lotteryType: .unlimited, deterministic: false, to: &container)
         case let lottery as UnlimitedLottery<NeutralGameOfDice>:
             try encode(lottery, lotteryType: .unlimited, deterministic: true, to: &container)
+        case let lottery as HaraldLottery<ChaoticGameOfDice>:
+            try encode(lottery, lotteryType: .harald, deterministic: false, to: &container)
+        case let lottery as HaraldLottery<NeutralGameOfDice>:
+            try encode(lottery, lotteryType: .harald, deterministic: true, to: &container)
         default:
             throw EncodingError.invalidValue(lottery, .init(
                 codingPath: encoder.codingPath, debugDescription: "Lottery out of range"))

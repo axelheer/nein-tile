@@ -1,0 +1,19 @@
+public struct HaraldMixer<GameOfDice: GameOfDiceProtocol>: Mixer, Codable {
+    public let gameOfDice: GameOfDice
+
+    public init(gameOfDice: GameOfDice) {
+        self.gameOfDice = gameOfDice
+    }
+
+    public func mix() -> [Tile] {
+        return [Tile(value: 90, score: 270)]
+    }
+
+    public func next() -> HaraldMixer<GameOfDice> {
+        return HaraldMixer(gameOfDice: gameOfDice.next())
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case gameOfDice
+    }
+}
