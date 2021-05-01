@@ -210,7 +210,7 @@ extension View {
     /// - Parameter size: The size of the image to generate
     func generateImageData(size: CGSize, frame: Bool) throws -> Data {
         let wrapper = frame
-            ? NSHostingView(rootView: self.frameIcon(dimension: min(size.width, size.height)))
+            ? NSHostingView(rootView: self.frameIcon(dimension: min(size.width, size.height) * 0.8))
             : NSHostingView(rootView: self)
         wrapper.frame = CGRect(origin: .zero, size: size)
 
