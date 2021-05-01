@@ -7,6 +7,12 @@ public enum GameEdition: String, CaseIterable, Codable {
     case unlimited
     case harald
 
+#if !DEBUG
+    public static var allCases: [GameEdition] {
+        return [ .simple, .classic, .duality, .insanity, .fibonacci ]
+    }
+#endif
+
     public func maker(deterministic: Bool) -> Maker {
         return deterministic
             ? maker(gameOfDice: NeutralGameOfDice())
