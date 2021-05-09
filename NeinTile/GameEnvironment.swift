@@ -130,6 +130,9 @@ class GameEnvironment: ObservableObject {
         guard next.maker.edition != .unlimited else {
             return
         }
+        guard next.maker.edition != .harald else {
+            return
+        }
         AppNotifications.gameCenter.post(
             object: GameCenterCommand.submitTotalScore(tournament, next.area.tiles.totalScore))
         let edition = next.maker.edition

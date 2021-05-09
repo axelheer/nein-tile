@@ -6,7 +6,7 @@ public struct HaraldMixer<GameOfDice: GameOfDiceProtocol>: Mixer, Codable {
     }
 
     public func mix() -> [Tile] {
-        return [Tile(value: 90, score: 270)]
+        return [Tile(value: 131072, score: 2097152)]
     }
 
     public func next() -> HaraldMixer<GameOfDice> {
