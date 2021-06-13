@@ -25,7 +25,9 @@ class GameDelegate: NSObject, GKGameCenterControllerDelegate {
                 self.authenticatedPlayer = nil
             }
 
-            AppNotifications.gameCenter.post(object: GameCenterCommand.authenticated)
+            AppNotifications.gameCenter.post(
+                object: GameCenterCommand.authenticated
+            )
         }
     }
 

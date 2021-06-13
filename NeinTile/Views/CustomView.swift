@@ -2,6 +2,8 @@ import SwiftUI
 import TileKit
 
 struct CustomView: View {
+    @EnvironmentObject var game: GameEnvironment
+
     @Binding var edition: GameEdition
 
     @Binding var colCount: Int
@@ -70,7 +72,9 @@ struct CustomView: View {
                 Section(header: Text("Rules"), footer: Text(ruleExplanations[edition]!)) {
                     Picker(selection: $edition, label: Text("Edition")) {
                         ForEach(GameEdition.allCases, id: \.self) {
-                            Text($0.text).tag($0)
+                            if $0 != .harald || self.game.isHarald {
+                                Text($0.text).tag($0)
+                            }
                         }
                     }
                 }

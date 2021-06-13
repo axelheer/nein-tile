@@ -51,6 +51,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             gameCenter.authenticate(root: rootController)
         case .authenticated:
             game.gameCenter = gameCenter.authenticatedPlayer != nil
+            game.isHarald = gameCenter.authenticatedPlayer?
+                .gamePlayerID == "A:_3004ce4cfbd994d13f0dc57769f63e5d"
         case .loadSavedGames:
             gameCenter.loadSavedGames()
         case .dropSavedGame(let id):

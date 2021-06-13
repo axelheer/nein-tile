@@ -21,6 +21,7 @@ class GameEnvironment: ObservableObject {
             }
         }
     }
+    @Published var isHarald: Bool = false
 
     private(set) var historicGames: [GameState] = .init()
 
