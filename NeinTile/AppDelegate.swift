@@ -97,3 +97,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
+
+extension UIWindow {
+    open override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            AppNotifications.controller.post(object: ControllerCommand.undo)
+        }
+     }
+}
