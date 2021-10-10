@@ -1,8 +1,3 @@
----
-layout: default
-title: NeinTile
----
-
 # NeinTile
 
 *A number game*
@@ -39,7 +34,6 @@ A game can be a cube with up to 12x12x12 sides, if your device can handle it. Bu
 ### Options
 
 Playing a deterministic game means undoing and redoing one and the same move leads to the same result, while during a non-determinstic game anything can happen. Disabling the apprentice mode means disabling the mighty undo button means being a true number warrior. Some like playing on a slippery surface, some prefer not; it's up to you.
-
 
 ## Privacy Policy
 
